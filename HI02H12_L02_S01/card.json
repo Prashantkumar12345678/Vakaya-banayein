@@ -1,0 +1,1087 @@
+{
+ "version": "0.2",
+ "skill_code": "HI02H12_L02_S01",
+ "lo_code": "HI02H12_L02",
+ "grade": "G2",
+ "attribute": "H12",
+ "skill_type": "CORE",
+ "part_label": "",
+ "theme": "toybox",
+ "title": {
+  "hi": "वाक्य बनाइए",
+  "en": "Pick the right words to make a sentence"
+ },
+ "subtitle_hi": "",
+ "skill_description_hi": "चित्र देखकर सिखाए गए शब्दों से वाक्य के लिए सही शब्द चुनता है और शब्दों को क्रम से जोड़कर वाक्य बनाता है।",
+ "dt_fallback": null,
+ "landing_hero": {
+  "kind": "image",
+  "src": "assets/Images/title_screen.webp",
+  "alt_hi": "वाक्य बनाइए — बच्चे रंगीन शब्दों की टाइलें जोड़ रहे हैं।",
+  "full_card": true
+ },
+ "phase_gate_caption": {
+  "tutorial": {
+   "text": "चलिए, शुरू करें!",
+   "at_ms": 0
+  },
+  "guided": {
+   "text": "चलिए, साथ में करें!",
+   "at_ms": 0
+  },
+  "practice": {
+   "text": "वाह! अब आपकी बारी।",
+   "at_ms": 0
+  }
+ },
+ "landing_nudge": false,
+ "landing_vo_on_tap": false,
+ "audio_chip_on_mascot_foot": true,
+ "phase_distribution": {
+  "tutorial": 3,
+  "guided": 4,
+  "practice": 6
+ },
+ "scaffold_rules": {
+  "nudge_timeout_ms": {
+   "guided": 5000,
+   "practice": 8000
+  },
+  "max_attempts": 3
+ },
+ "signals_expected": [
+  "slide_entered",
+  "slide_completed",
+  "phase_transition_shown",
+  "sentence_first_try",
+  "sentence_word_placed",
+  "answer_wrong",
+  "answer_revealed",
+  "lesson_completed"
+ ],
+ "slides": [
+  {
+   "id": "T1",
+   "phase": "tutorial",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_t1_prompt",
+    "correct": "vo_t1_c"
+   },
+   "data": {
+    "image_id": "pic_chidiya_udna",
+    "emoji": "🐦",
+    "sentence": "आसमान में ___ उड़ रही है।",
+    "options": [
+     {
+      "label": "चिड़िया",
+      "audio": "vo_w_chidiya",
+      "correct": true,
+      "say": "vo_t1_o_chidiya"
+     },
+     {
+      "label": "गाड़ी",
+      "audio": "vo_w_gaadi",
+      "say": "vo_t1_o_gaadi"
+     },
+     {
+      "label": "मछली",
+      "audio": "vo_w_machhli",
+      "say": "vo_t1_o_machhli"
+     }
+    ],
+    "correct_cues_ms": [
+     1565,
+     1930,
+     2190,
+     2658,
+     2918,
+     3178
+    ],
+    "demo": true
+   },
+   "signals": {
+    "on_complete": []
+   }
+  },
+  {
+   "id": "T2",
+   "phase": "tutorial",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_t2_prompt",
+    "sentence": "vo_t2_s"
+   },
+   "data": {
+    "image_id": "pic_bachche_maidan",
+    "emoji": "⚽",
+    "sentence": "बच्चे मैदान में खेल रहे हैं।",
+    "tiles": [
+     {
+      "word": "बच्चे",
+      "audio": "vo_w_bachche"
+     },
+     {
+      "word": "मैदान",
+      "audio": "vo_w_maidan"
+     },
+     {
+      "word": "में",
+      "audio": "vo_w_mein"
+     },
+     {
+      "word": "खेल",
+      "audio": "vo_w_khel"
+     },
+     {
+      "word": "रहे",
+      "audio": "vo_w_rahe"
+     },
+     {
+      "word": "हैं।",
+      "audio": "vo_w_hain"
+     }
+    ],
+    "sentence_cues_ms": [
+     9,
+     396,
+     783,
+     1060,
+     1336,
+     1613
+    ],
+    "demo": true
+   },
+   "signals": {
+    "on_complete": []
+   }
+  },
+  {
+   "id": "T3",
+   "phase": "tutorial",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_t3_prompt",
+    "sentence": "vo_t3_s"
+   },
+   "data": {
+    "image_id": "pic_ladki_kitab",
+    "emoji": "📖",
+    "sentence": "लड़की किताब पढ़ रही है।",
+    "tiles": [
+     {
+      "word": "लड़की",
+      "audio": "vo_w_ladki"
+     },
+     {
+      "word": "किताब",
+      "audio": "vo_w_kitaab"
+     },
+     {
+      "word": "पढ़",
+      "audio": "vo_w_padh"
+     },
+     {
+      "word": "रही",
+      "audio": "vo_w_rahi"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     }
+    ],
+    "sentence_cues_ms": [
+     11,
+     406,
+     801,
+     1083,
+     1365
+    ],
+    "demo": true
+   },
+   "signals": {
+    "on_complete": []
+   }
+  },
+  {
+   "id": "G1",
+   "phase": "guided",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_g1_prompt",
+    "correct": "vo_g1_c",
+    "hint1": "vo_try_again",
+    "hint2": "vo_g1_stem",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_sundar_bagicha",
+    "emoji": "🌷",
+    "sentence": "यह एक ___ बगीचा है।",
+    "options": [
+     {
+      "label": "सुंदर",
+      "audio": "vo_w_sundar",
+      "correct": true
+     },
+     {
+      "label": "ठंडा",
+      "audio": "vo_w_thanda"
+     },
+     {
+      "label": "गंदा",
+      "audio": "vo_w_ganda"
+     }
+    ],
+    "correct_cues_ms": [
+     2559,
+     2803,
+     3046,
+     3472,
+     3898
+    ],
+    "max_attempts": 3,
+    "hint2_cues_ms": [
+     14,
+     188,
+     721,
+     1430,
+     1945
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "G2",
+   "phase": "guided",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "वाक्य बनाइए।",
+   "audio": {
+    "prompt": "vo_g2_prompt",
+    "sentence": "vo_g2_s",
+    "correct": "vo_g2_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal",
+    "hint2": "vo_g2_s"
+   },
+   "data": {
+    "image_id": "pic_kutta_gend",
+    "emoji": "🐶",
+    "sentence": "कुत्ता गेंद से खेल रहा है।",
+    "tiles": [
+     {
+      "word": "कुत्ता",
+      "audio": "vo_w_kutta"
+     },
+     {
+      "word": "गेंद",
+      "audio": "vo_w_gend"
+     },
+     {
+      "word": "से",
+      "audio": "vo_w_se"
+     },
+     {
+      "word": "खेल",
+      "audio": "vo_w_khel"
+     },
+     {
+      "word": "रहा",
+      "audio": "vo_w_raha"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     }
+    ],
+    "sentence_cues_ms": [
+     5,
+     427,
+     743,
+     954,
+     1218,
+     1481
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     2548,
+     2970,
+     3286,
+     3497,
+     3761,
+     4024
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "G3",
+   "phase": "guided",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "वाक्य बनाइए।",
+   "audio": {
+    "prompt": "vo_g3_prompt",
+    "sentence": "vo_g3_s",
+    "correct": "vo_g3_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal",
+    "hint2": "vo_g3_s"
+   },
+   "data": {
+    "image_id": "pic_ped_seb",
+    "emoji": "🍎",
+    "sentence": "पेड़ पर सेब लगे हैं।",
+    "tiles": [
+     {
+      "word": "पेड़",
+      "audio": "vo_w_ped"
+     },
+     {
+      "word": "पर",
+      "audio": "vo_w_par"
+     },
+     {
+      "word": "सेब",
+      "audio": "vo_w_seb"
+     },
+     {
+      "word": "लगे",
+      "audio": "vo_w_lage"
+     },
+     {
+      "word": "हैं।",
+      "audio": "vo_w_hain"
+     }
+    ],
+    "sentence_cues_ms": [
+     20,
+     335,
+     545,
+     808,
+     1071
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     2563,
+     2878,
+     3088,
+     3351,
+     3614
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "G4",
+   "phase": "guided",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "वाक्य बनाइए।",
+   "audio": {
+    "prompt": "vo_g4_prompt",
+    "sentence": "vo_g4_s",
+    "correct": "vo_g4_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal",
+    "hint2": "vo_g4_s"
+   },
+   "data": {
+    "image_id": "pic_gaay_ghaas",
+    "emoji": "🐄",
+    "sentence": "गाय घास खा रही है।",
+    "tiles": [
+     {
+      "word": "गाय",
+      "audio": "vo_w_gaay"
+     },
+     {
+      "word": "घास",
+      "audio": "vo_w_ghaas"
+     },
+     {
+      "word": "खा",
+      "audio": "vo_w_kha"
+     },
+     {
+      "word": "रही",
+      "audio": "vo_w_rahi"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     }
+    ],
+    "sentence_cues_ms": [
+     9,
+     329,
+     648,
+     903,
+     1223
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     2552,
+     2872,
+     3191,
+     3446,
+     3766
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P1",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": [
+     "vo_p1_prompt",
+     "vo_p1_stem"
+    ],
+    "correct": "vo_p1_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_meera_paani",
+    "emoji": "🪴",
+    "sentence": "मीरा पौधों को ___ दे रही है।",
+    "options": [
+     {
+      "label": "पानी",
+      "audio": "vo_w_paani",
+      "correct": true
+     },
+     {
+      "label": "मिट्टी",
+      "audio": "vo_w_mitti"
+     },
+     {
+      "label": "फल",
+      "audio": "vo_w_phal"
+     }
+    ],
+    "correct_cues_ms": [
+     2552,
+     2891,
+     3286,
+     3512,
+     3851,
+     4078,
+     4360
+    ],
+    "max_attempts": 3,
+    "hint2_walk": true,
+    "shuffle": false,
+    "stem_cues_ms": [
+     7,
+     363,
+     778,
+     1255,
+     1964,
+     2181,
+     2453
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P2",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": [
+     "vo_p2_prompt",
+     "vo_p2_stem"
+    ],
+    "correct": "vo_p2_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_billi_tokri",
+    "emoji": "🐱",
+    "sentence": "बिल्ली टोकरी में ___ है।",
+    "options": [
+     {
+      "label": "दौड़ रही",
+      "audio": "vo_w_daud_rahi"
+     },
+     {
+      "label": "खा रही",
+      "audio": "vo_w_kha_rahi"
+     },
+     {
+      "label": "सो रही",
+      "audio": "vo_w_so_rahi",
+      "correct": true
+     }
+    ],
+    "correct_cues_ms": [
+     2552,
+     2979,
+     3351,
+     3618,
+     4044
+    ],
+    "max_attempts": 3,
+    "hint2_walk": true,
+    "shuffle": false,
+    "stem_cues_ms": [
+     9,
+     411,
+     763,
+     1292,
+     2005
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P3",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": [
+     "vo_p3_prompt",
+     "vo_p3_stem"
+    ],
+    "correct": "vo_p3_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_bachcha_pyaasa",
+    "emoji": "🥵",
+    "sentence": "बच्चा प्यासा है, उसे ___ चाहिए।",
+    "options": [
+     {
+      "label": "पेंसिल",
+      "audio": "vo_w_pencil"
+     },
+     {
+      "label": "रोटी",
+      "audio": "vo_w_roti"
+     },
+     {
+      "label": "पानी",
+      "audio": "vo_w_paani",
+      "correct": true
+     }
+    ],
+    "correct_cues_ms": [
+     2554,
+     3017,
+     3546,
+     3877,
+     4208,
+     4605
+    ],
+    "max_attempts": 3,
+    "hint2_walk": true,
+    "shuffle": false,
+    "stem_cues_ms": [
+     11,
+     486,
+     1029,
+     1368,
+     1944,
+     2656
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P4",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_CLOZE",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": [
+     "vo_p4_prompt",
+     "vo_p4_stem"
+    ],
+    "correct": "vo_p4_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_raat_taare",
+    "emoji": "🌙",
+    "sentence": "रात के समय आसमान में ___ चमकते हैं।",
+    "options": [
+     {
+      "label": "फूल",
+      "audio": "vo_w_phool"
+     },
+     {
+      "label": "पत्ते",
+      "audio": "vo_w_patte"
+     },
+     {
+      "label": "तारे",
+      "audio": "vo_w_taare",
+      "correct": true
+     }
+    ],
+    "correct_cues_ms": [
+     2558,
+     2872,
+     3123,
+     3437,
+     3876,
+     4190,
+     4567,
+     5006
+    ],
+    "max_attempts": 3,
+    "hint2_walk": true,
+    "shuffle": false,
+    "stem_cues_ms": [
+     15,
+     337,
+     595,
+     917,
+     1368,
+     1960,
+     2672,
+     3096
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P5",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_p5_prompt",
+    "sentence": "vo_p5_s",
+    "correct": "vo_p5_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_ladki_gaana",
+    "emoji": "🎤",
+    "sentence": "लड़की गाना गा रही है।",
+    "tiles": [
+     {
+      "word": "लड़की",
+      "audio": "vo_w_ladki"
+     },
+     {
+      "word": "गाना",
+      "audio": "vo_w_gaana"
+     },
+     {
+      "word": "गा",
+      "audio": "vo_w_ga"
+     },
+     {
+      "word": "रही",
+      "audio": "vo_w_rahi"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     },
+     {
+      "word": "खेल",
+      "audio": "vo_w_khel",
+      "distractor": true
+     },
+     {
+      "word": "किताब",
+      "audio": "vo_w_kitaab",
+      "distractor": true
+     },
+     {
+      "word": "रहा",
+      "audio": "vo_w_raha",
+      "distractor": true
+     }
+    ],
+    "sentence_cues_ms": [
+     11,
+     413,
+     757,
+     987,
+     1274
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     2554,
+     2956,
+     3300,
+     3530,
+     3817
+    ],
+    "hint2_walk": true
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "P6",
+   "phase": "practice",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_p6_prompt",
+    "sentence": "vo_p6_s",
+    "correct": "vo_p6_c",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal"
+   },
+   "data": {
+    "image_id": "pic_bakri_patte",
+    "emoji": "🐐",
+    "sentence": "बकरी पत्ते खा रही है।",
+    "tiles": [
+     {
+      "word": "बकरी",
+      "audio": "vo_w_bakri"
+     },
+     {
+      "word": "पत्ते",
+      "audio": "vo_w_patte"
+     },
+     {
+      "word": "खा",
+      "audio": "vo_w_kha"
+     },
+     {
+      "word": "रही",
+      "audio": "vo_w_rahi"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     },
+     {
+      "word": "पेड़",
+      "audio": "vo_w_ped",
+      "distractor": true
+     },
+     {
+      "word": "गिर",
+      "audio": "vo_w_gir",
+      "distractor": true
+     },
+     {
+      "word": "रहे",
+      "audio": "vo_w_rahe",
+      "distractor": true
+     }
+    ],
+    "sentence_cues_ms": [
+     9,
+     380,
+     812,
+     1059,
+     1368
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     2552,
+     2923,
+     3355,
+     3602,
+     3911
+    ],
+    "hint2_walk": true
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "CEL",
+   "phase": "practice",
+   "eis": "enactive",
+   "type": "CELEBRATION",
+   "prompt_hi": "",
+   "audio": {
+    "prompt": "vo_celebrate",
+    "sfx": "sfx_celebrate"
+   },
+   "data": {},
+   "signals": {
+    "on_complete": [
+     "lesson_completed"
+    ]
+   }
+  }
+ ],
+ "assets": {
+  "audio_ext": "wav",
+  "img_ext": "webp",
+  "audio": {
+   "vo_celebrate": "assets/VO/vo_celebrate.wav",
+   "vo_g1_c": "assets/VO/vo_g1_c.wav",
+   "vo_g1_prompt": "assets/VO/vo_g1_prompt.wav",
+   "vo_g1_stem": "assets/VO/vo_g1_stem.wav",
+   "vo_g2_c": "assets/VO/vo_g2_c.wav",
+   "vo_g2_prompt": "assets/VO/vo_g2_prompt.wav",
+   "vo_g2_s": "assets/VO/vo_g2_s.wav",
+   "vo_g3_c": "assets/VO/vo_g3_c.wav",
+   "vo_g3_prompt": "assets/VO/vo_g3_prompt.wav",
+   "vo_g3_s": "assets/VO/vo_g3_s.wav",
+   "vo_g4_c": "assets/VO/vo_g4_c.wav",
+   "vo_g4_prompt": "assets/VO/vo_g4_prompt.wav",
+   "vo_g4_s": "assets/VO/vo_g4_s.wav",
+   "vo_landing": "assets/VO/vo_landing.wav",
+   "vo_p1_c": "assets/VO/vo_p1_c.wav",
+   "vo_p1_prompt": "assets/VO/vo_p1_prompt.wav",
+   "vo_p1_stem": "assets/VO/vo_p1_stem.wav",
+   "vo_p2_c": "assets/VO/vo_p2_c.wav",
+   "vo_p2_prompt": "assets/VO/vo_p2_prompt.wav",
+   "vo_p2_stem": "assets/VO/vo_p2_stem.wav",
+   "vo_p3_c": "assets/VO/vo_p3_c.wav",
+   "vo_p3_prompt": "assets/VO/vo_p3_prompt.wav",
+   "vo_p3_stem": "assets/VO/vo_p3_stem.wav",
+   "vo_p4_c": "assets/VO/vo_p4_c.wav",
+   "vo_p4_prompt": "assets/VO/vo_p4_prompt.wav",
+   "vo_p4_stem": "assets/VO/vo_p4_stem.wav",
+   "vo_p5_c": "assets/VO/vo_p5_c.wav",
+   "vo_p5_prompt": "assets/VO/vo_p5_prompt.wav",
+   "vo_p5_s": "assets/VO/vo_p5_s.wav",
+   "vo_p6_c": "assets/VO/vo_p6_c.wav",
+   "vo_p6_prompt": "assets/VO/vo_p6_prompt.wav",
+   "vo_p6_s": "assets/VO/vo_p6_s.wav",
+   "vo_pt_guided": "assets/VO/vo_pt_guided.wav",
+   "vo_pt_practice": "assets/VO/vo_pt_practice.wav",
+   "vo_pt_tutorial": "assets/VO/vo_pt_tutorial.wav",
+   "vo_reveal": "assets/VO/vo_reveal.wav",
+   "vo_sahi": "assets/VO/vo_sahi.wav",
+   "vo_shabash_sahi": "assets/VO/vo_shabash_sahi.wav",
+   "vo_t1_c": "assets/VO/vo_t1_c.wav",
+   "vo_t1_o_chidiya": "assets/VO/vo_t1_o_chidiya.wav",
+   "vo_t1_o_gaadi": "assets/VO/vo_t1_o_gaadi.wav",
+   "vo_t1_o_machhli": "assets/VO/vo_t1_o_machhli.wav",
+   "vo_t1_prompt": "assets/VO/vo_t1_prompt.wav",
+   "vo_t1_stem": "assets/VO/vo_t1_stem.wav",
+   "vo_t2_prompt": "assets/VO/vo_t2_prompt.wav",
+   "vo_t2_s": "assets/VO/vo_t2_s.wav",
+   "vo_t3_prompt": "assets/VO/vo_t3_prompt.wav",
+   "vo_t3_s": "assets/VO/vo_t3_s.wav",
+   "vo_try_again": "assets/VO/vo_try_again.wav",
+   "vo_w_bachche": "assets/VO/vo_w_bachche.wav",
+   "vo_w_bakri": "assets/VO/vo_w_bakri.wav",
+   "vo_w_chidiya": "assets/VO/vo_w_chidiya.wav",
+   "vo_w_daud_rahi": "assets/VO/vo_w_daud_rahi.wav",
+   "vo_w_ga": "assets/VO/vo_w_ga.wav",
+   "vo_w_gaadi": "assets/VO/vo_w_gaadi.wav",
+   "vo_w_gaana": "assets/VO/vo_w_gaana.wav",
+   "vo_w_gaay": "assets/VO/vo_w_gaay.wav",
+   "vo_w_ganda": "assets/VO/vo_w_ganda.wav",
+   "vo_w_gend": "assets/VO/vo_w_gend.wav",
+   "vo_w_ghaas": "assets/VO/vo_w_ghaas.wav",
+   "vo_w_gir": "assets/VO/vo_w_gir.wav",
+   "vo_w_hai": "assets/VO/vo_w_hai.wav",
+   "vo_w_hain": "assets/VO/vo_w_hain.wav",
+   "vo_w_kha": "assets/VO/vo_w_kha.wav",
+   "vo_w_kha_rahi": "assets/VO/vo_w_kha_rahi.wav",
+   "vo_w_khel": "assets/VO/vo_w_khel.wav",
+   "vo_w_kitaab": "assets/VO/vo_w_kitaab.wav",
+   "vo_w_kutta": "assets/VO/vo_w_kutta.wav",
+   "vo_w_ladki": "assets/VO/vo_w_ladki.wav",
+   "vo_w_lage": "assets/VO/vo_w_lage.wav",
+   "vo_w_machhli": "assets/VO/vo_w_machhli.wav",
+   "vo_w_maidan": "assets/VO/vo_w_maidan.wav",
+   "vo_w_mein": "assets/VO/vo_w_mein.wav",
+   "vo_w_mitti": "assets/VO/vo_w_mitti.wav",
+   "vo_w_paani": "assets/VO/vo_w_paani.wav",
+   "vo_w_padh": "assets/VO/vo_w_padh.wav",
+   "vo_w_par": "assets/VO/vo_w_par.wav",
+   "vo_w_patte": "assets/VO/vo_w_patte.wav",
+   "vo_w_ped": "assets/VO/vo_w_ped.wav",
+   "vo_w_pencil": "assets/VO/vo_w_pencil.wav",
+   "vo_w_phal": "assets/VO/vo_w_phal.wav",
+   "vo_w_phool": "assets/VO/vo_w_phool.wav",
+   "vo_w_raha": "assets/VO/vo_w_raha.wav",
+   "vo_w_rahe": "assets/VO/vo_w_rahe.wav",
+   "vo_w_rahi": "assets/VO/vo_w_rahi.wav",
+   "vo_w_roti": "assets/VO/vo_w_roti.wav",
+   "vo_w_se": "assets/VO/vo_w_se.wav",
+   "vo_w_seb": "assets/VO/vo_w_seb.wav",
+   "vo_w_so_rahi": "assets/VO/vo_w_so_rahi.wav",
+   "vo_w_sundar": "assets/VO/vo_w_sundar.wav",
+   "vo_w_taare": "assets/VO/vo_w_taare.wav",
+   "vo_w_thanda": "assets/VO/vo_w_thanda.wav",
+   "sfx_correct": "assets/SFX/sfx_correct.wav",
+   "sfx_wrong": "assets/SFX/sfx_wrong.wav",
+   "sfx_burst": "assets/SFX/sfx_burst.wav",
+   "sfx_celebrate": "assets/SFX/sfx_celebrate.wav",
+   "sfx_tap": "assets/SFX/sfx_tap.wav"
+  },
+  "audio_text": {
+   "vo_celebrate": "बहुत बढ़िया, दोस्त! तुमने कमाल कर दिया!",
+   "vo_g1_c": "शाबाश! सही वाक्य है— यह एक सुंदर बगीचा है।",
+   "vo_g1_prompt": "दिए गए चित्र के लिए वाक्य बनाइए। देखिए, कौन-सा शब्द वाक्य के लिए सही है।",
+   "vo_g1_stem": "यह एक … बगीचा है।",
+   "vo_g2_c": "शाबाश! सही वाक्य है— कुत्ता गेंद से खेल रहा है।",
+   "vo_g2_prompt": "चित्र देखकर वाक्य बनाइए।",
+   "vo_g2_s": "कुत्ता गेंद से खेल रहा है।",
+   "vo_g3_c": "शाबाश! सही वाक्य है— पेड़ पर सेब लगे हैं।",
+   "vo_g3_prompt": "चित्र देखकर वाक्य बनाइए।",
+   "vo_g3_s": "पेड़ पर सेब लगे हैं।",
+   "vo_g4_c": "शाबाश! सही वाक्य है— गाय घास खा रही है।",
+   "vo_g4_prompt": "चित्र देखकर वाक्य बनाइए।",
+   "vo_g4_s": "गाय घास खा रही है।",
+   "vo_landing": "नमस्ते दोस्त, मैं हूँ स्विफ्टी। आज हम शब्दों से वाक्य बनाना सीखेंगे।",
+   "vo_p1_c": "शाबाश! सही वाक्य है— मीरा पौधों को पानी दे रही है।",
+   "vo_p1_prompt": "आइए, दिए गए चित्र के लिए वाक्य बनाते हैं।",
+   "vo_p1_stem": "मीरा पौधों को … दे रही है।",
+   "vo_p2_c": "शाबाश! सही वाक्य है— बिल्ली टोकरी में सो रही है।",
+   "vo_p2_prompt": "आइए, दिए गए चित्र के लिए वाक्य बनाते हैं।",
+   "vo_p2_stem": "बिल्ली टोकरी में … है।",
+   "vo_p3_c": "शाबाश! सही वाक्य है— बच्चा प्यासा है, उसे पानी चाहिए।",
+   "vo_p3_prompt": "सही शब्द चुनकर वाक्य बनाइए।",
+   "vo_p3_stem": "बच्चा प्यासा है, उसे … चाहिए।",
+   "vo_p4_c": "शाबाश! सही वाक्य है— रात के समय आसमान में तारे चमकते हैं।",
+   "vo_p4_prompt": "सही शब्द चुनकर वाक्य बनाइए।",
+   "vo_p4_stem": "रात के समय आसमान में … चमकते हैं।",
+   "vo_p5_c": "शाबाश! सही वाक्य है— लड़की गाना गा रही है।",
+   "vo_p5_prompt": "चित्र देखकर वाक्य बनाइए।",
+   "vo_p5_s": "लड़की गाना गा रही है।",
+   "vo_p6_c": "शाबाश! सही वाक्य है— बकरी पत्ते खा रही है।",
+   "vo_p6_prompt": "चित्र देखकर वाक्य बनाइए।",
+   "vo_p6_s": "बकरी पत्ते खा रही है।",
+   "vo_pt_guided": "चलिए, साथ में करें।",
+   "vo_pt_practice": "वाह! अब आपकी बारी।",
+   "vo_pt_tutorial": "चलिए, शुरू करें!",
+   "vo_reveal": "सही शब्द चमक रहा है, उस पर टैप कीजिए।",
+   "vo_sahi": "सही वाक्य है—",
+   "vo_shabash_sahi": "शाबाश! सही वाक्य है—",
+   "vo_t1_c": "सही वाक्य है— आसमान में चिड़िया उड़ रही है।",
+   "vo_t1_o_chidiya": "आसमान में चिड़िया उड़ रही है।",
+   "vo_t1_o_gaadi": "आसमान में गाड़ी उड़ रही है।",
+   "vo_t1_o_machhli": "आसमान में मछली उड़ रही है।",
+   "vo_t1_prompt": "आइए, दिए गए चित्र के लिए वाक्य बनाते हैं। ध्यान से देखिए, चित्र में क्या हो रहा है? चित्र में एक चिड़िया आसमान में उड़ रही है। आइए देखते हैं, कौन-सा वाक्य चित्र के लिए सही है।",
+   "vo_t1_stem": "आसमान में … उड़ रही है।",
+   "vo_t2_prompt": "आइए, दिए गए चित्र के लिए वाक्य बनाते हैं। ध्यान से देखिए, चित्र में क्या हो रहा है? चित्र में बच्चे मैदान में खेल रहे हैं। इसलिए हम वाक्य बनाएंगे—",
+   "vo_t2_s": "बच्चे मैदान में खेल रहे हैं।",
+   "vo_t3_prompt": "आइए, दिए गए चित्र के लिए वाक्य बनाते हैं। ध्यान से देखिए, चित्र में क्या हो रहा है? चित्र में एक लड़की किताब पढ़ रही है। इसलिए हम वाक्य बनाएंगे—",
+   "vo_t3_s": "लड़की किताब पढ़ रही है।",
+   "vo_try_again": "फिर से कोशिश कीजिए।",
+   "vo_w_bachche": "बच्चे",
+   "vo_w_bakri": "बकरी",
+   "vo_w_chidiya": "चिड़िया",
+   "vo_w_daud_rahi": "दौड़ रही",
+   "vo_w_ga": "गा",
+   "vo_w_gaadi": "गाड़ी",
+   "vo_w_gaana": "गाना",
+   "vo_w_gaay": "गाय",
+   "vo_w_ganda": "गंदा",
+   "vo_w_gend": "गेंद",
+   "vo_w_ghaas": "घास",
+   "vo_w_gir": "गिर",
+   "vo_w_hai": "है",
+   "vo_w_hain": "हैं",
+   "vo_w_kha": "खा",
+   "vo_w_kha_rahi": "खा रही",
+   "vo_w_khel": "खेल",
+   "vo_w_kitaab": "किताब",
+   "vo_w_kutta": "कुत्ता",
+   "vo_w_ladki": "लड़की",
+   "vo_w_lage": "लगे",
+   "vo_w_machhli": "मछली",
+   "vo_w_maidan": "मैदान",
+   "vo_w_mein": "में",
+   "vo_w_mitti": "मिट्टी",
+   "vo_w_paani": "पानी",
+   "vo_w_padh": "पढ़",
+   "vo_w_par": "पर",
+   "vo_w_patte": "पत्ते",
+   "vo_w_ped": "पेड़",
+   "vo_w_pencil": "पेंसिल",
+   "vo_w_phal": "फल",
+   "vo_w_phool": "फूल",
+   "vo_w_raha": "रहा",
+   "vo_w_rahe": "रहे",
+   "vo_w_rahi": "रही",
+   "vo_w_roti": "रोटी",
+   "vo_w_se": "से",
+   "vo_w_seb": "सेब",
+   "vo_w_so_rahi": "सो रही",
+   "vo_w_sundar": "सुंदर",
+   "vo_w_taare": "तारे",
+   "vo_w_thanda": "ठंडा"
+  },
+  "image": {
+   "pic_chidiya_udna": "assets/Images/pic_chidiya_udna.webp",
+   "pic_bachche_maidan": "assets/Images/pic_bachche_maidan.webp",
+   "pic_ladki_kitab": "assets/Images/pic_ladki_kitab.webp",
+   "pic_sundar_bagicha": "assets/Images/pic_sundar_bagicha.webp",
+   "pic_kutta_gend": "assets/Images/pic_kutta_gend.webp",
+   "pic_ped_seb": "assets/Images/pic_ped_seb.webp",
+   "pic_gaay_ghaas": "assets/Images/pic_gaay_ghaas.webp",
+   "pic_meera_paani": "assets/Images/pic_meera_paani.webp",
+   "pic_billi_tokri": "assets/Images/pic_billi_tokri.webp",
+   "pic_bachcha_pyaasa": "assets/Images/pic_bachcha_pyaasa.webp",
+   "pic_raat_taare": "assets/Images/pic_raat_taare.webp",
+   "pic_ladki_gaana": "assets/Images/pic_ladki_gaana.webp",
+   "pic_bakri_patte": "assets/Images/pic_bakri_patte.webp"
+  },
+  "video": {}
+ }
+}

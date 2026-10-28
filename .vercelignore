@@ -1,0 +1,16 @@
+# Only HI02H12_L02_S01/ is served (vercel.json outputDirectory). Everything below is dev-side and
+# never needs to reach Vercel: build/QA tooling, source masters, safety backups, design docs.
+_tools/
+_masters/
+_backup/
+_source_art/
+_server_HI02H11_L03_S02/
+**/__pycache__/
+*.py
+*.md
+*.xlsx
+*.pdf
+*.bak-*
+~$*
+.DS_Store
+Thumbs.db

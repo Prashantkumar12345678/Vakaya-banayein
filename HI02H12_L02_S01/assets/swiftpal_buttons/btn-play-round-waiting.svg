@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 116" width="116" height="116" role="img" aria-label="Play (waiting)">
+  <defs>
+    <filter id="sh" x="-40%" y="-40%" width="180%" height="195%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#7C7C86" flood-opacity="0.30"/>
+    </filter>
+    <!-- the FACE: light at the top, one shade down at the foot. It stops at #C6C6CE - the older
+         #E8930A read as dirty brown once the disc came down to ~105px on screen. -->
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9E9EE"/>
+      <stop offset=".52" stop-color="#D8D8DF"/>
+      <stop offset="1" stop-color="#C6C6CE"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="disc"><circle cx="44" cy="43" r="39.5"/></clipPath>
+  </defs>
+
+  <g transform="translate(14 14)" filter="url(#sh)">
+    <!-- THE DEPTH IS A CRESCENT INSIDE ONE RIM. The first cut used a whole second disc sitting
+         5px lower, WITH ITS OWN WHITE RIM - and that second white edge peeking out below read as
+         a second button behind the first rather than as thickness. Reported exactly that way.
+         So there is one white rim, and the darker gold sits INSIDE it: its circle is nudged down
+         far enough to show a 3px crescent under the face and no further. The side is part of the
+         button now, not another button. -->
+    <circle cx="44" cy="44" r="43" fill="#FFFFFF"/>
+    <circle cx="44" cy="45.5" r="40" fill="#A8A8B2"/>
+    <circle cx="44" cy="43" r="39.5" fill="url(#face)"/>
+
+    <g clip-path="url(#disc)">
+      <ellipse cx="44" cy="19" rx="35" ry="23" fill="url(#gloss)"/>
+      <!-- one small spark, top left, where the light would catch a dome -->
+      <ellipse cx="23" cy="28" rx="3" ry="4.4" fill="#fff" opacity=".7" transform="rotate(-30 23 28)"/>
+    </g>
+
+    <!-- SOLID NAVY, NO OUTLINE. Filled and stroked in its OWN colour with a round join: that is
+         what rounds the three corners, which a plain filled path cannot do, and it does it
+         without a white line round the glyph.
+         Nudged right of centre because a play glyph centred on its bounding box reads as sitting
+         too far left - the eye centres it on its visual mass, not its box. -->
+    <g transform="translate(46 43) scale(1.6)" fill="#8B8B95" stroke="#8B8B95"
+       stroke-width="2.6" stroke-linejoin="round">
+      <path d="M-6.8 -10.2 L10.2 0 -6.8 10.2 Z"/>
+    </g>
+  </g>
+</svg>
