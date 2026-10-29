@@ -450,7 +450,7 @@ html.no-anim .dd-tile.opt-walk,html.no-anim .dd-zone.opt-walk{animation:none !im
 .start-gate{position:absolute;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:transparent;cursor:default;}   /* [20a landing] transparent — the fixed .start-bg is the ground; [21c flag#1] cursor:default — hand-pointer belongs on .sg-btn/.sg-vo only, gate is not tap-anywhere */
 .start-gate.hidden{display:none;}
 /* inner white tile is the provided image (border + faint rays baked in) */
-.sg-card{position:relative;width:1114px;height:456px;background:url("assets/UI/start_card.webp?v=20261029181725") center/100% 100% no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+.sg-card{position:relative;width:1114px;height:456px;background:url("assets/UI/start_card.webp?v=20261029185240") center/100% 100% no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
 /* full-body standing mascot (feet included): size by HEIGHT so the whole body incl. feet shows;
    the art frame is square with side padding, so it's constrained to the card height, not width. */
 .sg-mascot{position:absolute;left:-24px;bottom:-12px;width:208px;height:auto;z-index:3;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,47,118,.18));animation:none;}   /* [25d] CORRECTED. My 25c change to left:8/bottom:6 was WRONG: I copied strilling's BASE rule (its line 611) instead of its WINNING late override (line 1104 = left:-24/bottom:-12/width:208 !important) — which is what the engine already had. Moving her right by 32px is also what threw .sg-vo out of line, since left:96px is tuned to this position. "Hovering" = the sgFloat bob: strilling kills it at its line 5600 `animation:none !important`, so it must be OFF here too (I previously said strilling bobs as well — that was reading line 611 and missing 5600). */
@@ -620,7 +620,7 @@ body.loaded .sg-acell{animation-play-state:running;}
    .wg-, .nh-, .ol-), NOT on a guessed prefix: keying on `sg-` alone is what dropped the
    entire drifting sky the first time round. */
 /* ===== FLN ANIMATION KIT: sky-drift BEGIN ===== */
-.start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261029181725");}   /* mandatory */
+.start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261029185240");}   /* mandatory */
 
 .sg-glow,.sg-sky{position:fixed;inset:0;pointer-events:none;display:none;z-index:1;}
 body.is-start .sg-glow,body.is-start .sg-sky,
@@ -662,9 +662,9 @@ body.is-end .sg-sky{
   margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
   background:center/contain no-repeat;opacity:0;
   animation:sgFly var(--t) linear infinite;animation-delay:var(--d);}
-.sg-sky .s1{background-image:url("assets/UI/bgdeco_star.svg?v=20261029181725");}
-.sg-sky .s2{background-image:url("assets/UI/bgdeco_star_o.svg?v=20261029181725");}
-.sg-sky .s3{background-image:url("assets/UI/bgdeco_spark.svg?v=20261029181725");}
+.sg-sky .s1{background-image:url("assets/UI/bgdeco_star.svg?v=20261029185240");}
+.sg-sky .s2{background-image:url("assets/UI/bgdeco_star_o.svg?v=20261029185240");}
+.sg-sky .s3{background-image:url("assets/UI/bgdeco_spark.svg?v=20261029185240");}
 .sg-sky .s4{border-radius:50%;border:.22vmax solid rgba(255,255,255,.92);}
 .sg-sky .s5{border-radius:50%;background:rgba(255,255,255,.92);}
 
@@ -1008,7 +1008,7 @@ html.no-anim .wg-out{opacity:.72;filter:saturate(.3);}
    startnew_bg_plain.webp is the same artwork with the decorations stripped.
    `body .start-bg` because the engine declares .start-bg AFTER this block; matching its
    specificity and relying on order is precisely what R11 forbids. */
-body .start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261029181725");}
+body .start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261029185240");}
 
 /* ---- the white centre box, more opaque ------------------------------------------
    start_card.webp is white at alpha 166/255 (65%), which is why the background rays read
@@ -1017,9 +1017,9 @@ body .start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261029
    art's rounded corners are alpha - a background-color would square them off.
    Drop one layer for ~88% if this is too solid. */
 body .sg-card{background:
-   url("assets/UI/start_card.webp?v=20261029181725") center/100% 100% no-repeat,
-   url("assets/UI/start_card.webp?v=20261029181725") center/100% 100% no-repeat,
-   url("assets/UI/start_card.webp?v=20261029181725") center/100% 100% no-repeat;}
+   url("assets/UI/start_card.webp?v=20261029185240") center/100% 100% no-repeat,
+   url("assets/UI/start_card.webp?v=20261029185240") center/100% 100% no-repeat,
+   url("assets/UI/start_card.webp?v=20261029185240") center/100% 100% no-repeat;}
 
    which is why the first attempt at this changed almost nothing. Here it is constant.
    The kit"[bad string]
@@ -1060,7 +1060,7 @@ body .opt-cell.wg-wrong{animation:wgNo var(--wgT) ease-in-out both;}
 /* ===== END / CELEBRATION ===== */
 .end-screen{position:absolute;inset:0;z-index:90;display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:transparent;overflow:hidden;}
 /* r4: immersive celebration (adopted from Shruti's build — end_screen.webp sunburst + centred mascot + subtitle) */
-.end-bg{position:fixed;inset:0;background:#FDE9A8 url("assets/UI/end_screen.webp?v=20261029181725") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
+.end-bg{position:fixed;inset:0;background:#FDE9A8 url("assets/UI/end_screen.webp?v=20261029185240") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
 body.is-end .end-bg{display:block;}
 body.is-end{background:#FDE9A8 !important;}
 body.is-end .stage{background:transparent !important;}
@@ -1362,7 +1362,7 @@ body.gating .stage.gating .start-gate{filter:none;}
 
 /* [20a landing] fixed full-viewport ground so #47BCFD + art reach the true edges (kills the #7FC8F4 letterbox band);
    start-gate goes transparent (above) so this single image is seamless; in-lesson chrome hidden while landing shows. */
-.start-bg{position:fixed;inset:0;background:#47BCFD url("assets/UI/startnew_bg.webp?v=20261029181725") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
+.start-bg{position:fixed;inset:0;background:#47BCFD url("assets/UI/startnew_bg.webp?v=20261029185240") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
 body.is-start .start-bg{display:block;}
 body.is-start .stage-inner{visibility:hidden !important;}
 body.is-start .stage{background:transparent !important;}
@@ -1990,8 +1990,8 @@ body.is-start .phase-gate{
    it sat before - otherwise every one of these buttons would quietly rise 14px up the screen. */
 .nav-btn{width:198px !important;height:90px !important;min-width:0 !important;bottom:18px !important;
   padding:0 !important;border:0 !important;box-shadow:none !important;
-  background:transparent url("assets/swiftpal_buttons/btn-next-disabled.svg?v=20261029181725") center/198px 90px no-repeat !important;}
-.nav-btn.active{background-image:url("assets/swiftpal_buttons/btn-next.svg?v=20261029181725") !important;
+  background:transparent url("assets/swiftpal_buttons/btn-next-disabled.svg?v=20261029185240") center/198px 90px no-repeat !important;}
+.nav-btn.active{background-image:url("assets/swiftpal_buttons/btn-next.svg?v=20261029185240") !important;
   box-shadow:none !important;}
 .nav-btn.active:active{box-shadow:none !important;}
 .nav-btn .nav-arrow{display:none !important;}
@@ -2057,7 +2057,7 @@ body.is-start .phase-gate{
    paints it ONCE, so the blue .start-bg tints through and the card reads as a blue-white
    gradient with a white ring. This build stacked the SAME file 3x, which made it opaque
    flat white. Back to a single paint = src. (Sky sparkles deliberately NOT ported.) */
-body .sg-card{background:url("assets/UI/start_card.webp?v=20261029181725") center/100% 100% no-repeat !important;}
+body .sg-card{background:url("assets/UI/start_card.webp?v=20261029185240") center/100% 100% no-repeat !important;}
 .sg-mascot{left:-24px !important;bottom:-12px !important;width:208px !important;}
 .sg-vo{left:89px !important;bottom:-6px !important;width:58px !important;height:58px !important;}
 /* [H11-215] title-screen speaker a little bigger (asked): 58 -> 70px, same centre - 6px left and down */
@@ -2108,7 +2108,7 @@ body .sg-card{background:url("assets/UI/start_card.webp?v=20261029181725") cente
 .sg-btn{bottom:30px !important;width:140px !important;height:140px !important;min-width:0 !important;
         padding:0 !important;border:0 !important;border-radius:50% !important;
         box-shadow:none !important;
-        background:transparent url("assets/swiftpal_buttons/btn-play-round.svg?v=20261029181725") center/140px 140px no-repeat !important;
+        background:transparent url("assets/swiftpal_buttons/btn-play-round.svg?v=20261029185240") center/140px 140px no-repeat !important;
         animation:sgBtnPulse 1.4s ease-in-out infinite !important;}
 .sg-btn:active{animation:none !important;}
 /* [H11-149] once pressed it stops breathing - the invitation has been taken */
@@ -2171,7 +2171,7 @@ body .sg-card{background:url("assets/UI/start_card.webp?v=20261029181725") cente
 /* [H11-228] keyed off body.vo-spk, the speakers' own lock - it holds across the gaps of one read-out */
 body.vo-spk .audio-chip,body.vo-spk .tut-audio{pointer-events:none !important;opacity:.5 !important;
                  filter:grayscale(1) brightness(1.2) !important;}
-.sg-btn.sg-waiting{background-image:url("assets/swiftpal_buttons/btn-play-round-waiting.svg?v=20261029181725") !important;
+.sg-btn.sg-waiting{background-image:url("assets/swiftpal_buttons/btn-play-round-waiting.svg?v=20261029185240") !important;
                    cursor:default !important;animation:none !important;
                    pointer-events:none !important;}   /* see setStartBtnReady - NOT disabled */
 /* [H11-182] THE BUTTON IS NOT THERE WHILE SHE SPEAKS - checklist, asked for again: "Play button
@@ -2634,7 +2634,7 @@ html.no-anim .fw-opt.fw-no{animation:none !important;}
    the control keeps an accessible name instead of announcing as a bare "button". */
 .end-btn{width:163px !important;height:117px !important;min-width:0 !important;padding:0 !important;
          border:0 !important;border-radius:0 !important;box-shadow:none !important;font-size:0 !important;
-         background:transparent url("assets/swiftpal_buttons/btn-finish.svg?v=20261029181725") center/163px 117px no-repeat !important;}
+         background:transparent url("assets/swiftpal_buttons/btn-finish.svg?v=20261029185240") center/163px 117px no-repeat !important;}
 .end-btn:active{box-shadow:none !important;}
 
 /* ---- 6. FEEDBACK OVERLAY ------------------------------------------------------------------- */
@@ -3660,7 +3660,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 <!-- [H11-155] the landing and the first transition, fetched before the engine even parses. The two
      links this replaced named another game's pictures (sit_namaste_teacher, sit_dhanyawad_pencil)
      and 404ed on every load since the first commit. -->
-<link rel="preload" as="image" fetchpriority="high" href="assets/Images/title_screen.webp?v=20261029181725"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/startnew_bg_plain.webp?v=20261029181725"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/start_card.webp?v=20261029181725"><link rel="prefetch" as="image" href="assets/swiftpal_buttons/btn-play-round.svg?v=20261029181725"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/new_landing_swiftee_anim.webp?v=20261029181725"><link rel="prefetch" as="image" href="assets/peeking_talk_up.webp?v=20261029181725"><style id="fln-confetti-kit">
+<link rel="preload" as="image" fetchpriority="high" href="assets/Images/title_screen.webp?v=20261029185240"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/startnew_bg_plain.webp?v=20261029185240"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/start_card.webp?v=20261029185240"><link rel="prefetch" as="image" href="assets/swiftpal_buttons/btn-play-round.svg?v=20261029185240"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/new_landing_swiftee_anim.webp?v=20261029185240"><link rel="prefetch" as="image" href="assets/peeking_talk_up.webp?v=20261029185240"><style id="fln-confetti-kit">
 /* FLN confetti - exact copy of the game build (MTG2A04_L02_S01 style.css). */
 
 /* ===== FLN ANIMATION KIT: confetti BEGIN ===== */
@@ -3777,7 +3777,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 .adv-bridge .adv-piece-flight{background:url("assets/Images/adventure/plank_option.webp") center/contain no-repeat !important;}
 #slideHost .adventure-game.adv-bridge .adv-choice:after{left:2px;right:2px;top:80%;height:22%;border-color:#e9fcff55;}
 #slideHost .adventure-game.adv-bridge .adv-choice .gender-label{font-size:46px !important;}
-#slideHost .adventure-game.adv-bridge .adv-walker{left:5px;top:160px;width:150px;height:220px;}
+#slideHost .adventure-game.adv-bridge .adv-walker{left:42px;top:202px;width:150px;height:220px;}
 /* the answer planks float on the river: a slow, small bob and sway (own translate/rotate, so the
    hover lift and the engine's transforms still apply), each plank out of step with the others */
 @keyframes wbPlankFloat{0%,100%{translate:0 0;rotate:0deg;}50%{translate:0 -5px;rotate:1.2deg;}}
@@ -3880,7 +3880,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 #slideHost .adventure-game.adv-cave .adv-reference-clue:after{content:"";position:absolute;left:14px;bottom:-24px;width:34px;height:30px;border:0;transform:none;
   background:#fff;clip-path:polygon(30% 0,100% 0,0 100%);}
 /* Game 3: Swifty starts ON the path (the trunk, bottom centre), not on the grass */
-#slideHost .adventure-game.adv-paths .adv-walker{left:470px;top:440px;}
+#slideHost .adventure-game.adv-paths .adv-walker{left:235px;top:345px;}   /* under the thought cloud, at the end of its bubbles */
 /* sign words centred on the board part (not over the post top), away from the arrow tips */
 #slideHost .adventure-game.adv-paths .opt-grid .adv-sign{padding:18px 20px 44px !important;}
 #slideHost .adventure-game.adv-paths .opt-grid .adv-sign-0{padding-left:46px !important;padding-right:14px !important;}
@@ -3890,21 +3890,24 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 /* WB-14  Game 6 (home) to the reference mock (1018x588 -> x1.309): the gate smaller and ending before the
    right-hand wall (314-1204 x 196-484); its five slots follow it; picture card, Swifty and the word tiles
    where the mock has them (tiles 220 wide, x 262-1185, rows at y 504 / 605). */
-#slideHost .adventure-game.adv-home .adv-object{left:313px;top:216px;width:780px;height:262px;}   /* = the gap in house.webp's wall (313-1093), so the leaves hinge on the wall ends and swing open inside it */
-#slideHost .adventure-game.adv-home .adv-sentence{left:388px;top:343px;width:634px;height:74px;}   /* = the five gold slots of home.webp (x 135-1272 / 1400, y 225-358 / 466) */   /* = the five gold slots (397-1120 x 336-416) */
-#slideHost .adventure-game.adv-home .adv-deck{height:74px !important;gap:8px !important;}
-#slideHost .adventure-game.adv-home .adv-deck>span{font-size:34px !important;height:74px !important;}
+#slideHost .adventure-game.adv-home .adv-object{left:337px;top:164px;width:782px;height:314px;}   /* = the gap in house.webp's wall (313-1093), so the leaves hinge on the wall ends and swing open inside it */
+#slideHost .adventure-game.adv-home .adv-sentence{left:410px;top:316px;width:638px;height:90px;}   /* inside the gate's panel (home_gate.webp x 129-1271 / 1400) between its side frames */   /* = the five gold slots of home.webp (x 135-1272 / 1400, y 225-358 / 466) */   /* = the five gold slots (397-1120 x 336-416) */
+#slideHost .adventure-game.adv-home .adv-deck{height:90px !important;gap:10px !important;width:100% !important;min-width:0 !important;box-sizing:border-box;}   /* the row never runs past the gate's panel */
+#slideHost .adventure-game.adv-home .adv-deck>span{font-size:36px !important;height:90px !important;}
 /* the five slots are CSS (the new gate has none): plain dark-wood recesses on the gate's middle band.
    ONLY the slot to fill next is lit (gold frame, soft pulse); once a word lands there the gold leaves it
    and moves on to the next empty slot. A filled slot is a wooden tile set in its recess. */
 @keyframes wbSlotGlow{0%,100%{box-shadow:0 0 0 2px #8a5a12,0 0 8px 2px #ffd54a88,inset 0 5px 10px #3a1c0699;}50%{box-shadow:0 0 0 2px #8a5a12,0 0 18px 6px #ffd54acc,inset 0 5px 10px #3a1c0699;}}
-#slideHost .adventure-game.adv-home .adv-deck>span{position:relative;border-radius:12px !important;
-  border:4px solid #6a3412 !important;box-shadow:inset 0 5px 10px #3a1c0699 !important;
-  background:linear-gradient(180deg,#7a3f17,#94511f 55%,#86461a) !important;transition:border-color .3s;}
+#slideHost .adventure-game.adv-home .adv-deck>span{position:relative;border-radius:8px !important;
+  /* = the mock: flat amber-brown panels filling the band rail to rail, thin dark edge, small radius */
+  border:1.5px solid #5a2a08 !important;box-shadow:inset 0 2px 4px #3a1c0655 !important;
+  background:#9b5214 !important;transition:border-color .3s;}
 #slideHost .adventure-game.adv-home .adv-deck>span.bridge-gap:first-child,
-#slideHost .adventure-game.adv-home .adv-deck>span:not(.bridge-gap)+span.bridge-gap{border:5px solid #f2c234 !important;animation:wbSlotGlow 1.4s ease-in-out infinite !important;}
-#slideHost .adventure-game.adv-home .adv-deck>span:not(.bridge-gap){font-size:32px !important;animation:none !important;border-color:#6a3412 !important;
-  background:url("assets/Images/adventure/wood.webp") center/calc(100% - 4px) calc(100% - 4px) no-repeat,linear-gradient(#7a3f17,#86461a) !important;}
+#slideHost .adventure-game.adv-home .adv-deck>span:not(.bridge-gap)+span.bridge-gap{border:2px solid #ffd21e !important;animation:wbSlotGlow 1.4s ease-in-out infinite !important;}
+#slideHost .adventure-game.adv-home .adv-deck>span:not(.bridge-gap){font-size:36px !important;animation:none !important;border-color:#6a3412 !important;
+  background:url("assets/Images/adventure/wood.webp") center/112% 122% no-repeat,#e9a54f !important;   /* wood fills the slot to its thin edge (the art's own rim cropped off) */
+  overflow:hidden;border:1.5px solid #5a2a08 !important;
+  box-shadow:inset 0 3px 0 #ffe2a8,inset 3px 0 0 #f9cd86,inset -3px 0 0 #c97b2c,inset 0 -6px 0 #b4661f,inset 0 -8px 6px #8a4a1255 !important;}   /* bevelled plank, as the mock */
 @media(prefers-reduced-motion:reduce){#slideHost .adventure-game.adv-home .adv-deck>span{animation:none !important;}}
 #slideHost .adventure-game.adv-home .adv-clue{left:212px;top:33px;width:310px;height:182px;}
 #slideHost .adventure-game.adv-home .adv-walker{left:45px;top:236px;}
@@ -3949,6 +3952,23 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 #slideHost .adventure-game.adv-home .adv-reference-clue,#slideHost .adventure-game.adv-stairs .adv-reference-clue,#slideHost .adventure-game.adv-railway .adv-reference-clue{background:#fff !important;padding:6px;border:0;border-radius:24px;box-shadow:0 6px 14px #0b2a4a33 !important;overflow:visible;}
 #slideHost .adventure-game.adv-home .adv-reference-clue>*,#slideHost .adventure-game.adv-stairs .adv-reference-clue>*,#slideHost .adventure-game.adv-railway .adv-reference-clue>*{display:block !important;width:100% !important;height:100% !important;border-radius:18px !important;overflow:hidden;}
 #slideHost .adventure-game.adv-home .adv-reference-clue img,#slideHost .adventure-game.adv-stairs .adv-reference-clue img,#slideHost .adventure-game.adv-railway .adv-reference-clue img{width:100% !important;height:100% !important;object-fit:cover;border-radius:18px !important;}
+/* picture cards: a plain rounded card, no speech-bubble tail, on every game screen */
+#slideHost .adventure-game .adv-clue:before,#slideHost .adventure-game .adv-clue:after{display:none !important;content:none !important;}
+/* Games 2 & 3 thought clouds a little bigger (thin white rim baked into clue_*_pic.webp) */
+#slideHost .adventure-game.adv-paths .adv-clue{left:50px;top:55px;width:300px;height:300px !important;}
+#slideHost .adventure-game.adv-door .adv-clue{left:50px;top:70px;width:350px;height:300px !important;}
+/* thought bubbles under the square picture cards (Games 1, 4, 5, 6), trailing down to Swifty - like the clouds of Games 2 & 3 */
+#slideHost .adventure-game.adv-bridge .adv-clue.adv-reference-clue:after,#slideHost .adventure-game.adv-cave .adv-clue.adv-reference-clue:after,#slideHost .adventure-game.adv-railway .adv-clue.adv-reference-clue:after,#slideHost .adventure-game.adv-home .adv-clue.adv-reference-clue:after{display:block !important;content:"" !important;position:absolute;left:-14px;bottom:-78px;top:auto;width:84px;height:80px;
+  border:0 !important;transform:none !important;clip-path:none !important;
+  background:radial-gradient(circle at 64px 16px,#fff 15.5px,transparent 16.5px),radial-gradient(circle at 36px 42px,#fff 11.5px,transparent 12.5px),radial-gradient(circle at 13px 66px,#fff 8.5px,transparent 9.5px) !important;
+  filter:drop-shadow(0 2px 3px #0b2a4a33);pointer-events:none;}
+/* Game 1: bubbles leave the card's left edge, low down, and trail left to Swifty's head */
+#slideHost .adventure-game.adv-bridge .adv-clue.adv-reference-clue:after{left:-75px !important;top:170px !important;bottom:auto !important;width:72px !important;height:70px !important;
+  background:radial-gradient(circle at 57px 16px,#fff 11.5px,transparent 12.5px),radial-gradient(circle at 31px 36px,#fff 8px,transparent 9px),radial-gradient(circle at 12px 53px,#fff 5.5px,transparent 6.5px) !important;}
+/* Game 1 blank = the water gap's own shape: straight left seam, right seam slanting 817->829 (measured),
+   so the yellow outline follows the planks instead of a plain rectangle */
+#slideHost .adventure-game.adv-bridge .adv-deck>.sent-blank{border:0 !important;border-radius:0 !important;box-shadow:none !important;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20149%20126%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M3%203H137L146%20123H3Z%22%20fill%3D%22none%22%20stroke%3D%22%23ffd54a%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat !important;filter:drop-shadow(0 0 5px #ffd54acc);}
 </style>
 </head>
 <body class="is-start">
@@ -3959,7 +3979,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 
 <!-- BOOT LOADER — [template] r4/P2: white boot screen, no-tap auto-dismiss (see boot()) -->
 <div class="boot-loader" id="bootLoader">
-  <img src="assets/UI/loader.webp?v=20261029181725" alt="">
+  <img src="assets/UI/loader.webp?v=20261029185240" alt="">
 </div>
 
 
@@ -3988,12 +4008,12 @@ body:has(.adventure-game) #devBanner{display:none !important;}
     <div class="slide-stage">
       <div class="slide-host" id="slideHost"></div>
       <div class="nudge-hand" id="nudgeHand">
-        <img src="assets/UI/nudge_hand_new.svg?v=20261029181725" alt="">
+        <img src="assets/UI/nudge_hand_new.svg?v=20261029185240" alt="">
       </div>
     </div>
 
     <!-- Swiftie buddy: persistent, reacting character (replaces the static header photo + feedback popup) -->
-    <div class="mascot-wrap" id="swBuddy"><div class="mascot-circle"><img class="mascot-img" id="swBuddyImg" src="assets/UI/sw_head_talking.webp?v=20261029181725" alt=""></div></div>
+    <div class="mascot-wrap" id="swBuddy"><div class="mascot-circle"><img class="mascot-img" id="swBuddyImg" src="assets/UI/sw_head_talking.webp?v=20261029185240" alt=""></div></div>
 
     <!-- Nav button — kit-style pill, floats bottom-right -->
     <!-- [H11-22] the word is gone and the arrow carries the meaning, so the button needs an
@@ -4009,7 +4029,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
   <!-- FEEDBACK OVERLAY — kit-style card + clean Swiftee large -->
   <div class="hint-overlay" id="hintOverlay">
     <div class="hint-box" id="hintBox">
-      <img class="hint-mascot" id="hintMascot" src="assets/UI/sw_anim_rest.webp?v=20261029181725" alt=""
+      <img class="hint-mascot" id="hintMascot" src="assets/UI/sw_anim_rest.webp?v=20261029185240" alt=""
            onerror="this.style.display='none'">
       <div class="hint-body">
         <div class="hint-text" id="hintText"></div>
@@ -4020,7 +4040,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
   <!-- TAP-TO-START — uses provided title-screen art -->
   <div class="start-gate" id="startGate">
     <div class="sg-card">
-      <img class="sg-mascot" src="assets/UI/new_landing_swiftee_anim.webp?v=20261029181725" alt="Swiftee"
+      <img class="sg-mascot" src="assets/UI/new_landing_swiftee_anim.webp?v=20261029185240" alt="Swiftee"
            onerror="this.style.display='none'">
       <div class="sg-content">
         <div class="sg-title" id="sgTitle">वाक्य बनाइए</div>
@@ -4059,7 +4079,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
          Shipped as WebP because GIF alpha is one all-or-nothing index and this art has soft
          edges, which cut hard would fringe against the sunburst behind it.
          See _tools/dekey_last_page.py. -->
-    <img class="end-mascot" src="assets/Images/last_swifty_still.webp?v=20261029181725" alt="Swiftee"
+    <img class="end-mascot" src="assets/Images/last_swifty_still.webp?v=20261029185240" alt="Swiftee"
          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'end-mascot',textContent:'🎉'}))">
     <button class="end-btn" id="endBtn" aria-label="आगे बढ़ें"></button>   <!-- [H11-66] the artwork carries the arrow -->
   </div>
@@ -5070,7 +5090,7 @@ function _resumeVoiceAudio(){
    AUDIO_BUILD changes whenever the game is rebuilt, so every clip URL changes with it and the
    browser has to fetch. It is added in the two places every clip passes through, rather than at
    the ~20 sites that spell out a path, so nothing can be missed. */
-const AUDIO_BUILD = "20261029181725";
+const AUDIO_BUILD = "20261029185240";
 /* [H11-187] ASSET PRELOADER - every file the game uses is fetched ONCE, behind the loading bar,
    before the Play button can appear.
    - ONE DOWNLOAD PER FILE. The bar, the voice decoder, the picture warm-up and the gate / landing /
@@ -5089,7 +5109,7 @@ const AUDIO_BUILD = "20261029181725";
    Formats: WebM (VP9 + Opus) and WebP play in Chrome, Edge, Firefox and Safari (WebP 14+, WebM
    video 16.4+); WAV plays everywhere. Fetch streams + AbortController: every browser since 2019. */
 var AssetLoader = (function(){
-  const MANIFEST = /*@ASSET_MANIFEST*/[["assets/UI/bgdeco_spark.svg",219],["assets/UI/bgdeco_star.svg",390],["assets/UI/bgdeco_star_o.svg",447],["assets/swiftpal_buttons/btn-next-disabled.svg",673],["assets/UI/start_card.webp",1024],["assets/swiftpal_buttons/btn-next.svg",1271],["assets/swiftpal_buttons/btn-finish.svg",1316],["assets/swiftpal_buttons/btn-play-round.svg",2645],["assets/swiftpal_buttons/btn-play-round-waiting.svg",2655],["assets/SFX/sfx_next.wav",3278],["assets/SFX/sfx_tap.wav",3824],["assets/UI/nudge_hand_new.svg",6860],["assets/UI/mascot.webp",8006],["assets/UI/sw_anim_rest.webp",8816],["assets/SFX/sfx_play.wav",13594],["assets/SFX/sfx_seat.wav",14386],["assets/Images/adventure/keyhole.webp",16594],["assets/UI/start_mascot.webp",18020],["assets/Images/adventure/railway_frame.webp",19240],["assets/Images/adventure/plank_option.webp",19922],["assets/SFX/sfx_whoosh.wav",22384],["assets/SFX/sfx_wrong.wav",23118],["assets/UI/sw_explain_still.webp",24366],["assets/UI/startnew_bg_plain.webp",24446],["assets/Images/adventure/railway_tile.webp",25490],["assets/Images/pic_chidiya_udna.webp",26102],["assets/Images/last_swifty_still.webp",26456],["assets/SFX/sfx_correct.wav",27280],["assets/VO/vo_w_rahe.wav",27980],["assets/Images/bridges_top/part_wood_focus.webp",30664],["assets/Images/adventure/gear_badge.webp",34400],["assets/Images/adventure/railway_arm.webp",34604],["assets/VO/vo_w_lage.wav",34604],["assets/SFX/sfx_burst.wav",34960],["assets/UI/sw_head_hint.webp",36812],["assets/UI/sw_head_talking.webp",37384],["assets/Images/pic_raat_taare.webp",38382],["assets/new assets for game /pic_raat_taare.webp",38382],["assets/Images/bridges_top/part_bamboo_focus.webp",39862],["assets/Images/title_sentence.webp",40100],["assets/Images/bridges_top/part_stone_focus.webp",40142],["assets/UI/sw_head_celebrate.webp",41998],["assets/Images/adventure/gate_bg.webp",42984],["assets/VO/vo_w_hain.wav",46124],["assets/Images/adventure/railway_motor.webp",46396],["assets/VO/vo_w_hai.wav",48044],["assets/SFX/sfx_celebrate.wav",48078],["assets/UI/sw_head_tryagain.webp",48836],["assets/Images/pic_bachcha_pyaasa.webp",48982],["assets/new assets for game /pic_bachcha_pyaasa.webp",48982],["assets/VO/vo_w_kha.wav",49964],["assets/VO/vo_w_padh.wav",49964],["assets/VO/vo_w_par.wav",49964],["assets/VO/vo_w_patte.wav",49964],["assets/VO/vo_w_ped.wav",49964],["assets/UI/end_screen.webp",50224],["assets/Images/adventure/cave_door.webp",50600],["assets/VO/vo_w_chidiya.wav",51884],["assets/VO/vo_w_gaana.wav",51884],["assets/VO/vo_w_se.wav",51884],["assets/UI/startnew_bg.webp",52978],["assets/VO/vo_w_gaay.wav",53804],["assets/VO/vo_w_gir.wav",53804],["assets/VO/vo_w_khel.wav",53804],["assets/VO/vo_w_paani.wav",53804],["assets/VO/vo_w_phal.wav",53804],["assets/VO/vo_w_phool.wav",55724],["assets/VO/vo_w_rahi.wav",55724],["assets/VO/vo_w_thanda.wav",55724],["assets/Images/adventure/clue_paths_pic.webp",55990],["assets/VO/vo_w_kitaab.wav",57644],["assets/VO/vo_w_ladki.wav",57644],["assets/VO/vo_w_mein.wav",57644],["assets/VO/vo_w_mitti.wav",57644],["assets/VO/vo_w_pencil.wav",57644],["assets/Images/title_words.webp",58166],["assets/VO/vo_w_bachche.wav",59564],["assets/VO/vo_w_ga.wav",59564],["assets/VO/vo_w_gaadi.wav",59564],["assets/VO/vo_w_ganda.wav",59564],["assets/VO/vo_w_gend.wav",59564],["assets/VO/vo_w_roti.wav",59564],["assets/VO/vo_w_seb.wav",59564],["assets/VO/vo_w_taare.wav",59564],["assets/Images/pic_ladki_kitab.webp",60106],["assets/new assets for game /keyhole.png",61170],["assets/Images/pic_kutta_gend.webp",61240],["assets/Images/adventure/wood.webp",61258],["assets/VO/vo_w_bakri.wav",61484],["assets/VO/vo_w_sundar.wav",61484],["assets/VO/vo_sahi.wav",61680],["assets/VO/vo_w_ghaas.wav",63404],["assets/VO/vo_w_kha_rahi.wav",63404],["assets/VO/vo_w_kutta.wav",63404],["assets/VO/vo_w_machhli.wav",63404],["assets/VO/vo_w_maidan.wav",65324],["assets/VO/vo_w_raha.wav",65324],["assets/VO/vo_w_daud_rahi.wav",67244],["assets/Images/pic_meera_paani.webp",68240],["assets/new assets for game /pic_meera_paani.webp",68240],["assets/Images/adventure/gate.webp",69678],["assets/Images/pic_billi_tokri.webp",71530],["assets/new assets for game /pic_billi_tokri.webp",71530],["assets/Images/pic_ladki_gaana.webp",71970],["assets/new assets for game /pic_ladki_gaana.webp",71970],["assets/Images/adventure/question_board.webp",72274],["assets/Images/adventure/clue_door_pic.webp",74334],["assets/Images/pic_gaay_ghaas.webp",74800],["assets/VO/vo_w_so_rahi.wav",76844],["assets/Images/pic_bakri_patte.webp",77022],["assets/new assets for game /pic_bakri_patte.webp",77022],["assets/Images/title.webp",77504],["assets/new assets for game /Cartoon Wooden Game Signboard 3.png",77998],["assets/VO/vo_pt_tutorial.wav",80684],["assets/Images/pic_bachche_maidan.webp",81756],["assets/Images/adventure/wash.webp",82404],["assets/Images/pic_ped_seb.webp",84224],["assets/VO/vo_try_again.wav",88364],["assets/Images/adventure/clue_paths.webp",88378],["assets/Images/adventure/key.webp",91852],["assets/VO/vo_g3_s.wav",96044],["assets/Images/pic_sundar_bagicha.webp",103098],["assets/VO/vo_shabash_sahi.wav",105238],["assets/Images/adventure/cave_bg.webp",107114],["assets/VO/vo_pt_guided.wav",107564],["assets/Images/adventure/stairs.webp",109790],["assets/VO/vo_g2_s.wav",111404],["assets/VO/vo_p5_s.wav",111404],["assets/VO/vo_t3_s.wav",111404],["assets/Images/bridges/piece_wood.webp",112114],["assets/Images/adventure/swifty_idle.webp",113212],["assets/VO/vo_t2_s.wav",115244],["assets/Images/adventure/sign_up.webp",115690],["assets/VO/vo_t1_stem.wav",117108],["assets/Images/adventure/bridge.webp",117138],["assets/VO/vo_pt_practice.wav",117164],["assets/Images/adventure/sign_right.webp",120160],["assets/VO/vo_g4_s.wav",121004],["assets/Images/adventure/clue_door.webp",122442],["assets/VO/vo_g4_prompt.wav",122924],["assets/VO/vo_p6_s.wav",122924],["assets/Images/adventure/gear.webp",123072],["assets/Images/adventure/sign_left.webp",124762],["assets/VO/vo_t1_o_machhli.wav",124844],["assets/VO/vo_g2_prompt.wav",126764],["assets/VO/vo_g3_prompt.wav",128684],["assets/VO/vo_t1_o_chidiya.wav",128684],["assets/VO/vo_t1_o_gaadi.wav",128684],["assets/Images/adventure/water_bg.webp",129830],["assets/Images/bridges_top/part_wood.webp",130972],["assets/VO/vo_p6_prompt.wav",132524],["assets/Images/bridges/piece_stone.webp",135560],["assets/Images/adventure/paths.webp",135562],["assets/Images/adventure/home.webp",136390],["assets/Images/bridges_top/part_stone.webp",138804],["assets/VO/vo_p5_prompt.wav",142124],["assets/VO/vo_p2_stem.wav",144044],["assets/Images/adventure/bridge_top.webp",144690],["assets/Images/adventure/bridge_top_filled.webp",145270],["assets/VO/vo_p3_prompt.wav",145964],["assets/VO/vo_p4_prompt.wav",145964],["assets/Images/adventure/cave_frame.webp",147308],["assets/Images/bridges/piece_bamboo.webp",147410],["assets/VO/vo_p3_stem.wav",149804],["assets/Images/bridges_top/part_wood_vertical.webp",154288],["assets/Images/bridges_top/bg_village_matched.webp",155546],["assets/Images/bridges_top/part_bamboo.webp",156232],["assets/Images/adventure/door_frame.webp",157154],["assets/VO/vo_g1_stem.wav",157484],["assets/Images/bridges_top/bg_meadow_matched.webp",159422],["assets/VO/vo_p4_stem.wav",161324],["assets/Images/adventure/house.webp",165918],["assets/VO/vo_reveal.wav",167084],["assets/VO/vo_p1_stem.wav",170924],["assets/VO/vo_p2_prompt.wav",172844],["assets/Images/bridges_top/part_bamboo_vertical.webp",173758],["assets/UI/loader.webp",178248],["assets/VO/vo_celebrate.wav",178604],["assets/Images/bridges_top/bg_canyon_matched.webp",179932],["assets/VO/vo_p1_prompt.wav",180524],["assets/Images/bridges_top/bg_school_matched.webp",181246],["assets/Images/bridges_top/bg_forest_matched.webp",183994],["assets/Images/adventure/bridge_scene.webp",185606],["assets/UI/swifty_walk_back_strip.webp",191916],["assets/Images/bridges_top/bg_bamboo_matched.webp",192038],["assets/UI/swifty_walk_back.webp",197030],["assets/Images/adventure/home_gate.webp",203836],["assets/UI/swifty_walk_back.gif",210433],["assets/Images/adventure/railway_bg.webp",221934],["assets/Images/adventure/stairs_scene.webp",225854],["assets/Images/adventure/journey_map_railway_open.webp",227594],["assets/VO/vo_g4_c.wav",228524],["assets/VO/vo_t1_c.wav",228524],["assets/Images/adventure/swifty_walk.webp",231788],["assets/Images/adventure/swifty_walk_atlas.webp",232040],["assets/UI/swifty_walk_front_strip.webp",232342],["assets/UI/swifty_walk_front.webp",233220],["assets/VO/vo_g3_c.wav",234284],["assets/VO/vo_p2_c.wav",238124],["assets/VO/vo_p6_c.wav",240044],["assets/Images/adventure/journey_map.webp",240806],["assets/Images/adventure/door.webp",242882],["assets/Images/bridges_top/swiftee_walk.webp",243170],["assets/UI/swifty_walk_strip.webp",244456],["assets/UI/swifty_walk.webp",244810],["assets/VO/vo_g2_c.wav",255404],["assets/VO/vo_p5_c.wav",257324],["assets/UI/swifty_walk_front.gif",259644],["assets/VO/vo_g1_c.wav",261164],["assets/VO/vo_p1_c.wav",261164],["assets/UI/swifty_walk.gif",261918],["assets/Images/adventure/swifty_walk.gif",274246],["assets/Images/adventure/cave.webp",278094],["assets/VO/vo_p3_c.wav",289964],["assets/Images/bridges/hanging.webp",290776],["assets/VO/vo_landing.wav",295724],["assets/Images/bridges/swiftee_walk.webp",303504],["assets/VO/vo_t2_prompt.wav",311084],["assets/VO/vo_g1_prompt.wav",313004],["assets/Images/bridges/stone.webp",313860],["assets/VO/vo_p4_c.wav",314924],["assets/Images/bridges/wood.webp",315084],["assets/Images/bridges/rope.webp",326278],["assets/Images/bridges_top/deck_stone.webp",326280],["assets/Images/bridges_top/deck_hanging.webp",329562],["assets/VO/vo_t3_prompt.wav",330284],["assets/Images/bridges_top/bg_meadow.webp",336198],["assets/Images/bridges_top/deck_rope.webp",337020],["assets/Images/bridges_top/deck_wood.webp",337528],["assets/Images/title_screen.webp",345264],["assets/Images/bridges/log.webp",350898],["assets/Images/bridges_top/bg_bamboo.webp",351316],["assets/VO/vo_t1_prompt.wav",359084],["assets/Images/bridges_top/deck_log.webp",359920],["assets/Images/bridges/bamboo.webp",362220],["assets/Images/bridges_top/bg_village.webp",363672],["assets/UI/sw_explain_talk.webp",369026],["assets/Images/bridges_top/deck_bamboo.webp",375620],["assets/Images/bridges_top/bg_canyon.webp",377156],["assets/Images/adventure/reference_paths.webp",380260],["assets/Images/adventure/reference_bridge.webp",380992],["assets/Images/adventure/reference_door.webp",390220],["assets/UI/sw_head_celebrate_anim.webp",390546],["assets/Images/bridges_top/bg_forest.webp",397464],["assets/Images/adventure/reference_stairs.webp",408954],["assets/Images/adventure/reference_home.webp",410490],["assets/Images/bridges_top/bg_school.webp",413460],["assets/UI/sw_head_tryagain_anim.webp",429222],["assets/UI/sw_head_hint_anim.webp",435706],["assets/Images/adventure/reference_cave.webp",450860],["assets/SFX/bgm_mela.wav",590848],["assets/new assets for game /game 3 ka question board .png",641217],["assets/UI/swifty_walk_back_sheet.png",676986],["assets/new assets for game /Group 8.png",715373],["assets/UI/swifty_walk_front_sheet.png",835955],["assets/UI/swifty_walk_sheet.png",897811],["assets/new assets for game /game 6 gate.png",915178],["assets/new assets for game /game gate 2.png",927133],["assets/new assets for game /gate bg.png",1079606],["assets/UI/new_landing_swiftee_anim.webp",1160630],["assets/new assets for game /Glossy Golden Gear Badge.png",1495306],["assets/peeking_talk_up.webp",1561680],["assets/Images/last_swifty_end.webp",1779506],["assets/new assets for game /Slide 16_9 - 19.png",1912621],["assets/new assets for game /Game 4 bg (1).png",2284547],["assets/new assets for game /water pull images.png",2694502],["assets/new assets for game /water bg.png",2798793]]/*@END_ASSET_MANIFEST*/;
+  const MANIFEST = /*@ASSET_MANIFEST*/[["assets/UI/bgdeco_spark.svg",219],["assets/UI/bgdeco_star.svg",390],["assets/UI/bgdeco_star_o.svg",447],["assets/swiftpal_buttons/btn-next-disabled.svg",673],["assets/UI/start_card.webp",1024],["assets/swiftpal_buttons/btn-next.svg",1271],["assets/swiftpal_buttons/btn-finish.svg",1316],["assets/swiftpal_buttons/btn-play-round.svg",2645],["assets/swiftpal_buttons/btn-play-round-waiting.svg",2655],["assets/SFX/sfx_next.wav",3278],["assets/SFX/sfx_tap.wav",3824],["assets/UI/nudge_hand_new.svg",6860],["assets/UI/mascot.webp",8006],["assets/UI/sw_anim_rest.webp",8816],["assets/SFX/sfx_play.wav",13594],["assets/SFX/sfx_seat.wav",14386],["assets/Images/adventure/keyhole.webp",16594],["assets/UI/start_mascot.webp",18020],["assets/Images/adventure/railway_frame.webp",19240],["assets/Images/adventure/plank_option.webp",19922],["assets/SFX/sfx_whoosh.wav",22384],["assets/SFX/sfx_wrong.wav",23118],["assets/UI/sw_explain_still.webp",24366],["assets/UI/startnew_bg_plain.webp",24446],["assets/Images/adventure/railway_tile.webp",25490],["assets/Images/pic_chidiya_udna.webp",26102],["assets/Images/last_swifty_still.webp",26456],["assets/SFX/sfx_correct.wav",27280],["assets/VO/vo_w_rahe.wav",27980],["assets/Images/bridges_top/part_wood_focus.webp",30664],["assets/Images/adventure/gear_badge.webp",34400],["assets/Images/adventure/railway_arm.webp",34604],["assets/VO/vo_w_lage.wav",34604],["assets/SFX/sfx_burst.wav",34960],["assets/UI/sw_head_hint.webp",36812],["assets/UI/sw_head_talking.webp",37384],["assets/Images/pic_raat_taare.webp",38382],["assets/new assets for game /pic_raat_taare.webp",38382],["assets/Images/bridges_top/part_bamboo_focus.webp",39862],["assets/Images/title_sentence.webp",40100],["assets/Images/bridges_top/part_stone_focus.webp",40142],["assets/UI/sw_head_celebrate.webp",41998],["assets/Images/adventure/gate_bg.webp",42984],["assets/VO/vo_w_hain.wav",46124],["assets/Images/adventure/railway_motor.webp",46396],["assets/VO/vo_w_hai.wav",48044],["assets/SFX/sfx_celebrate.wav",48078],["assets/UI/sw_head_tryagain.webp",48836],["assets/Images/pic_bachcha_pyaasa.webp",48982],["assets/new assets for game /pic_bachcha_pyaasa.webp",48982],["assets/VO/vo_w_kha.wav",49964],["assets/VO/vo_w_padh.wav",49964],["assets/VO/vo_w_par.wav",49964],["assets/VO/vo_w_patte.wav",49964],["assets/VO/vo_w_ped.wav",49964],["assets/UI/end_screen.webp",50224],["assets/Images/adventure/cave_door.webp",50600],["assets/VO/vo_w_chidiya.wav",51884],["assets/VO/vo_w_gaana.wav",51884],["assets/VO/vo_w_se.wav",51884],["assets/UI/startnew_bg.webp",52978],["assets/VO/vo_w_gaay.wav",53804],["assets/VO/vo_w_gir.wav",53804],["assets/VO/vo_w_khel.wav",53804],["assets/VO/vo_w_paani.wav",53804],["assets/VO/vo_w_phal.wav",53804],["assets/VO/vo_w_phool.wav",55724],["assets/VO/vo_w_rahi.wav",55724],["assets/VO/vo_w_thanda.wav",55724],["assets/Images/adventure/clue_paths_pic.webp",56560],["assets/VO/vo_w_kitaab.wav",57644],["assets/VO/vo_w_ladki.wav",57644],["assets/VO/vo_w_mein.wav",57644],["assets/VO/vo_w_mitti.wav",57644],["assets/VO/vo_w_pencil.wav",57644],["assets/Images/title_words.webp",58166],["assets/VO/vo_w_bachche.wav",59564],["assets/VO/vo_w_ga.wav",59564],["assets/VO/vo_w_gaadi.wav",59564],["assets/VO/vo_w_ganda.wav",59564],["assets/VO/vo_w_gend.wav",59564],["assets/VO/vo_w_roti.wav",59564],["assets/VO/vo_w_seb.wav",59564],["assets/VO/vo_w_taare.wav",59564],["assets/Images/pic_ladki_kitab.webp",60106],["assets/new assets for game /keyhole.png",61170],["assets/Images/pic_kutta_gend.webp",61240],["assets/Images/adventure/wood.webp",61258],["assets/VO/vo_w_bakri.wav",61484],["assets/VO/vo_w_sundar.wav",61484],["assets/VO/vo_sahi.wav",61680],["assets/VO/vo_w_ghaas.wav",63404],["assets/VO/vo_w_kha_rahi.wav",63404],["assets/VO/vo_w_kutta.wav",63404],["assets/VO/vo_w_machhli.wav",63404],["assets/VO/vo_w_maidan.wav",65324],["assets/VO/vo_w_raha.wav",65324],["assets/VO/vo_w_daud_rahi.wav",67244],["assets/Images/pic_meera_paani.webp",68240],["assets/new assets for game /pic_meera_paani.webp",68240],["assets/Images/adventure/gate.webp",69678],["assets/Images/pic_billi_tokri.webp",71530],["assets/new assets for game /pic_billi_tokri.webp",71530],["assets/Images/pic_ladki_gaana.webp",71970],["assets/new assets for game /pic_ladki_gaana.webp",71970],["assets/Images/adventure/question_board.webp",72274],["assets/Images/pic_gaay_ghaas.webp",74800],["assets/Images/adventure/clue_door_pic.webp",76832],["assets/VO/vo_w_so_rahi.wav",76844],["assets/Images/pic_bakri_patte.webp",77022],["assets/new assets for game /pic_bakri_patte.webp",77022],["assets/Images/title.webp",77504],["assets/new assets for game /Cartoon Wooden Game Signboard 3.png",77998],["assets/VO/vo_pt_tutorial.wav",80684],["assets/Images/pic_bachche_maidan.webp",81756],["assets/Images/adventure/wash.webp",82404],["assets/Images/pic_ped_seb.webp",84224],["assets/VO/vo_try_again.wav",88364],["assets/Images/adventure/clue_paths.webp",88378],["assets/Images/adventure/key.webp",91852],["assets/VO/vo_g3_s.wav",96044],["assets/Images/pic_sundar_bagicha.webp",103098],["assets/VO/vo_shabash_sahi.wav",105238],["assets/Images/adventure/cave_bg.webp",107114],["assets/VO/vo_pt_guided.wav",107564],["assets/Images/adventure/stairs.webp",109790],["assets/VO/vo_g2_s.wav",111404],["assets/VO/vo_p5_s.wav",111404],["assets/VO/vo_t3_s.wav",111404],["assets/Images/bridges/piece_wood.webp",112114],["assets/Images/adventure/swifty_idle.webp",113212],["assets/VO/vo_t2_s.wav",115244],["assets/Images/adventure/sign_up.webp",115690],["assets/VO/vo_t1_stem.wav",117108],["assets/Images/adventure/bridge.webp",117138],["assets/VO/vo_pt_practice.wav",117164],["assets/Images/adventure/sign_right.webp",120160],["assets/VO/vo_g4_s.wav",121004],["assets/Images/adventure/clue_door.webp",122442],["assets/VO/vo_g4_prompt.wav",122924],["assets/VO/vo_p6_s.wav",122924],["assets/Images/adventure/gear.webp",123072],["assets/Images/adventure/sign_left.webp",124762],["assets/VO/vo_t1_o_machhli.wav",124844],["assets/VO/vo_g2_prompt.wav",126764],["assets/VO/vo_g3_prompt.wav",128684],["assets/VO/vo_t1_o_chidiya.wav",128684],["assets/VO/vo_t1_o_gaadi.wav",128684],["assets/Images/adventure/water_bg.webp",129830],["assets/Images/bridges_top/part_wood.webp",130972],["assets/VO/vo_p6_prompt.wav",132524],["assets/Images/bridges/piece_stone.webp",135560],["assets/Images/adventure/paths.webp",135562],["assets/Images/adventure/home.webp",136390],["assets/Images/bridges_top/part_stone.webp",138804],["assets/VO/vo_p5_prompt.wav",142124],["assets/VO/vo_p2_stem.wav",144044],["assets/Images/adventure/bridge_top.webp",144690],["assets/Images/adventure/bridge_top_filled.webp",145270],["assets/VO/vo_p3_prompt.wav",145964],["assets/VO/vo_p4_prompt.wav",145964],["assets/Images/adventure/cave_frame.webp",147308],["assets/Images/bridges/piece_bamboo.webp",147410],["assets/VO/vo_p3_stem.wav",149804],["assets/Images/bridges_top/part_wood_vertical.webp",154288],["assets/Images/bridges_top/bg_village_matched.webp",155546],["assets/Images/bridges_top/part_bamboo.webp",156232],["assets/Images/adventure/door_frame.webp",157154],["assets/VO/vo_g1_stem.wav",157484],["assets/Images/bridges_top/bg_meadow_matched.webp",159422],["assets/VO/vo_p4_stem.wav",161324],["assets/Images/adventure/house.webp",165918],["assets/VO/vo_reveal.wav",167084],["assets/VO/vo_p1_stem.wav",170924],["assets/VO/vo_p2_prompt.wav",172844],["assets/Images/bridges_top/part_bamboo_vertical.webp",173758],["assets/UI/loader.webp",178248],["assets/VO/vo_celebrate.wav",178604],["assets/Images/bridges_top/bg_canyon_matched.webp",179932],["assets/VO/vo_p1_prompt.wav",180524],["assets/Images/bridges_top/bg_school_matched.webp",181246],["assets/Images/bridges_top/bg_forest_matched.webp",183994],["assets/Images/adventure/bridge_scene.webp",185606],["assets/UI/swifty_walk_back_strip.webp",191916],["assets/Images/bridges_top/bg_bamboo_matched.webp",192038],["assets/UI/swifty_walk_back.webp",197030],["assets/Images/adventure/home_gate.webp",203836],["assets/UI/swifty_walk_back.gif",210433],["assets/Images/adventure/railway_bg.webp",221934],["assets/Images/adventure/stairs_scene.webp",225854],["assets/Images/adventure/journey_map_railway_open.webp",227594],["assets/VO/vo_g4_c.wav",228524],["assets/VO/vo_t1_c.wav",228524],["assets/Images/adventure/swifty_walk.webp",231788],["assets/Images/adventure/swifty_walk_atlas.webp",232040],["assets/UI/swifty_walk_front_strip.webp",232342],["assets/UI/swifty_walk_front.webp",233220],["assets/VO/vo_g3_c.wav",234284],["assets/VO/vo_p2_c.wav",238124],["assets/VO/vo_p6_c.wav",240044],["assets/Images/adventure/journey_map.webp",240806],["assets/Images/adventure/door.webp",242882],["assets/Images/bridges_top/swiftee_walk.webp",243170],["assets/UI/swifty_walk_strip.webp",244456],["assets/UI/swifty_walk.webp",244810],["assets/VO/vo_g2_c.wav",255404],["assets/VO/vo_p5_c.wav",257324],["assets/UI/swifty_walk_front.gif",259644],["assets/VO/vo_g1_c.wav",261164],["assets/VO/vo_p1_c.wav",261164],["assets/UI/swifty_walk.gif",261918],["assets/Images/adventure/swifty_walk.gif",274246],["assets/Images/adventure/cave.webp",278094],["assets/VO/vo_p3_c.wav",289964],["assets/Images/bridges/hanging.webp",290776],["assets/VO/vo_landing.wav",295724],["assets/Images/bridges/swiftee_walk.webp",303504],["assets/VO/vo_t2_prompt.wav",311084],["assets/VO/vo_g1_prompt.wav",313004],["assets/Images/bridges/stone.webp",313860],["assets/VO/vo_p4_c.wav",314924],["assets/Images/bridges/wood.webp",315084],["assets/Images/bridges/rope.webp",326278],["assets/Images/bridges_top/deck_stone.webp",326280],["assets/Images/bridges_top/deck_hanging.webp",329562],["assets/VO/vo_t3_prompt.wav",330284],["assets/Images/bridges_top/bg_meadow.webp",336198],["assets/Images/bridges_top/deck_rope.webp",337020],["assets/Images/bridges_top/deck_wood.webp",337528],["assets/Images/title_screen.webp",345264],["assets/Images/bridges/log.webp",350898],["assets/Images/bridges_top/bg_bamboo.webp",351316],["assets/VO/vo_t1_prompt.wav",359084],["assets/Images/bridges_top/deck_log.webp",359920],["assets/Images/bridges/bamboo.webp",362220],["assets/Images/bridges_top/bg_village.webp",363672],["assets/UI/sw_explain_talk.webp",369026],["assets/Images/bridges_top/deck_bamboo.webp",375620],["assets/Images/bridges_top/bg_canyon.webp",377156],["assets/Images/adventure/reference_paths.webp",380260],["assets/Images/adventure/reference_bridge.webp",380992],["assets/Images/adventure/reference_door.webp",390220],["assets/UI/sw_head_celebrate_anim.webp",390546],["assets/Images/bridges_top/bg_forest.webp",397464],["assets/Images/adventure/reference_stairs.webp",408954],["assets/Images/adventure/reference_home.webp",410490],["assets/Images/bridges_top/bg_school.webp",413460],["assets/UI/sw_head_tryagain_anim.webp",429222],["assets/UI/sw_head_hint_anim.webp",435706],["assets/Images/adventure/reference_cave.webp",450860],["assets/SFX/bgm_mela.wav",590848],["assets/new assets for game /game 3 ka question board .png",641217],["assets/UI/swifty_walk_back_sheet.png",676986],["assets/new assets for game /Group 8.png",715373],["assets/UI/swifty_walk_front_sheet.png",835955],["assets/UI/swifty_walk_sheet.png",897811],["assets/new assets for game /game 6 gate.png",915178],["assets/new assets for game /game gate 2.png",927133],["assets/new assets for game /gate bg.png",1079606],["assets/UI/new_landing_swiftee_anim.webp",1160630],["assets/new assets for game /Glossy Golden Gear Badge.png",1495306],["assets/peeking_talk_up.webp",1561680],["assets/Images/last_swifty_end.webp",1779506],["assets/new assets for game /Slide 16_9 - 19.png",1912621],["assets/new assets for game /Game 4 bg (1).png",2284547],["assets/new assets for game /water pull images.png",2694502],["assets/new assets for game /water bg.png",2798793]]/*@END_ASSET_MANIFEST*/;
   const HTTP = /^https?:$/.test(location.protocol) && !!window.fetch;
   const STALL_MS = 10000, HARD_MS = 60000, WORKERS = 5;
   const BASE = (function(){ try{ return new URL(".", location.href).href; }catch(e){ return ""; } })();
@@ -7572,7 +7592,7 @@ function wbBridgeMount(host,slide){
     else if(key==="paths"){
       const index=Number(game.dataset.choice)||0;
       // Swifty's feet (left+92, top+285) stay on the drawn paths: up the trunk to the fork, then along the chosen branch
-      const paths=[[[600,240,.85],[330,140,.7],[20,50,.5]],[[608,240,.85],[612,120,.65],[608,10,.45]],[[561,396,.95],[708,310,.85],[975,190,.7],[1128,85,.55],[1238,5,.45],[1340,-20,.4]]]   /* right branch: the line the user drew - up the right path and off the top-right corner */;
+      const paths=[[[470,440,1],[600,240,.85],[330,140,.7],[20,50,.5]],[[470,440,1],[608,240,.85],[612,120,.65],[608,10,.45]],[[470,440,1],[561,396,.95],[708,310,.85],[975,190,.7],[1128,85,.55],[1238,5,.45],[1340,-20,.4]]]   /* right branch: the line the user drew - up the right path and off the top-right corner */;
       walkTo(paths[index],3400,finish);
     }else if(key==="railway"){
       game.dataset.crossingPhase="opening";
@@ -8330,11 +8350,11 @@ let _gateToken = 0;
    A NEW URL is a new image with its own clock. Over http it is a blob: URL minted from ONE fetch,
    so the 6.9MB file is downloaded once, not once per gate (the problem [gate-cache] solved). From
    file:// fetch is blocked, so it is a counter in the query instead - a disk read, not a download. */
-const PEEK_SRC = "assets/peeking_talk10s.webp?v=20261029181725";
+const PEEK_SRC = "assets/peeking_talk10s.webp?v=20261029185240";
 /* [H11-154] THE FIRST GATE SKIPS THE RISE. Asked for: on the first transition Swifty is already up
    and talking, not climbing into view first. peeking_talk_up.webp is the same animation from 3.82s
    - the first frame he is at the top - cut by _tools/peek_cut.py; the other two gates keep the rise. */
-const PEEK_UP_SRC = "assets/peeking_talk_up.webp?v=20261029181725";
+const PEEK_UP_SRC = "assets/peeking_talk_up.webp?v=20261029185240";
 const _peekBlobs = {}; let _peekBlobUrl = null, _peekN = 0;
 if(/^https?:$/.test(location.protocol)){
   /* only the cut file: every gate uses it now, and peeking_talk10s.webp left the game folder */
@@ -8347,7 +8367,7 @@ if(/^https?:$/.test(location.protocol)){
    plays through once more while the greeting begins. Restarting an animated image means a NEW
    URL (one clock per URL, see [H11-132]): a blob: URL over http so the file is fetched once, a
    counter in the query from file://. */
-const LAND_ANIM_SRC = "assets/UI/new_landing_swiftee_anim.webp?v=20261029181725";
+const LAND_ANIM_SRC = "assets/UI/new_landing_swiftee_anim.webp?v=20261029185240";
 let _landBlob = null, _landN = 0;
 if(/^https?:$/.test(location.protocol)){
   try{ AssetLoader.blob(LAND_ANIM_SRC).then(b => { _landBlob = b; }).catch(()=>{}); }catch(e){}   /* [H11-187] on screen now: first in line */
