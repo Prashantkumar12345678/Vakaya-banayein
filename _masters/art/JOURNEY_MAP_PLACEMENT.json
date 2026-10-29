@@ -1,0 +1,310 @@
+{
+  "source": "_masters/art/journey_map_railway_source.png",
+  "output": "assets/Images/adventure/journey_map.webp",
+  "tool": "Built-in image_gen",
+  "reference": "_masters/art/journey_map_before_placement.webp",
+  "brief": "Preserve six landmark designs, reconnect door to signpost, staircase top to bottom then visible path outside house boundary to gate. Six ordered nodes, no HUD or character baked into map. Three visual iterations reviewed.",
+  "stage_size": [
+    1333,
+    750
+  ],
+  "landmarks": [
+    "bridge",
+    "door",
+    "signpost",
+    "tunnel",
+    "railway",
+    "home"
+  ],
+  "nodes": [
+    [
+      197,
+      580
+    ],
+    [
+      436,
+      400
+    ],
+    [
+      418,
+      158
+    ],
+    [
+      547,
+      171
+    ],
+    [
+      981,
+      194
+    ],
+    [
+      1055,
+      577
+    ]
+  ],
+  "routes": [
+    [
+      [
+        140,
+        608
+      ],
+      [
+        197,
+        580
+      ]
+    ],
+    [
+      [
+        197,
+        580
+      ],
+      [
+        238,
+        574
+      ],
+      [
+        281,
+        562
+      ],
+      [
+        335,
+        547
+      ],
+      [
+        390,
+        533
+      ],
+      [
+        447,
+        517
+      ],
+      [
+        486,
+        499
+      ],
+      [
+        510,
+        478
+      ],
+      [
+        517,
+        462
+      ],
+      [
+        507,
+        447
+      ],
+      [
+        480,
+        433
+      ],
+      [
+        436,
+        400
+      ]
+    ],
+    [
+      [
+        436,
+        400
+      ],
+      [
+        375,
+        416
+      ],
+      [
+        334,
+        407
+      ],
+      [
+        304,
+        393
+      ],
+      [
+        282,
+        368
+      ],
+      [
+        271,
+        338
+      ],
+      [
+        275,
+        305
+      ],
+      [
+        288,
+        279
+      ],
+      [
+        321,
+        249
+      ],
+      [
+        353,
+        219
+      ],
+      [
+        387,
+        186
+      ],
+      [
+        418,
+        158
+      ]
+    ],
+    [
+      [
+        418,
+        158
+      ],
+      [
+        449,
+        156
+      ],
+      [
+        477,
+        168
+      ],
+      [
+        509,
+        181
+      ],
+      [
+        547,
+        171
+      ]
+    ],
+    [
+      [
+        547,
+        171
+      ],
+      [
+        566,
+        165
+      ],
+      [
+        588,
+        156
+      ],
+      [
+        615,
+        145
+      ],
+      [
+        747,
+        143
+      ],
+      [
+        874,
+        155
+      ],
+      [
+        897,
+        174
+      ],
+      [
+        935,
+        193
+      ],
+      [
+        981,
+        194
+      ]
+    ],
+    [
+      [
+        981,
+        194
+      ],
+      [
+        1004,
+        219
+      ],
+      [
+        1020,
+        247
+      ],
+      [
+        1042,
+        277
+      ],
+      [
+        1066,
+        307
+      ],
+      [
+        1095,
+        336
+      ],
+      [
+        1068,
+        357
+      ],
+      [
+        1035,
+        375
+      ],
+      [
+        1001,
+        397
+      ],
+      [
+        974,
+        424
+      ],
+      [
+        950,
+        460
+      ],
+      [
+        933,
+        493
+      ],
+      [
+        935,
+        521
+      ],
+      [
+        950,
+        544
+      ],
+      [
+        977,
+        562
+      ],
+      [
+        1016,
+        581
+      ],
+      [
+        1055,
+        577
+      ]
+    ]
+  ],
+  "simplification": {
+    "tool": "Built-in image_gen",
+    "source": "exec-5d0e144e-be75-478d-837f-9e0cdc9bf9d0.png",
+    "reference": "_masters/art/journey_map_before_simplification.webp",
+    "brief": "Remove most scattered plants, flowers, vines and small rocks, simplify river details and distant landscape; retain six landmark placements and trail geometry. Replace crystal cave with a daylight walk-through stone tunnel. Preserve original UI Swifty and all gameplay."
+  },
+  "tunnel_crossing": {
+    "tool": "Built-in image_gen",
+    "source": "exec-7b7badde-cb27-47e8-a251-cee5c9b0ed18.png",
+    "brief": "Two visible mouths through one low rock mound. Path enters left opening and exits right toward stairs. Remove bypass. Restore missing continuous door-to-sign path and sixth gold pad.",
+    "runtime": "After tunnel question, Swifty shrinks into left mouth, is occluded beneath rock roof, emerges at right mouth, and reaches stairs. Timed phases and motion use common distance offsets and map cleanup.",
+    "route_index": 4
+  },
+  "detail_reduction": {
+    "tool": "Built-in image_gen",
+    "source": "exec-2d9984dc-2e13-40a3-a142-325dd64cb7a0.png",
+    "brief": "Reduce scattered plants, grass detail, tiny stones and water highlights while preserving approved 3D map, all six pads, landmarks, connected trail and two-mouth tunnel. Keep camera, crop and landmark placements."
+  },
+  "railway": {
+    "brief": "Replace stairs with level railway crossing on same connected trail; closed map before P5, open map after P5. Original six checkpoints and two-mouth tunnel preserved.",
+    "closed": "assets/Images/adventure/journey_map.webp",
+    "open": "assets/Images/adventure/journey_map_railway_open.webp"
+  }
+}

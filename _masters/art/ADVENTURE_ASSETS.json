@@ -1,0 +1,132 @@
+{
+  "tool": "Built-in image_gen",
+  "assets": [
+    {
+      "key": "wash",
+      "alpha": false,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-cc874edf-8628-4735-9256-3c5083b3a7d7.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. ONE clean background plate: pale sky-blue watercolor paper wash across upper65%, softly transitions to warmcream/sand atbottom; very faint sage atfarouteredges. No objects, horizon, buildings, paths, characters, text, UI, shadows or decorations. Match sparse paintedpaper backdrop of providedreference. Landscape16:9."
+    },
+    {
+      "key": "bridge",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-619ff705-8277-455b-ba0f-0f97b16f5609.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. EXTRACT ONLY the horizontal wooden bridge structure, preserving approved high slightly overhead angle and warm paintedwood. Remove ALL words/letters, mascot, picture, options, map, dots, speaker, river, sand and surroundings. GENUINELY TRANSPARENT background. Entire bridge visible as isolated wide object. It has seven equal deck sections across its broad WALKING surface; fourth section missing shows genuine alpha. Others solid flush warmgolden timber. Thin railings/postsonupper/lowerlongedges, fullbridgevisible. No ground or river. Wide approx5:1objectaspect, centeredwithnarrowmargin."
+    },
+    {
+      "key": "door",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-c20c9456-5695-48f8-a8ad-8d543e43ac5a.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. EXTRACT ONLY large wooden arched doublegate with its simple thin lightstonearch. REMOVE all words, keyhole and locks, mascot,picture,keys,HUD,background,ground. GENUINELY TRANSPARENT background, isolatedgate croppedtightwithsmallmargin. Keep broad light-honey wooden door surface, simplehingesouteredges, centeredverticalseam, approvedpaintedstorybooklook. Door fullyclosed; blankwoodfacewillreceive livequestion. No signs or plaques. Wholeobjectvisible."
+    },
+    {
+      "key": "paths",
+      "alpha": false,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-237305c3-c05c-43e4-9400-7f9b2036ff81.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. BACKGROUND PLATE ONLY. Remove ALL question/signboards/signposts/words, Swifty, picturebubble,map,dots,speaker. Preserve the one WIDE tan path enteringbottomcenter and splitting atsinglejunction into THREE clearly distinct walkable paths left,forward,right. Keep open centraljunction aroundx50%y72%. Left exitsleftedgeat45%height, middleexitsuppermiddleat25%height,right exitsrightedgeat45%height. Extremelysparse pale sagegreen/bluewatercolorwashsurround, tinygrassmarks fewedgesonly. No otherobjects, no forestorflowers. Fulllandscape16:9."
+    },
+    {
+      "key": "cave",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-3e3e7fcd-bbe8-4a98-b6b9-17c451509144.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. EXTRACT ONLY the large closed arched STONE DOUBLEGATE with thin rocky arch. REMOVE ALL questiontext, cogwheels, socket, lock,bars,letters, optiongears, Swifty, picture,HUD,background,ground. GENUINELY TRANSPARENT aroundwholegate. Preserve approved coolerbluegrayarch and broad lightwarmivory stone doors, verticalcenterseam, softpaintedshading, blankclearfacefor livequestion. Doorsfullyclosed. Entireobjectvisible, smalltransparentmargin, no extraobjects."
+    },
+    {
+      "key": "stairs",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-5002860b-d928-40e5-8b49-55b22f7d9679.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. EXTRACT ONLY the TWO slim diagonal warmwood STRINGERS and their smalltreadsupportnotches risingfromlowerlefttoupperright, plus ONE SIMPLE pale lavender-gray upperplatform behind top. ALL FIVE TREADS must be TRULY MISSING: remove installed लड़कीtread, all dashedguides, all words/options/Swifty/picture/HUD/ground/background. Transparent AIR in everytreadgap; no completedstairs or visiblewalkingsurfacesbetweensidebeams. GENUINELYTRANSPARENT background. Structurehasfive evenlyspacedtreadpositions. Lowerleftstarttopleft? Direction lowerlefttowardupperright. Minimalsoftpaintedplatform, no roughrocktextureorplants. Fullstructurevisible centerobject approx1.4:1, tightlyframedwithsmallmargin."
+    },
+    {
+      "key": "home",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-29afe3ab-ba83-4493-985c-29e82f8d1396.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. EXTRACT ONLY the CLOSED front WOODEN DOUBLE GATE, itsfiveEMPTYrectangularinsertsockets, and twogateposts. Remove house, boundarywall,trees,ground,ALLwords,alloptionpieces,Swifty,picture,HUD. GENUINELYTRANSPARENT background. Keep approved warmsienna paintedgate slight arch and lightgoldsocketrims withoutglow. Equalfiveemptyrecesses inonehorizontalrow acrossthemiddle. Wholegatevisible centerobject, approx3:1. No textorlettersanywhere."
+    },
+    {
+      "key": "house",
+      "alpha": false,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-d0222377-1e3b-407e-975f-96002479e069.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. BACKGROUND PLATE: keep ONLY the simple house inuppercenter/right, lowcream boundarywalls and quietsandground, allin sparsewatercolorstyle. REMOVE the entirecentralwoodengate leaving an OPEN ENTRY into the courtyard inlower-middle. No gate/posts,words,answerpieces,Swifty,picturebubble,map,dots,speaker. Lowboundarywallsatleft/rightwithwidecentralopening x25%-92%, y35%-65%. House modestwarmcreamwall,terracottaroof,onebluewindowanddoor, mutedlowcontrast, noflowersorbusytreefoliage. Pale blue/sagewashbackground, openforegroundwarmcream. Fulllandscape16:9."
+    },
+    {
+      "key": "wood",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-8c3fe54c-6a46-40e5-9af3-24078c2b2f55.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. ONE isolated blank light-honey WOODEN WORD INSERT, no text. Same material/color/style as sample bottomwordpieces. Broadhorizontalrectangle approx2.5:1, gentlybeveledcorners, subtlepaintedwoodgrain, frontfacingwithtinyvisiblethickness. Wholepiecevisible againstGENUINELYTRANSPARENT background,tightmargin. No letters,objects,shadowonbackgroundorUI."
+    },
+    {
+      "key": "key",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-abfa64f6-4a0f-4680-a3e8-97117f648709.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. ONE isolated goldenbrass KEY fromsample bottomrow, shaftpointingLEFT and largebroadivoryovalhandleonRIGHT. Remove allwords. HandleblankwhitespaceforliveHindilabel, handleoccupiesright60% ofkey. Samepaintedstorybookstyle,nohyperrealgloss. Horizontalobjectapprox3:1, wholekeyvisible,GENUINELYTRANSPARENTbackground,tightmargin. Nootherobjectsorlabels."
+    },
+    {
+      "key": "gear",
+      "alpha": true,
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-1645d5e0-9b6e-4d3c-afd3-aff35641f1d0.png",
+      "prompt": "Use case: stylized-concept. Production game asset derived from approved reference, NOT a screen mockup. Match approved Indian children's watercolorstorybook rendering, quietwatercolorbackdrop and crispwarm paintedgameobjects. ONE isolatedgoldenbrass COGWHEEL matching threeoptiongears inreference. Removeallwords. Broadblank ivorycircularcenterforliveword, evenlyspacedroundedtwelvegear teeth, gentlehandpainteddimensionalshading. Frontfacingperfectcircle, centralfaceblank,noholethroughmiddletextarea. WholeobjectvisibleagainstGENUINELYTRANSPARENTbackground,tightmargin. No labelsorotherobjects."
+    },
+    {
+      "key": "swifty_idle",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-848f009e-0eb6-4735-b02f-34fc2580be3c.png",
+      "prompt": "Extract ONLY the exact Swifty bird character from LEFT of this approved game sample, preserving identity, soft paintedstorybookfinish, cleanwarmoutline, whitefluffyhead,bigblueeyes, yellowhoodiewithsmileypatch, blueshorts, browncrossbodysatchel, orangeyellowfeet. Same friendly standingpose facingviewer/threequarterright, same colors, proportions and expression. RemoveALL scenery,words,bridge,clueandUI. ONE fullbodycharacteronGENUINELYTRANSPARENTbackground, entiretyvisiblewithsmallmargin. This is a game sprite, do not redesign, add objects or text."
+    },
+    {
+      "key": "door_frame",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-2d320419-2ffa-405e-b089-a9a215d3de61.png",
+      "prompt": "Extract ONLY the outer thin warm lightstone ARCH FRAME and its visiblehinges fromthisgate. Remove BOTH WOODEN DOOR PANELS ENTIRELY leaving a genuinely transparent OPEN ARCHWAY. Preserve exactshape,positions,width,height,stonematerialandoutlineofreference outerarch. NO woodremaining inopening, no plain coloredfill, no sceneryorbackground. GENUINELYTRANSPARENT outside AND inside. This is a compositingassetalignedwithoriginalgate, fullouterarchvisible centeredtightcrop,no text."
+    },
+    {
+      "key": "cave_frame",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-73cd4f2d-899c-4e7a-a2e0-e2fdcf19de62.png",
+      "prompt": "Extract ONLY the exact outer bluegray chunky STONE ARCH FRAME fromthisgate. Remove BOTH INNER IVORY STONE DOOR SLABS completely, leave a genuinely transparent OPEN ARCHWAY. Preserve outerarchshape,proportions,material,stonesizesandpaintedlook. NO ivorypanelsleftinside,no flatcoloredfill,no scenery. GENUINELYTRANSPARENT inside and outside. Fullouterarchvisible centeredtightcrop, no wordsorotherobjects."
+    },
+    {
+      "key": "walk_atlas",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-aec396e1-112b-4742-af65-49cddfa47b33.png",
+      "prompt": "Use case: precise-object-edit. Create a production 8-FRAME WALK-CYCLE SPRITE SHEET of this exact bird. ONE horizontal row of EIGHT equal square cells, total aspect ratio8:1. Eachcell same size, same character height, same baseline, same camera threequarterSIDE facing RIGHT. Entire fullbodyfits inside eachcell with margin, charactercenterstayed fixed percell. EXACT identitywhiteheadblueeyesyellowhoodiesmileypatchblueshorts brownsatchel. Sequential WALKING, not jumping,dancingorstaticposing: frames1leftfootfrontcontact,rightbehind;2leftweight/down,righttoeoff;3leftsupport,rightfootpassing;4rightfootforwardup;5rightfrontcontact,leftbehind;6rightweight/down,lefttoeoff;7rightsupport,leftpassing;8leftforwardup. Feetalternate, kneesbend, armscounter-swing, subtlebodyup/down3%height, bagsoftsway; headscaleandfaceremainidentical, no mouthflapping. Connect8backto1forseamlessloop. Cleanstorybookpaintedrender consistentwithreference. Transparentbackgroundthroughallcells. NO grids, numbers,text,shadowsongroundorotherobjects. Outputwidestlandscapespriteatlas."
+    },
+    {
+      "key": "stairs_scene",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-2de3446e-6ef8-4d69-adfe-62e3098077a6.png",
+      "prompt": "Use case: precise-object-edit. Create a CLEAN BACKGROUND PLATE from EXACT sample. Lock camera, every stair/stringer/cliff/platform pixelplacement, color, watercolor texture and size. Erase Swifty,bubble,picture,map,speaker,dots,all8answerblocks,allHindiwords, andALL dashedguides. Remove the ONLY installed firsttread लड़की so allfivephysicaltreadsabsent. Preserve exact originalcorrectlyangledside-stringers atsameposition, supportingnotches, large pale bluegraycliffbehindthem (not isolatedfloatingladder), simpletopplatformandquietwash. RepairremovedUIareaswithsameunderlyingwash, bottomwordblocksareaswithplainsand. Do not redesignterrain, shiftrails, changeangle or addobjects. Exact16:9fullsamplecomposition, notcrop."
+    },
+    {
+      "key": "sign_left",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-029bb773-dec8-46af-b817-03f4705d0676.png",
+      "prompt": "Use case: precise-object-edit. Extract ONLY the LEFT wooden DIRECTION SIGN with leftpointingarrow and its uprightwoodenpost from approvedsample. Remove word पेंसिल leaving smoothblankboard. Preserve exactshape/proportions/paintedwoodcolor, pointedlefttip, flatrightedge, postandtinygrassatfoot. No otherobjects, scene,UIorwords. Entireisolatedsignpostontransparentbackground,tightboundingbox. Board broad enough for6letterHindilabel."
+    },
+    {
+      "key": "sign_up",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-870cede2-d098-44c4-ac69-8f01f87508f2.png",
+      "prompt": "Use case: precise-object-edit. Extract ONLY the MIDDLE wooden DIRECTION SIGN with forward/up-pointing roofshapedarrow and uprightpost fromapprovedsample. Removeword रोटी leavingblankboard. Preserve exactshape/proportions/paintedwoodcolor, pointedtop broadhorizontalbody, postandtinygrassatfoot. No otherobjects,scene,UIorwords. Entireisolatedsignpostontransparentbackground,tightboundingbox."
+    },
+    {
+      "key": "sign_right",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-591ca5c0-723d-4479-8a11-1189eb62c8ac.png",
+      "prompt": "Use case: precise-object-edit. Extract ONLY the RIGHT wooden DIRECTION SIGN with rightpointingarrow and uprightpost fromapprovedsample. Removeword पानी leavingblankboard. Preserve exactshape/proportions/paintedwoodcolor, pointedrighttip, flatleftedge, postandtinygrassatfoot. No otherobjects,scene,UIorwords. Entireisolatedsignpostontransparentbackground,tightboundingbox."
+    },
+    {
+      "key": "bridge_scene",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-89d47005-158d-4d4e-8609-8c73b16af60e.png",
+      "prompt": "Use case: precise-object-edit. Make an EXACT clean BACKGROUND PLATE of this approved bridge sample. Preserve original entire watercolor river and narrow sand banks, all exact colors, quiet handpainted water texture, edgepositions and originalcamera/composition at16:9. Remove ALL bridgewood/posts/rails/deck, words, Swifty, girl/picturebubble, mapicon, sixdots,speaker and allthreefloatingoptionplanksandtheirripples. RepairallremovedareaswithCONTINUOUSsamecalmpaleturquoisewater incenter andplainsandonfarleft/right. Riverflowsuninterruptedfromtopedgetobottomedge, centerx15%-95%, sameapprovedwatercolorbrushwash. No newobjects, notflatcolorfill, notrealisticwater,no sparkles, no vegetation. Only originalwatercolor riverandbanks acrossfullcanvas."
+    },
+    {
+      "key": "clue_door",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-a877c27c-bc04-48e7-b7dd-392bee78708b.png",
+      "prompt": "Use case: background-extraction. Extract ONLY the white CLOUD SHAPED THOUGHT BUBBLE containing the sleeping orange-and-white cat in its wickerbasket inUPPERLEFT, togetherwiththethreewhiteconnectingthoughtdotsbelow it fromthisapprovedgameimage. Preserve the exact pictured character/animal, pose, facialexpression,colors, framing, whitecloudoutline andthoughtdots. This is the exact approved clue illustration, do not redraw itscontentorchangeidentity. REMOVE EVERY OTHER ELEMENT, including all mapicon pieces,scenery,words,gate,signposts,mainbird,speakerandprogressdots. GENUINELYTRANSPARENToutsidewhitebubbleanddots. CompletebubbleandthoughtdotsvisibleasONEisolatedsprite, no missingparts, smalltransparentmargin, noinstructionsoraddedtext."
+    },
+    {
+      "key": "clue_paths",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-460fdd7d-74a8-466b-bc1c-a6cbd323db5b.png",
+      "prompt": "Use case: background-extraction. Extract ONLY the white CLOUD SHAPED THOUGHT BUBBLE containing the thirstyboy inredshirt holdingemptyglass inUPPERLEFT, togetherwiththethreewhiteconnectingthoughtdotsbelow it fromthisapprovedgameimage. Preserve the exact pictured character/animal, pose, facialexpression,colors, framing, whitecloudoutline andthoughtdots. This is the exact approved clue illustration, do not redraw itscontentorchangeidentity. REMOVE EVERY OTHER ELEMENT, including all mapicon pieces,scenery,words,gate,signposts,mainbird,speakerandprogressdots. GENUINELYTRANSPARENToutsidewhitebubbleanddots. CompletebubbleandthoughtdotsvisibleasONEisolatedsprite, no missingparts, smalltransparentmargin, noinstructionsoraddedtext."
+    },
+    {
+      "key": "journey_map",
+      "path": "/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702/exec-388032be-13bc-4922-ac10-4fb7de07f2cf.png",
+      "prompt": "Use case: precise-object-edit. Clean this approved adventure MAP for actual gameplay. Preserve ALL six landmarks, route/dottedtrail, sixgoldenroundgroundnodes, terrain, colors, framing, exactpositionsand16:9camera. Remove ONLY: the foldedmapiconupperleft, progressdotsupperright, speakerbuttonupperright, and the Swiftybird standingbythefirstbridge atlowerleft. Repair these smallremovedareaswiththeirunderlyinggrass/water/sky/path. Do not remove the SIX GOLDEN ROUTE NODES on the ground; thosearemaplandmarks, NOT HUDdots. No newobjects, text,numbers,labelsorcharacters. Themapmustremainexactlythesameapprovedworld, withclearbridge,lockeddoor,threewaysign,cave,stairsandfriendshousegate. Output cleanfullmapbackgroundonly, no UIbuttons."
+    }
+  ],
+  "animation": "Eight phase imagegen walk atlas, normalized to common frame size and baseline, isolated connected bird silhouette, exported to full-alpha animated WebP and transparent GIF; 95ms per frame, looping."
+}

@@ -1,0 +1,63 @@
+{
+  "tool": "Built-in image_gen",
+  "identity_reference": "HI02H12_L02_S01/assets/UI/sw_explain_still.webp",
+  "identity_sha256": "1d1d2e7f9b912cab4b2ef827d7b605cbdb9f6231224465931375d9aef5d509fb",
+  "prompt": "Use case: identity-preserve. Production walking SPRITE SHEET for THIS EXACT EXISTING UI MASCOT. Reference is the identity master and MUST remain the character, not a style inspiration. Preserve its exact flat 2D cel-shaded illustration: cream-white round head and same small feather tuft, identical big simple blue eyes and black eyebrow shapes, exact orange beak/smiling openmouth, original head-to-body proportions, original golden-yellow hoodie and simple smiley badge, same blue shorts, brown cross-body strap and satchel, same orange-yellow bird feet. NO realistic fur/feathers, no 3D gloss, no painterly reinterpretation, no different face, no extra tuft, no new eyelashes, no new outfit. Keep the head/face essentially locked like the source across ALL frames; ONLY legs, arms, body weight and satchel sway animate.\nCreate exactly EIGHT sequential walk-cycle frames arranged in a precisely regular 4 COLUMN x 2 ROW GRID (frames1-4toprow,5-8bottomrow), transparent background, ideally2048x1536 total. Each equal cell has one full-body original mascot in the SAME slight right-facing three-quarter direction, consistent pixel height and common baseline, generous empty gutter so neighboring limbs NEVER overlap cells, no cut-off toes/head/bag. Walking in place, not running or marching: left front heel-contact, down/weight, right foot passing, right foot lift, right front heel-contact, down/weight, left foot passing, left foot lift; feet alternate and arms counter-swing, very subtle headbob. Clean natural seamless loop fromframe8to1. Character center stays fixed acrosscells. GENUINELY transparent surroundings. No ground/shadows, no grid lines, no text, no frame numbers, no UI. This must visibly be the SAME original game UI Swifty, now walking.",
+  "master": "_masters/art/swifty_ui_walk_source.png",
+  "exporter": "_tools/build_ui_swifty_walk.py",
+  "frames": 8,
+  "frame_size": [
+    256,
+    384
+  ],
+  "duration_ms": 100,
+  "outputs": [
+    "assets/UI/swifty_walk_sheet.png",
+    "assets/UI/swifty_walk_strip.webp",
+    "assets/UI/swifty_walk.webp",
+    "assets/UI/swifty_walk.gif"
+  ],
+  "runtime": "Original UI bitmap at rest; CSS eight-frame strips during motion. Front/back/left/right chosen per path segment; rear view for stair climbing. Direction timers share scene/map cleanup.",
+  "angles": {
+    "front": {
+      "master": "_masters/art/swifty_ui_walk_angles_source.png",
+      "rows": [
+        0,
+        1
+      ],
+      "strip": "assets/UI/swifty_walk_front_strip.webp",
+      "sheet": "assets/UI/swifty_walk_front_sheet.png",
+      "gif": "assets/UI/swifty_walk_front.gif"
+    },
+    "back": {
+      "master": "_masters/art/swifty_ui_walk_angles_source.png",
+      "rows": [
+        2,
+        3
+      ],
+      "strip": "assets/UI/swifty_walk_back_strip.webp",
+      "sheet": "assets/UI/swifty_walk_back_sheet.png",
+      "gif": "assets/UI/swifty_walk_back.gif"
+    },
+    "left": "Mirrored right-facing sprite; only sprite child is mirrored, parent motion stays unchanged."
+  },
+  "angle_generation": {
+    "tool": "Built-in image_gen",
+    "source": "exec-8618d11f-6238-4869-becc-5f193fb50b57.png",
+    "references": [
+      "assets/UI/sw_explain_still.webp",
+      "_masters/art/swifty_ui_walk_source.png"
+    ],
+    "brief": "Preserve original flat 2D UI character exactly. Transparent 4x4 atlas, front 8-frame walk in first two rows, rear 8-frame walk in last two rows, same hoodie/shorts/bag, no face visible from rear. Normalize at actual alpha row seams to retain feet."
+  },
+  "hand_cleanup": {
+    "tool": "Built-in image_gen",
+    "source": "exec-c16bdd6b-60da-4ad0-bffd-d9c1a940ac41.png",
+    "brief": "Remove redundant left-rear dangling arm/hand from frame3 and frames5-8; retain near foreground arm and far arm behind satchel. Exactly two arms per frame, preserve original UI identity. Visually reviewed all eight corrected frames.",
+    "backup": "_masters/art/swifty_ui_walk_before_hand_fix.png",
+    "applies_to": [
+      "right",
+      "mirrored left"
+    ]
+  }
+}

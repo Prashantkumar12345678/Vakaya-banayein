@@ -11,17 +11,21 @@ entry in SLIDES below. From it this writes:
   HI02H12_L02_S01/index.html  #cardData   the same card, inlined (the page reads only this copy)
   HI02H12_L02_S01/assets/VO/<id>.wav      placeholder VO, macOS `say -v Lekha` (hi_IN)
 
-PLACEHOLDER VO. Lekha is a stand-in so the build can be reviewed with sound. When the recorded batch
-arrives, _tools/import_vo_batch.py replaces the clips by id and the *_cues_ms below must be re-measured
-off the real recordings (they are estimated here from each clip's speech span, shared out by word
-length). A clip that already exists is NOT re-synthesised, so recorded VO is never overwritten -
---tts-all is the only way to regenerate, and it skips nothing.
+RECORDED VO (29 Oct 2026). The studio batch lives in _masters/voiceovers/<id>.wav and is copied into
+assets/VO; Lekha (macOS `say`) only fills a clip that has no recording yet. A clip that already exists
+is NOT re-synthesised or re-composed, so recorded VO is never overwritten - --tts-all is the only way
+to regenerate, and it skips nothing.
+
+WORD CUES (*_cues_ms) are measured off the clip the game actually plays: the clip is cut into voiced
+chunks at its pauses, each word gets a share of the VOICED time by its length, and every onset that
+lands near the start of a chunk snaps to it. Lines with a deliberate pause - the stem's blank, and the
+"शाबाश! सही वाक्य है— <वाक्य>" break - are split at the clip's longest pause first.
 
 COMPOSED CLIPS. "शाबाश! सही वाक्य है— <वाक्य>" and the cloze stems ("मीरा पौधों को … दे रही है")
 are built by joining clips with a measured silence, so the onset of every word is known from the
 join points instead of guessed across the whole line.
 """
-import array, json, os, re, subprocess, sys, wave
+import array, json, math, os, re, subprocess, sys, wave
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -127,32 +131,91 @@ def tts(clip_id, text, force=False):
                     "--data-format=LEI16@%d" % SR, "-o", out, text], check=True)
     return out
 
-def read(path):
+def read(path, any_rate=False):
     with wave.open(path) as w:
-        assert w.getframerate() == SR and w.getnchannels() == 1 and w.getsampwidth() == 2, path
+        assert (any_rate or w.getframerate() == SR) and w.getnchannels() == 1 and w.getsampwidth() == 2, path
         a = array.array("h"); a.frombytes(w.readframes(w.getnframes()))
-    return a
+        return (a, w.getframerate()) if any_rate else a
 
-def speech_span(a, thr=600):
-    """(first, last) sample above the threshold - the clip's speech, without say's padding."""
-    i = next((k for k, v in enumerate(a) if abs(v) > thr), 0)
-    j = next((k for k in range(len(a) - 1, -1, -1) if abs(a[k]) > thr), len(a) - 1)
-    return i, j
+def chunks_of(clip_id, gap_ms=60, floor_db=-38):
+    """The clip's voiced stretches [(start_ms, end_ms)], split wherever it is quiet for gap_ms."""
+    a, sr = read(os.path.join(VO, clip_id + ".wav"), any_rate=True)
+    hop, segs, start, last, quiet = sr // 100, [], None, 0, 0
+    for k in range(len(a) // hop):
+        e = sum(x * x for x in a[k * hop:(k + 1) * hop]) / hop
+        if e > 0 and 10 * math.log10(e / 32768.0 ** 2) > floor_db:
+            if start is None: start = k
+            last, quiet = k, 0
+        elif start is not None:
+            quiet += 1
+            if quiet * 10 >= gap_ms: segs.append((start * 10, last * 10 + 10)); start = None
+    if start is not None: segs.append((start * 10, last * 10 + 10))
+    return segs
 
-def est_cues(words, a, offset_ms=0):
-    """Onset of each word, shared out over the speech span by word length (+2 for the gap)."""
-    i, j = speech_span(a)
+def spread(chunks, words):
+    """Inside one stretch of speech: each word's onset by its share of the voiced time (by length)."""
+    voiced = sum(b - a for a, b in chunks)
+    def at(t):                                   # voiced time -> clip time
+        for a, b in chunks:
+            if t < b - a: return a + t
+            t -= b - a
+        return chunks[-1][1]
     wts = [len(bare(w)) + 2 for w in words]
     tot, acc, out = float(sum(wts)), 0, []
     for wt in wts:
-        out.append(int(offset_ms + (i + (j - i) * acc / tot) * 1000 / SR))
-        acc += wt
+        t = at(voiced * acc / tot); acc += wt
+        near = min((a for a, _ in chunks), key=lambda a: abs(a - t))
+        if abs(near - t) <= 200 and (not out or near > out[-1] + 80): t = near
+        out.append(int(t))
     return out
 
-def silence(ms): return array.array("h", [0] * int(SR * ms / 1000))
+def align(chunks, words, must=()):
+    """Onset of each word. Words are grouped onto runs of chunks; a pause of 150 ms or more inside a run
+    costs (a shorter one may sit inside a word: "प|त्ते"), and each run lasts about what
+    its words' length predicts. A word index in `must` begins a run - the blank, or the sentence after
+    "शाबाश! सही वाक्य है—". Returns (onsets, end ms of the chunk before each run start)."""
+    n, m = len(words), len(chunks)
+    wts = [len(bare(w)) + 2 for w in words]; W = float(sum(wts))
+    voiced = float(sum(b - a for a, b in chunks))
+    INF = float("inf"); best = {(0, 0): (0.0, None)}
+    for i in range(n):
+        for j in range(m):
+            if (i, j) not in best: continue
+            for i2 in range(i + 1, n + 1):
+                if any(i < k < i2 for k in must): break
+                for j2 in range(j + 1, m + 1):
+                    if (i2 == n) != (j2 == m): continue
+                    dur = sum(b - a for a, b in chunks[j:j2]); exp = voiced * sum(wts[i:i2]) / W
+                    inner = sum(max(0, chunks[k + 1][0] - chunks[k][1] - 150) for k in range(j, j2 - 1))
+                    c = best[(i, j)][0] + (i2 - i) * math.log(dur / exp) ** 2 + inner / 100.0
+                    if c < best.get((i2, j2), (INF,))[0]: best[(i2, j2)] = (c, (i, j))
+    runs, at = [], (n, m)
+    while best[at][1]: prev = best[at][1]; runs.append((prev, at)); at = prev
+    out, ends = [], {}
+    for (i, j), (i2, j2) in reversed(runs):
+        out += spread(chunks[j:j2], words[i:i2])
+        if j: ends[i] = chunks[j - 1][1]
+    return out, ends
+
+def cues(clip_id, words):
+    return align(chunks_of(clip_id), words)[0]
+
+def cues_after(clip_id, lead, words):
+    """"शाबाश! सही वाक्य है— <वाक्य>": only the sentence after the lead-in lights. The lead-in is said
+    slower than the sentence, so lengths can't place the break; it is the longest pause - not counting
+    the one after "शाबाश!", which the speakers hold just as long."""
+    ch = chunks_of(clip_id); skip = lead.count("!")
+    j = max(range(skip, len(ch) - 1), key=lambda k: ch[k + 1][0] - ch[k][1])
+    return align(ch[j + 1:], words)[0]
+
+def stem_cues(clip_id, before, after):
+    """"मीरा पौधों को … दे रही है": the words before the blank, the blank (where the pause starts), the rest."""
+    on, ends = align(chunks_of(clip_id), before + after, must=(len(before),))
+    return on[:len(before)] + [ends[len(before)]] + on[len(before):]
 
 def compose(clip_id, parts):
-    """parts: list of (array | ms-of-silence). Writes the joined clip, returns each part's start ms."""
+    """parts: list of (array | ms-of-silence). Writes the joined clip - unless it exists (recorded)."""
+    if os.path.exists(os.path.join(VO, clip_id + ".wav")) and not TTS_ALL: return
     out, starts = array.array("h"), []
     for p in parts:
         starts.append(int(len(out) * 1000 / SR))
@@ -185,6 +248,7 @@ def main():
         pid = "vo_%s_prompt" % low
         tts(pid, s["say_prompt"]); audio_text[pid] = s["say_prompt"]
         d = {"image_id": s["image"], "emoji": s["emoji"]}
+        if sid in {"P1", "P2", "P3", "P4", "P5", "P6"}: d["bridge"] = True
         audio = {"prompt": pid}
         if s["type"] == "SENTENCE_CLOZE":
             before, after = [x.strip() for x in s["sentence"].split("___")]
@@ -194,49 +258,52 @@ def main():
             words = before.split() + [answer] + after.split()
             sent = part(low + "_sent", full)
             pre = sahi if s.get("demo") else shabash
-            st = compose("vo_%s_c" % low, [pre, 250, sent])
+            compose("vo_%s_c" % low, [pre, 250, sent])
             audio_text["vo_%s_c" % low] = ("" if s.get("demo") else "शाबाश! ") + SAHI + " " + full
             d.update(sentence=s["sentence"],
                      options=[{"label": o.rstrip("*"), "audio": word_clip(o.rstrip("*")),
                                **({"correct": True} if o.endswith("*") else {})} for o in s["options"]],
-                     correct_cues_ms=est_cues(words, sent, st[2]))
+                     correct_cues_ms=cues_after("vo_%s_c" % low, SAHI if s.get("demo") else SHABASH_SAHI, words))
             audio["correct"] = "vo_%s_c" % low
             # the stem with a pause where the blank is: hint 2 (guided) and the question read (practice)
             a_b, a_a = part(low + "_b", before), part(low + "_a", after)
-            st2 = compose("vo_%s_stem" % low, [a_b, 700, a_a])
+            compose("vo_%s_stem" % low, [a_b, 700, a_a])
             audio_text["vo_%s_stem" % low] = before + " … " + after
-            stem_cues = est_cues(before.split(), a_b, st2[0]) + [st2[1]] + est_cues(after.split(), a_a, st2[2])
+            stem = stem_cues("vo_%s_stem" % low, before.split(), after.split())
             if s.get("demo"):
                 d["demo"] = True
                 reads = []
                 for o in s["options"]:
                     w = o.rstrip("*"); rid = "vo_%s_o_%s" % (low, ROMAN[w])
                     line = (before + " " + w + " " + after).strip()
-                    tts(rid, line); audio_text[rid] = line; reads.append(rid)
-                for o, rid in zip(d["options"], reads): o["say"] = rid
+                    tts(rid, line); audio_text[rid] = line; reads.append((rid, w))
+                # each option's own sentence lights word by word while it sits in the blank
+                for o, (rid, w) in zip(d["options"], reads):
+                    o["say"] = rid
+                    o["say_cues_ms"] = cues(rid, before.split() + [w] + after.split())
             elif s["phase"] == "guided":
-                d.update(max_attempts=3, hint2_cues_ms=stem_cues)
+                d.update(max_attempts=3, hint2_cues_ms=stem)
                 audio.update(hint1="vo_try_again", hint2="vo_%s_stem" % low, reveal="vo_reveal")
             else:
                 d.update(max_attempts=3, hint2_walk=True, shuffle=False)
                 audio["prompt"] = [pid, "vo_%s_stem" % low]
-                d["stem_cues_ms"] = stem_cues
+                d["stem_cues_ms"] = stem
                 audio.update(hint1="vo_try_again", reveal="vo_reveal")
         else:   # SENTENCE_BUILD
             words = s["sentence"].split()
             sent = part(low + "_sent", s["sentence"])
             sid_s = "vo_%s_s" % low
-            st = compose(sid_s, [sent]); audio_text[sid_s] = s["sentence"]
+            compose(sid_s, [sent]); audio_text[sid_s] = s["sentence"]
             tiles = [{"word": w, "audio": word_clip(w)} for w in words] + \
                     [{"word": w, "audio": word_clip(w), "distractor": True} for w in s.get("distractors", [])]
-            d.update(sentence=s["sentence"], tiles=tiles, sentence_cues_ms=est_cues(words, sent, st[0]))
+            d.update(sentence=s["sentence"], tiles=tiles, sentence_cues_ms=cues(sid_s, words))
             audio["sentence"] = sid_s
             if s.get("demo"):
                 d["demo"] = True
             else:
-                st = compose("vo_%s_c" % low, [shabash, 250, sent])
+                compose("vo_%s_c" % low, [shabash, 250, sent])
                 audio_text["vo_%s_c" % low] = "शाबाश! " + SAHI + " " + s["sentence"]
-                d.update(max_attempts=3, correct_cues_ms=est_cues(words, sent, st[2]))
+                d.update(max_attempts=3, correct_cues_ms=cues_after("vo_%s_c" % low, SHABASH_SAHI, words))
                 audio.update(correct="vo_%s_c" % low, hint1="vo_try_again", reveal="vo_reveal")
                 if s["phase"] == "guided": audio["hint2"] = sid_s
                 else: d["hint2_walk"] = True
@@ -256,14 +323,13 @@ def main():
     card = {
         "version": "0.2", "skill_code": "HI02H12_L02_S01", "lo_code": "HI02H12_L02", "grade": "G2",
         "attribute": "H12", "skill_type": "CORE", "part_label": "", "theme": "toybox",
-        "title": {"hi": "सही शब्द चुनकर वाक्य बनाओ", "en": "Pick the right words to make a sentence"},
+        "title": {"hi": "वाक्य बनाइए", "en": "Pick the right words to make a sentence"},
         "subtitle_hi": "",
         "skill_description_hi": "चित्र देखकर सिखाए गए शब्दों से वाक्य के लिए सही शब्द चुनता है और शब्दों को क्रम से जोड़कर वाक्य बनाता है।",
         "dt_fallback": None,
-        "landing_hero": {"kind": "concept_strip", "cells": [
-            {"type": "image", "src": "assets/Images/title_words.webp", "emoji": "🧩", "label": "शब्द"},
-            {"type": "image", "src": "assets/Images/title.webp", "emoji": "🐥", "label": "सही शब्द चुनकर वाक्य बनाओ"},
-            {"type": "image", "src": "assets/Images/title_sentence.webp", "emoji": "⭐", "label": "वाक्य"}]},
+        # the title page is ONE full-card picture (title_screen.webp), as set in the first commit
+        "landing_hero": {"kind": "image", "src": "assets/Images/title_screen.webp",
+                         "alt_hi": "वाक्य बनाइए — बच्चे रंगीन शब्दों की टाइलें जोड़ रहे हैं।", "full_card": True},
         "phase_gate_caption": {"tutorial": {"text": "चलिए, शुरू करें!", "at_ms": 0},
                                "guided": {"text": "चलिए, साथ में करें!", "at_ms": 0},
                                "practice": {"text": "वाह! अब आपकी बारी।", "at_ms": 0}},
