@@ -1,0 +1,15 @@
+{
+  "tool": "Built-in image_gen",
+  "prompt": "_masters/art/DOOR_KEY_ANIMATION_PROMPT.txt",
+  "source": "_masters/art/door_key_angles_source.png",
+  "asset_directory": "HI02H12_L02_S01/assets/Images/adventure/",
+  "assets": ["key_front.webp", "key_approach.webp", "key_inserted.webp", "key_turned.webp"],
+  "canvas": [512, 320],
+  "shaft_tip_anchor": [48, 70],
+  "sequence": "Approach along curved path, change to oblique view, insert with foreshortening and shaft occlusion, quarter-turn, unlock, reveal live answer, then open door.",
+  "duration_ms": 3050,
+  "reduced_motion": "Immediate answer placement and unlock; no key motion.",
+  "exporter": "_tools/export_door_key_views.py",
+  "test": "_tools/test_door_key.py",
+  "preview": "_previews/door-key-animation/key-insertion.gif"
+}

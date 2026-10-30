@@ -54,7 +54,7 @@ with sync_playwright() as p:
   if s['type']=='SENTENCE_CLOZE':
    answer=next(o['label'] for o in s['data']['options'] if o.get('correct'))
    tap(answer);placed(1)
-   assert page.locator('.adv-piece-flight').count()==1
+   assert page.locator('.adv-key-insertion' if idx==8 else '.adv-piece-flight').count()==1
    if idx==7:
     for _ in range(4):record_frames.append(page.screenshot());page.wait_for_timeout(120)
    page.wait_for_timeout(900)
