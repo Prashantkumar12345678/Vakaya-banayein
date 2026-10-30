@@ -68,7 +68,7 @@ SLIDES = [
          image="pic_bachche_maidan", emoji="⚽", sentence="बच्चे मैदान में खेल रहे हैं।", demo=True,
          say_prompt=DEKHO + "चित्र में बच्चे मैदान में खेल रहे हैं। इसलिए हम वाक्य बनाएंगे—"),
     dict(id="T3", phase="tutorial", type="SENTENCE_BUILD", prompt_hi="आइए वाक्य बनाएं।",
-         image="pic_ladki_kitab", emoji="📖", sentence="लड़की किताब पढ़ रही है।", demo=True,
+         image="pic_ladki_kitab", emoji="📖", sentence="लड़की किताब पढ़ रही है।", demo=True, tap_guided=True,   # SME 2026-10-30: the hand shows each word, the child taps it
          say_prompt=DEKHO + "चित्र में एक लड़की किताब पढ़ रही है। इसलिए हम वाक्य बनाएंगे—"),
     # ---- We Do (guided): hint 1 फिर से कोशिश, hint 2 the sentence read word by word, hint 3 glow ----
     dict(id="G1", phase="guided", type="SENTENCE_CLOZE", prompt_hi="आइए वाक्य बनाएं।",
@@ -107,7 +107,7 @@ SLIDES = [
          say_prompt="चित्र देखकर वाक्य बनाइए।"),
     dict(id="P6", phase="practice", type="SENTENCE_BUILD", prompt_hi="आइए वाक्य बनाएं।",
          image="pic_bakri_patte", emoji="🐐", sentence="बकरी पत्ते खा रही है।",
-         distractors=["पेड़", "गिर", "रहे"],
+         distractors=["किताब", "गिर", "रहे"],   # SME 2026-10-30: पेड़ -> किताब
          say_prompt="चित्र देखकर वाक्य बनाइए।"),
 ]
 
@@ -282,8 +282,9 @@ def main():
                     o["say"] = rid
                     o["say_cues_ms"] = cues(rid, before.split() + [w] + after.split())
             elif s["phase"] == "guided":
-                d.update(max_attempts=3, hint2_cues_ms=stem)
-                audio.update(hint1="vo_try_again", hint2="vo_%s_stem" % low, reveal="vo_reveal")
+                # 2nd wrong: each option said one by one, lit as it is said - not the question (SME 2026-10-30)
+                d.update(max_attempts=3, hint2_walk=True)   # options stay shuffled; the walk follows screen order
+                audio.update(hint1="vo_try_again", reveal="vo_reveal")
             else:
                 d.update(max_attempts=3, hint2_walk=True, shuffle=False)
                 audio["prompt"] = [pid, "vo_%s_stem" % low]
@@ -300,6 +301,7 @@ def main():
             audio["sentence"] = sid_s
             if s.get("demo"):
                 d["demo"] = True
+                if s.get("tap_guided"): d["tap_guided"] = True
             else:
                 compose("vo_%s_c" % low, [shabash, 250, sent])
                 audio_text["vo_%s_c" % low] = "शाबाश! " + SAHI + " " + s["sentence"]
