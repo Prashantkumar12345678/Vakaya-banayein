@@ -288,6 +288,7 @@ def main():
                 # idle: the sentence again, lit word by word (SME 2026-11-02)
                 audio["stem"] = "vo_%s_stem" % low
                 d.update(idle_stem=True, stem_cues_ms=stem)
+                audio["prompt"] = [pid, "vo_%s_stem" % low]   # the sentence is said on entry too, lit word by word
             else:
                 d.update(max_attempts=3, hint2_walk=True, shuffle=False)
                 audio["prompt"] = [pid, "vo_%s_stem" % low]
