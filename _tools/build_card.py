@@ -285,6 +285,9 @@ def main():
                 # 2nd wrong: each option said one by one, lit as it is said - not the question (SME 2026-10-30)
                 d.update(max_attempts=3, hint2_walk=True)   # options stay shuffled; the walk follows screen order
                 audio.update(hint1="vo_try_again", reveal="vo_reveal")
+                # idle: the sentence again, lit word by word (SME 2026-11-02)
+                audio["stem"] = "vo_%s_stem" % low
+                d.update(idle_stem=True, stem_cues_ms=stem)
             else:
                 d.update(max_attempts=3, hint2_walk=True, shuffle=False)
                 audio["prompt"] = [pid, "vo_%s_stem" % low]
