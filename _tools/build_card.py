@@ -305,7 +305,9 @@ def main():
             audio["sentence"] = sid_s
             if s.get("demo"):
                 d["demo"] = True
-                if s.get("tap_guided"): d["tap_guided"] = True
+                if s.get("tap_guided"):
+                    d["tap_guided"] = True
+                    audio["tap_intro"] = "vo_%s_tap" % low   # recorded line after the question (SME 2026-11-03)
             else:
                 compose("vo_%s_c" % low, [shabash, 250, sent])
                 audio_text["vo_%s_c" % low] = "शाबाश! " + SAHI + " " + s["sentence"]
