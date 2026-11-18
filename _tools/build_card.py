@@ -249,7 +249,7 @@ def main():
         tts(pid, s["say_prompt"]); audio_text[pid] = s["say_prompt"]
         d = {"image_id": s["image"], "emoji": s["emoji"]}
         if sid in {"P1", "P2", "P3", "P4", "P5", "P6"}: d["bridge"] = True
-        audio = {"prompt": pid}
+        audio = {"prompt": pid, "picture_sfx": "sfx_pic_%s" % low}   # the picture's own sound once the sentence is done (SME 2026-11-18)
         if s["type"] == "SENTENCE_CLOZE":
             before, after = [x.strip() for x in s["sentence"].split("___")]
             answer = next(o.rstrip("*") for o in s["options"] if o.endswith("*"))
@@ -322,11 +322,30 @@ def main():
         slides.append({"id": sid, "phase": s["phase"], "eis": "iconic", "type": s["type"],
                        "prompt_hi": s["prompt_hi"], "audio": audio, "data": d,
                        "signals": {"on_complete": ["sentence_first_try"] if s["phase"] != "tutorial" else []}})
+    # SME storyboard 2026-11-18 (recorded lines in _masters/voiceovers/*original).mp3):
+    #   T1 no longer asks - picture (step1), ring round the bird (step2), then "चिड़िया आसमान में उड़ रही है।" word by word
+    #   T2 Swifty puts up the first two words, says "अब आगे का वाक्य आप बनाइए", then the child taps each glowing word
+    for sl in slides:
+        if sl["id"] == "T1":
+            sl["audio"] = {"prompt": "vo_t1_step1", "step1": "vo_t1_step1", "step2": "vo_t1_step2", "sentence": "vo_t1_s",
+                           "picture_sfx": "sfx_pic_t1"}
+            sl["data"] = {"image_id": sl["data"]["image_id"], "emoji": sl["data"]["emoji"], "sentence": "चिड़िया आसमान में उड़ रही है।",
+                          "story": True, "demo": True, "ring": {"x": .52, "y": .43, "r": .2},
+                          "sentence_cues_ms": [2840, 3600, 3940, 4720, 5120, 5300]}   # vo_t1_s: "इसलिए हम वाक्य बनाएंगे" then the sentence from 2.84s
+        if sl["id"] == "T2":
+            sl["audio"]["your_turn"] = "vo_t2_turn"; sl["data"]["auto_first"] = 2
+        # where "दिए गए चित्र" / "चित्र" starts in each game question - the picture pops in on it
+        pic_at = {"P1": 1100, "P2": 1030, "P3": 250, "P4": 250, "P5": 300, "P6": 330}
+        if sl["id"] in pic_at: sl["data"]["pic_at_ms"] = pic_at[sl["id"]]
+        if sl["id"] in ("T1", "T2"):
+            sl["data"]["no_prompt_band"] = True   # no instruction panel on these two (SME 2026-11-18)
+        for v in sl["audio"].values():
+            for x in (v if isinstance(v, list) else [v]): used.add(x)
     slides.append({"id": "CEL", "phase": "practice", "eis": "enactive", "type": "CELEBRATION", "prompt_hi": "",
                    "audio": {"prompt": "vo_celebrate", "sfx": "sfx_celebrate"}, "data": {},
                    "signals": {"on_complete": ["lesson_completed"]}})
 
-    ids = sorted(set(audio_text) | used)
+    ids = sorted(x for x in set(audio_text) | used if not x.startswith("sfx_"))   # sfx_ ids live in assets/SFX
     sfx = ["sfx_correct", "sfx_wrong", "sfx_burst", "sfx_celebrate", "sfx_tap"]
     card = {
         "version": "0.2", "skill_code": "HI02H12_L02_S01", "lo_code": "HI02H12_L02", "grade": "G2",
@@ -340,7 +359,7 @@ def main():
                          "alt_hi": "वाक्य बनाइए — बच्चे रंगीन शब्दों की टाइलें जोड़ रहे हैं।", "full_card": True},
         "phase_gate_caption": {"tutorial": {"text": "चलिए, शुरू करें!", "at_ms": 0},
                                "guided": {"text": "चलिए, साथ में करें!", "at_ms": 0},
-                               "practice": {"text": "वाह! अब आपकी बारी।", "at_ms": 0}},
+                               "practice": {"text": "अब आपकी बारी।", "at_ms": 1200}},   # "वाह!" is only said, not shown (SME 2026-11-18)
         "landing_nudge": False, "landing_vo_on_tap": False, "audio_chip_on_mascot_foot": True,
         "phase_distribution": {"tutorial": 3, "guided": 4, "practice": 6},
         "scaffold_rules": {"nudge_timeout_ms": {"guided": 5000, "practice": 8000}, "max_attempts": 3},

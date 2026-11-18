@@ -33,7 +33,7 @@ with sync_playwright() as p:
  page.on('response',lambda r:errors.append('HTTP '+str(r.status)+' '+r.url) if r.status>=400 else None)
  page.goto(base+'?slide=7',wait_until='load');page.wait_for_selector('.adventure-game')
  def ready():
-  page.wait_for_function('''document.querySelector('.adventure-game')?.dataset.state==='playing' && !isPlaying && !state.locked && !state.hintActive && !document.querySelector('.adv-fitting') && [...document.querySelectorAll('.adv-choice')].every(t=>!t._bridgeCanFit||t._bridgeCanFit())''',timeout=30000)
+  page.wait_for_function('''document.querySelector('.adventure-game')?.dataset.state==='playing' && !isPlaying && !state.locked && !state.hintActive && !document.querySelector('.adv-fitting') && [...document.querySelectorAll('.adv-choice')].every(t=>!t._bridgeCanFit||t._bridgeCanFit())''',timeout=60000)   # the map intro before Game 1 runs ~25s
   page.wait_for_timeout(80)
  def tap(word):
   ready();tile=page.locator('.adv-choice').filter(has_text=re.compile('^'+re.escape(word)+'$'));tile.tap(force=True);page.wait_for_timeout(100)
@@ -70,9 +70,10 @@ with sync_playwright() as p:
   page.wait_for_function('document.querySelector(".adventure-game").dataset.state==="resolving"',timeout=20000)
   if idx==7:
    bridge_walk_positions=[]
-   for _ in range(8):
+   for k in range(48):   # the whole crossing (5.6s): it first goes up the sand on the left, then across the deck
     if page.locator('.adv-walker.is-walking').count():bridge_walk_positions.append(page.locator('.adv-walker').evaluate('(e)=>parseFloat(getComputedStyle(e).left)'))
-    record_frames.append(page.screenshot());page.wait_for_timeout(120)
+    if k%6==0:record_frames.append(page.screenshot())
+    page.wait_for_timeout(120)
   else:page.wait_for_timeout(2000)
   if idx in [8,10,12]:assert page.locator('.adv-open').count()==1
   if idx==7:
