@@ -38,8 +38,8 @@
  "landing_vo_on_tap": false,
  "audio_chip_on_mascot_foot": true,
  "phase_distribution": {
-  "tutorial": 3,
-  "guided": 4,
+  "tutorial": 2,
+  "guided": 5,
   "practice": 6
  },
  "scaffold_rules": {
@@ -92,7 +92,8 @@
      5120,
      5300
     ],
-    "no_prompt_band": true
+    "no_prompt_band": true,
+    "fig_card": true
    },
    "signals": {
     "on_complete": []
@@ -150,57 +151,8 @@
     ],
     "demo": true,
     "auto_first": 2,
-    "no_prompt_band": true
-   },
-   "signals": {
-    "on_complete": []
-   }
-  },
-  {
-   "id": "T3",
-   "phase": "tutorial",
-   "eis": "iconic",
-   "type": "SENTENCE_BUILD",
-   "prompt_hi": "आइए वाक्य बनाएं।",
-   "audio": {
-    "prompt": "vo_t3_prompt",
-    "sentence": "vo_t3_s",
-    "picture_sfx": "sfx_pic_t3"
-   },
-   "data": {
-    "image_id": "pic_ladki_kitab",
-    "emoji": "📖",
-    "sentence": "लड़की किताब पढ़ रही है।",
-    "tiles": [
-     {
-      "word": "लड़की",
-      "audio": "vo_w_ladki"
-     },
-     {
-      "word": "किताब",
-      "audio": "vo_w_kitaab"
-     },
-     {
-      "word": "पढ़",
-      "audio": "vo_w_padh"
-     },
-     {
-      "word": "रही",
-      "audio": "vo_w_rahi"
-     },
-     {
-      "word": "है।",
-      "audio": "vo_w_hai"
-     }
-    ],
-    "sentence_cues_ms": [
-     290,
-     670,
-     1310,
-     1514,
-     1728
-    ],
-    "demo": true
+    "no_prompt_band": true,
+    "fig_card": true
    },
    "signals": {
     "on_complete": []
@@ -253,6 +205,69 @@
      930,
      1980,
      2420
+    ]
+   },
+   "signals": {
+    "on_complete": [
+     "sentence_first_try"
+    ]
+   }
+  },
+  {
+   "id": "T3",
+   "phase": "guided",
+   "eis": "iconic",
+   "type": "SENTENCE_BUILD",
+   "prompt_hi": "आइए वाक्य बनाएं।",
+   "audio": {
+    "prompt": "vo_t3_prompt",
+    "sentence": "vo_t3_s",
+    "picture_sfx": "sfx_pic_t3",
+    "correct": "vo_t3_s",
+    "hint1": "vo_try_again",
+    "reveal": "vo_reveal",
+    "hint2": "vo_t3_s"
+   },
+   "data": {
+    "image_id": "pic_ladki_kitab",
+    "emoji": "📖",
+    "sentence": "लड़की किताब पढ़ रही है।",
+    "tiles": [
+     {
+      "word": "लड़की",
+      "audio": "vo_w_ladki"
+     },
+     {
+      "word": "किताब",
+      "audio": "vo_w_kitaab"
+     },
+     {
+      "word": "पढ़",
+      "audio": "vo_w_padh"
+     },
+     {
+      "word": "रही",
+      "audio": "vo_w_rahi"
+     },
+     {
+      "word": "है।",
+      "audio": "vo_w_hai"
+     }
+    ],
+    "sentence_cues_ms": [
+     290,
+     670,
+     1310,
+     1514,
+     1728
+    ],
+    "max_attempts": 3,
+    "correct_cues_ms": [
+     290,
+     670,
+     1310,
+     1514,
+     1728
     ]
    },
    "signals": {

@@ -339,8 +339,17 @@ def main():
         if sl["id"] in pic_at: sl["data"]["pic_at_ms"] = pic_at[sl["id"]]
         if sl["id"] in ("T1", "T2"):
             sl["data"]["no_prompt_band"] = True   # no instruction panel on these two (SME 2026-11-18)
+            sl["data"]["fig_card"] = True         # blue-framed grid card + standing Swifty, as HI02H12_L01_S01's T0
         for v in sl["audio"].values():
             for x in (v if isinstance(v, list) else [v]): used.add(x)
+    # SME 2026-11-18: T3 comes after G1 and the CHILD builds it (no hand) - a We Do screen with G2's hint ladder
+    t3 = next(x for x in slides if x["id"] == "T3"); slides.remove(t3)
+    t3["phase"] = "guided"; t3["audio"].pop("tap_intro", None)
+    t3["audio"].update(correct="vo_t3_s", hint1="vo_try_again", reveal="vo_reveal", hint2="vo_t3_s")
+    t3["data"].pop("demo", None); t3["data"].pop("tap_guided", None)
+    t3["data"].update(max_attempts=3, correct_cues_ms=t3["data"].get("sentence_cues_ms"))
+    t3["signals"] = {"on_complete": ["sentence_first_try"]}
+    slides.insert([x["id"] for x in slides].index("G1") + 1, t3)
     slides.append({"id": "CEL", "phase": "practice", "eis": "enactive", "type": "CELEBRATION", "prompt_hi": "",
                    "audio": {"prompt": "vo_celebrate", "sfx": "sfx_celebrate"}, "data": {},
                    "signals": {"on_complete": ["lesson_completed"]}})
@@ -361,7 +370,7 @@ def main():
                                "guided": {"text": "चलिए, साथ में करें!", "at_ms": 0},
                                "practice": {"text": "अब आपकी बारी।", "at_ms": 1200}},   # "वाह!" is only said, not shown (SME 2026-11-18)
         "landing_nudge": False, "landing_vo_on_tap": False, "audio_chip_on_mascot_foot": True,
-        "phase_distribution": {"tutorial": 3, "guided": 4, "practice": 6},
+        "phase_distribution": {"tutorial": 2, "guided": 5, "practice": 6},
         "scaffold_rules": {"nudge_timeout_ms": {"guided": 5000, "practice": 8000}, "max_attempts": 3},
         "signals_expected": ["slide_entered", "slide_completed", "phase_transition_shown", "sentence_first_try",
                              "sentence_word_placed", "answer_wrong", "answer_revealed", "lesson_completed"],
