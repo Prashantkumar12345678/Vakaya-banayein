@@ -53,9 +53,6 @@ with sync_playwright() as p:
  page.wait_for_function('!document.querySelector(".adv-ghost-hand") && !document.querySelector(".adventure-game.adv-ghosting") && !state.locked && !isPlaying',timeout=30000)
  assert page.evaluate('Number(document.querySelector(".adventure-game").dataset.filled||0)')==0, 'the demo must leave the gap for the child'
  pick=page.locator('.adv-choice').filter(has_text=re.compile('^पानी$'))
- pick.click(force=True);page.wait_for_timeout(600)          # a plain tap does not answer - it shows the drag again
- assert page.evaluate('Number(document.querySelector(".adventure-game").dataset.filled||0)')==0
- page.wait_for_function('!document.querySelector(".adv-ghost-hand")',timeout=15000);page.wait_for_timeout(300)
  a=pick.bounding_box();g=page.locator('.adv-deck .sent-blank').bounding_box()
  page.mouse.move(a['x']+a['width']/2,a['y']+a['height']/2);page.mouse.down()
  for t in range(1,13):

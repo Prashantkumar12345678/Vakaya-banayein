@@ -94,7 +94,8 @@
     ],
     "no_prompt_band": true,
     "fig_card": true,
-    "auto_next": true
+    "auto_next": true,
+    "ring_off_ms": 9850
    },
    "signals": {
     "on_complete": []

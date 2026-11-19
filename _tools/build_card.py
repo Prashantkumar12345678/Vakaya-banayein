@@ -347,6 +347,7 @@ def main():
     slides[:] = [x for x in slides if x["id"] != "G1"]
     for x in slides:
         if x["id"] in ("T1", "T2"): x["data"]["auto_next"] = True   # T2 too (2026-11-19)
+        if x["id"] == "T1": x["data"]["ring_off_ms"] = 9850   # "आसमान" in vo_t1_step2: the circle goes, the picture pulses
         if x["id"] == "P1": x["data"]["ghost_demo"] = True
     slides.append({"id": "CEL", "phase": "practice", "eis": "enactive", "type": "CELEBRATION", "prompt_hi": "",
                    "audio": {"prompt": "vo_celebrate", "sfx": "sfx_celebrate"}, "data": {},
