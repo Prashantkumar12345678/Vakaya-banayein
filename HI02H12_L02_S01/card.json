@@ -218,9 +218,9 @@
    "phase": "guided",
    "eis": "iconic",
    "type": "SENTENCE_BUILD",
-   "prompt_hi": "आइए वाक्य बनाएं।",
+   "prompt_hi": "वाक्य बनाइए।",
    "audio": {
-    "prompt": "vo_t3_prompt",
+    "prompt": "vo_g2_prompt",
     "sentence": "vo_t3_s",
     "picture_sfx": "sfx_pic_t3",
     "correct": "vo_t3_s",

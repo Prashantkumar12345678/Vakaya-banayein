@@ -89,6 +89,8 @@ save("sfx_steps_gravel", steps([cut(stones, t - 0.03, t + 0.36, 0.005, 0.12) for
 # ---- actions -----------------------------------------------------------------------------------------
 ham = cut(load(830), 0.08, 0.40, 0.002, 0.12)          # "Hammer hit on wood": tok - tok - TOK
 save("sfx_plank_hammer", level(mix((ham, 0, 0.75), (ham, 0.22, 0.85), (ham, 0.44, 1.0)), 0.30))
+save("sfx_plank_knock", level(ham, 0.30))
+save("sfx_home_hooray", level(mix((cut(load(518), 0.0, 3.2, 0.01, 0.6), 0, 1), (cut(load(2628), 0.0, 1.6, 0.005, 0.4), 0, .45)), 0.16))   # Swifty reaches home: claps + cheer ("Small group cheer and applause") over a light success chime
 save("sfx_key_insert", level(cut(load(2842), 0.0, 1.05, 0.01, 0.2), 0.16))    # "Door key in door lock"
 save("sfx_lock_open", level(cut(load(187), 0.05, 1.90, 0.01, 0.35), 0.18))    # "Old medieval door lock"
 save("sfx_gears_turn", level(mix((cut(load(2856), 0, 0.62, 0.005, 0.1), 0, 1), (cut(load(2858), 0, 0.32, 0.005, 0.1), 0.55, 0.9),

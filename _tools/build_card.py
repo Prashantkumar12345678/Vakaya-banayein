@@ -345,6 +345,7 @@ def main():
     # SME 2026-11-18: T3 comes after G1 and the CHILD builds it (no hand) - a We Do screen with G2's hint ladder
     t3 = next(x for x in slides if x["id"] == "T3"); slides.remove(t3)
     t3["phase"] = "guided"; t3["audio"].pop("tap_intro", None)
+    t3["audio"]["prompt"] = "vo_g2_prompt"; t3["prompt_hi"] = "वाक्य बनाइए।"   # opens like G2-G4: "चित्र देखकर वाक्य बनाइए।"
     t3["audio"].update(correct="vo_t3_s", hint1="vo_try_again", reveal="vo_reveal", hint2="vo_t3_s")
     t3["data"].pop("demo", None); t3["data"].pop("tap_guided", None)
     t3["data"].update(max_attempts=3, correct_cues_ms=t3["data"].get("sentence_cues_ms"))
