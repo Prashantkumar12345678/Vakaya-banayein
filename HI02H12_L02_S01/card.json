@@ -38,8 +38,8 @@
  "landing_vo_on_tap": false,
  "audio_chip_on_mascot_foot": true,
  "phase_distribution": {
-  "tutorial": 2,
-  "guided": 5,
+  "tutorial": 3,
+  "guided": 3,
   "practice": 6
  },
  "scaffold_rules": {
@@ -93,7 +93,8 @@
      5300
     ],
     "no_prompt_band": true,
-    "fig_card": true
+    "fig_card": true,
+    "auto_next": true
    },
    "signals": {
     "on_complete": []
@@ -106,9 +107,9 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_t2",
     "prompt": "vo_t2_prompt",
     "sentence": "vo_t2_s",
-    "picture_sfx": "sfx_pic_t2",
     "your_turn": "vo_t2_turn"
    },
    "data": {
@@ -152,81 +153,24 @@
     "demo": true,
     "auto_first": 2,
     "no_prompt_band": true,
-    "fig_card": true
+    "fig_card": true,
+    "auto_next": true
    },
    "signals": {
     "on_complete": []
    }
   },
   {
-   "id": "G1",
-   "phase": "guided",
-   "eis": "iconic",
-   "type": "SENTENCE_CLOZE",
-   "prompt_hi": "आइए वाक्य बनाएं।",
-   "audio": {
-    "prompt": "vo_g1_prompt",
-    "correct": "vo_g1_c",
-    "hint1": "vo_try_again",
-    "hint2": "vo_g1_stem",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_g1"
-   },
-   "data": {
-    "image_id": "pic_sundar_bagicha",
-    "emoji": "🌷",
-    "sentence": "यह एक ___ बगीचा है।",
-    "options": [
-     {
-      "label": "सुंदर",
-      "audio": "vo_w_sundar",
-      "correct": true
-     },
-     {
-      "label": "ठंडा",
-      "audio": "vo_w_thanda"
-     },
-     {
-      "label": "गंदा",
-      "audio": "vo_w_ganda"
-     }
-    ],
-    "correct_cues_ms": [
-     3100,
-     3530,
-     3780,
-     4341,
-     4836
-    ],
-    "max_attempts": 3,
-    "hint2_cues_ms": [
-     270,
-     520,
-     930,
-     1980,
-     2420
-    ]
-   },
-   "signals": {
-    "on_complete": [
-     "sentence_first_try"
-    ]
-   }
-  },
-  {
    "id": "T3",
-   "phase": "guided",
+   "phase": "tutorial",
    "eis": "iconic",
    "type": "SENTENCE_BUILD",
-   "prompt_hi": "वाक्य बनाइए।",
+   "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
-    "prompt": "vo_g2_prompt",
-    "sentence": "vo_t3_s",
     "picture_sfx": "sfx_pic_t3",
-    "correct": "vo_t3_s",
-    "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "hint2": "vo_t3_s"
+    "prompt": "vo_t3_prompt",
+    "sentence": "vo_t3_s",
+    "tap_intro": "vo_t3_tap"
    },
    "data": {
     "image_id": "pic_ladki_kitab",
@@ -261,19 +205,13 @@
      1514,
      1728
     ],
-    "max_attempts": 3,
-    "correct_cues_ms": [
-     290,
-     670,
-     1310,
-     1514,
-     1728
-    ]
+    "demo": true,
+    "tap_guided": true,
+    "no_prompt_band": true,
+    "fig_card": true
    },
    "signals": {
-    "on_complete": [
-     "sentence_first_try"
-    ]
+    "on_complete": []
    }
   },
   {
@@ -283,13 +221,13 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "वाक्य बनाइए।",
    "audio": {
+    "picture_sfx": "sfx_pic_g2",
     "prompt": "vo_g2_prompt",
     "sentence": "vo_g2_s",
     "correct": "vo_g2_c",
     "hint1": "vo_try_again",
     "reveal": "vo_reveal",
-    "hint2": "vo_g2_s",
-    "picture_sfx": "sfx_pic_g2"
+    "hint2": "vo_g2_s"
    },
    "data": {
     "image_id": "pic_kutta_gend",
@@ -352,13 +290,13 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "वाक्य बनाइए।",
    "audio": {
+    "picture_sfx": "sfx_pic_g3",
     "prompt": "vo_g3_prompt",
     "sentence": "vo_g3_s",
     "correct": "vo_g3_c",
     "hint1": "vo_try_again",
     "reveal": "vo_reveal",
-    "hint2": "vo_g3_s",
-    "picture_sfx": "sfx_pic_g3"
+    "hint2": "vo_g3_s"
    },
    "data": {
     "image_id": "pic_ped_seb",
@@ -415,13 +353,13 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "वाक्य बनाइए।",
    "audio": {
+    "picture_sfx": "sfx_pic_g4",
     "prompt": "vo_g4_prompt",
     "sentence": "vo_g4_s",
     "correct": "vo_g4_c",
     "hint1": "vo_try_again",
     "reveal": "vo_reveal",
-    "hint2": "vo_g4_s",
-    "picture_sfx": "sfx_pic_g4"
+    "hint2": "vo_g4_s"
    },
    "data": {
     "image_id": "pic_gaay_ghaas",
@@ -478,14 +416,14 @@
    "type": "SENTENCE_CLOZE",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p1",
     "prompt": [
      "vo_p1_prompt",
      "vo_p1_stem"
     ],
     "correct": "vo_p1_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p1"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_meera_paani",
@@ -528,7 +466,8 @@
      2549,
      2860
     ],
-    "pic_at_ms": 1100
+    "pic_at_ms": 1100,
+    "ghost_demo": true
    },
    "signals": {
     "on_complete": [
@@ -543,14 +482,14 @@
    "type": "SENTENCE_CLOZE",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p2",
     "prompt": [
      "vo_p2_prompt",
      "vo_p2_stem"
     ],
     "correct": "vo_p2_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p2"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_billi_tokri",
@@ -604,14 +543,14 @@
    "type": "SENTENCE_CLOZE",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p3",
     "prompt": [
      "vo_p3_prompt",
      "vo_p3_stem"
     ],
     "correct": "vo_p3_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p3"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_bachcha_pyaasa",
@@ -667,14 +606,14 @@
    "type": "SENTENCE_CLOZE",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p4",
     "prompt": [
      "vo_p4_prompt",
      "vo_p4_stem"
     ],
     "correct": "vo_p4_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p4"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_raat_taare",
@@ -734,12 +673,12 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p5",
     "prompt": "vo_p5_prompt",
     "sentence": "vo_p5_s",
     "correct": "vo_p5_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p5"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_ladki_gaana",
@@ -814,12 +753,12 @@
    "type": "SENTENCE_BUILD",
    "prompt_hi": "आइए वाक्य बनाएं।",
    "audio": {
+    "picture_sfx": "sfx_pic_p6",
     "prompt": "vo_p6_prompt",
     "sentence": "vo_p6_s",
     "correct": "vo_p6_c",
     "hint1": "vo_try_again",
-    "reveal": "vo_reveal",
-    "picture_sfx": "sfx_pic_p6"
+    "reveal": "vo_reveal"
    },
    "data": {
     "image_id": "pic_bakri_patte",
@@ -848,8 +787,8 @@
       "audio": "vo_w_hai"
      },
      {
-      "word": "पेड़",
-      "audio": "vo_w_ped",
+      "word": "किताब",
+      "audio": "vo_w_kitaab",
       "distractor": true
      },
      {
@@ -1005,7 +944,8 @@
    "sfx_wrong": "assets/SFX/sfx_wrong.wav",
    "sfx_burst": "assets/SFX/sfx_burst.wav",
    "sfx_celebrate": "assets/SFX/sfx_celebrate.wav",
-   "sfx_tap": "assets/SFX/sfx_tap.wav"
+   "sfx_tap": "assets/SFX/sfx_tap.wav",
+   "vo_t3_tap": "assets/VO/vo_t3_tap.wav"
   },
   "audio_text": {
    "vo_celebrate": "बहुत बढ़िया, दोस्त! तुमने कमाल कर दिया!",

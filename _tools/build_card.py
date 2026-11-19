@@ -337,20 +337,17 @@ def main():
         # where "दिए गए चित्र" / "चित्र" starts in each game question - the picture pops in on it
         pic_at = {"P1": 1100, "P2": 1030, "P3": 250, "P4": 250, "P5": 300, "P6": 330}
         if sl["id"] in pic_at: sl["data"]["pic_at_ms"] = pic_at[sl["id"]]
-        if sl["id"] in ("T1", "T2"):
+        if sl["id"] in ("T1", "T2", "T3"):   # T3 too (2026-11-19: "t3 ka layout jaisa t2")
             sl["data"]["no_prompt_band"] = True   # no instruction panel on these two (SME 2026-11-18)
             sl["data"]["fig_card"] = True         # blue-framed grid card + standing Swifty, as HI02H12_L01_S01's T0
         for v in sl["audio"].values():
             for x in (v if isinstance(v, list) else [v]): used.add(x)
-    # SME 2026-11-18: T3 comes after G1 and the CHILD builds it (no hand) - a We Do screen with G2's hint ladder
-    t3 = next(x for x in slides if x["id"] == "T3"); slides.remove(t3)
-    t3["phase"] = "guided"; t3["audio"].pop("tap_intro", None)
-    t3["audio"]["prompt"] = "vo_g2_prompt"; t3["prompt_hi"] = "वाक्य बनाइए।"   # opens like G2-G4: "चित्र देखकर वाक्य बनाइए।"
-    t3["audio"].update(correct="vo_t3_s", hint1="vo_try_again", reveal="vo_reveal", hint2="vo_t3_s")
-    t3["data"].pop("demo", None); t3["data"].pop("tap_guided", None)
-    t3["data"].update(max_attempts=3, correct_cues_ms=t3["data"].get("sentence_cues_ms"))
-    t3["signals"] = {"on_complete": ["sentence_first_try"]}
-    slides.insert([x["id"] for x in slides].index("G1") + 1, t3)
+    # (2026-11-18 T3 was moved after G1 as a guided screen; 2026-11-19 it is back to the original I Do T3, VO and all)
+    # SME review 2026-11-19: G1 goes; T1 moves on by itself; T3 is hand-guided again; Game 1 is a ghost-hand demo
+    slides[:] = [x for x in slides if x["id"] != "G1"]
+    for x in slides:
+        if x["id"] in ("T1", "T2"): x["data"]["auto_next"] = True   # T2 too (2026-11-19)
+        if x["id"] == "P1": x["data"]["ghost_demo"] = True
     slides.append({"id": "CEL", "phase": "practice", "eis": "enactive", "type": "CELEBRATION", "prompt_hi": "",
                    "audio": {"prompt": "vo_celebrate", "sfx": "sfx_celebrate"}, "data": {},
                    "signals": {"on_complete": ["lesson_completed"]}})
@@ -371,7 +368,7 @@ def main():
                                "guided": {"text": "चलिए, साथ में करें!", "at_ms": 0},
                                "practice": {"text": "अब आपकी बारी।", "at_ms": 1200}},   # "वाह!" is only said, not shown (SME 2026-11-18)
         "landing_nudge": False, "landing_vo_on_tap": False, "audio_chip_on_mascot_foot": True,
-        "phase_distribution": {"tutorial": 2, "guided": 5, "practice": 6},
+        "phase_distribution": {"tutorial": 3, "guided": 3, "practice": 6},
         "scaffold_rules": {"nudge_timeout_ms": {"guided": 5000, "practice": 8000}, "max_attempts": 3},
         "signals_expected": ["slide_entered", "slide_completed", "phase_transition_shown", "sentence_first_try",
                              "sentence_word_placed", "answer_wrong", "answer_revealed", "lesson_completed"],
