@@ -375,8 +375,8 @@ def main():
                              "sentence_word_placed", "answer_wrong", "answer_revealed", "lesson_completed"],
         "slides": slides,
         "assets": {
-            "audio_ext": "wav", "img_ext": "webp",
-            "audio": dict({i: "assets/VO/%s.wav" % i for i in ids}, **{x: "assets/SFX/%s.wav" % x for x in sfx}),
+            "audio_ext": "ogg", "img_ext": "webp",
+            "audio": dict({i: "assets/VO/%s.ogg" % i for i in ids}, **{x: "assets/SFX/%s.ogg" % x for x in sfx}),
             "audio_text": {i: audio_text[i] for i in ids if i in audio_text},
             "image": {s["image"]: "assets/Images/%s.webp" % s["image"] for s in SLIDES},
             "video": {},
