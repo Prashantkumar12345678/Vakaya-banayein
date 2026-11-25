@@ -244,7 +244,7 @@ html.no-anim .dd-tile.opt-walk,html.no-anim .dd-zone.opt-walk{animation:none !im
 .boot-loader.done{opacity:0;pointer-events:none;transition:opacity .4s ease;}
 .start-gate{position:absolute;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:transparent;cursor:default;}   
 .start-gate.hidden{display:none;}
-.sg-card{position:relative;width:1114px;height:456px;background:url("assets/UI/start_card.webp?v=20261125150056") center/100% 100% no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+.sg-card{position:relative;width:1114px;height:456px;background:url("assets/UI/start_card.webp?v=20261125151250") center/100% 100% no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
 .sg-mascot{position:absolute;left:-24px;bottom:-12px;width:208px;height:auto;z-index:3;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,47,118,.18));animation:none;}   
 @keyframes sgFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 .sg-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:760px;text-align:center;margin-bottom:150px;}
@@ -295,7 +295,7 @@ body.loaded .sg-acell{animation-play-state:running;}
 .sort-item.snapped{border-color:transparent;}
 .sort-item.dragging{background:#fff !important;border-color:#8BBFFF !important;}
 .nudge-hand{width:56px;height:70px;}
-.start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261125150056");}   
+.start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261125151250");}   
 .sg-glow,.sg-sky{position:fixed;inset:0;pointer-events:none;display:none;z-index:1;}
 body.is-start .sg-glow,body.is-start .sg-sky,
 body.is-end   .sg-glow,body.is-end   .sg-sky{display:block;}
@@ -329,9 +329,9 @@ body.is-end .sg-sky{
   margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
   background:center/contain no-repeat;opacity:0;
   animation:sgFly var(--t) linear infinite;animation-delay:var(--d);}
-.sg-sky .s1{background-image:url("assets/UI/bgdeco_star.svg?v=20261125150056");}
-.sg-sky .s2{background-image:url("assets/UI/bgdeco_star_o.svg?v=20261125150056");}
-.sg-sky .s3{background-image:url("assets/UI/bgdeco_spark.svg?v=20261125150056");}
+.sg-sky .s1{background-image:url("assets/UI/bgdeco_star.svg?v=20261125151250");}
+.sg-sky .s2{background-image:url("assets/UI/bgdeco_star_o.svg?v=20261125151250");}
+.sg-sky .s3{background-image:url("assets/UI/bgdeco_spark.svg?v=20261125151250");}
 .sg-sky .s4{border-radius:50%;border:.22vmax solid rgba(255,255,255,.92);}
 .sg-sky .s5{border-radius:50%;background:rgba(255,255,255,.92);}
 @keyframes sgFly{
@@ -542,11 +542,11 @@ html.no-anim .wg-out{opacity:.72;filter:saturate(.3);}
 .nudge-hand{width:56px;height:70px;animation:none;}
 .nudge-hand img{animation:nhTapNew 1.3s ease-in-out infinite;}
 #nudgeHand .nh-tapfx{width:110%;height:auto;aspect-ratio:1;left:-15.209%;top:-29.148%;}
-body .start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261125150056");}
+body .start-bg{background-image:url("assets/UI/startnew_bg_plain.webp?v=20261125151250");}
 body .sg-card{background:
-   url("assets/UI/start_card.webp?v=20261125150056") center/100% 100% no-repeat,
-   url("assets/UI/start_card.webp?v=20261125150056") center/100% 100% no-repeat,
-   url("assets/UI/start_card.webp?v=20261125150056") center/100% 100% no-repeat;}
+   url("assets/UI/start_card.webp?v=20261125151250") center/100% 100% no-repeat,
+   url("assets/UI/start_card.webp?v=20261125151250") center/100% 100% no-repeat,
+   url("assets/UI/start_card.webp?v=20261125151250") center/100% 100% no-repeat;}
    which is why the first attempt at this changed almost nothing. Here it is constant.
    The kit"[bad string]
    drop-shadow - "uncomposited, repaints every frame" - on 87 of them. This one is static,
@@ -562,7 +562,7 @@ body .opt-cell.ck-correct{animation:ckPop calc(var(--ckT) * .68) ease-in-out bot
 body .stage.thm-toybox .opt-cell.wg-wrong,
 body .opt-cell.wg-wrong{animation:wgNo var(--wgT) ease-in-out both;}
 .end-screen{position:absolute;inset:0;z-index:90;display:none;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:transparent;overflow:hidden;}
-.end-bg{position:fixed;inset:0;background:#FDE9A8 url("assets/UI/end_screen.webp?v=20261125150056") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
+.end-bg{position:fixed;inset:0;background:#FDE9A8 url("assets/UI/end_screen.webp?v=20261125151250") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
 body.is-end .end-bg{display:block;}
 body.is-end{background:#FDE9A8 !important;}
 body.is-end .stage{background:transparent !important;}
@@ -690,6 +690,8 @@ body.tut-page{background:#FFFFFF;}
 .audio-chip.playing .wv2{animation:wv2 1.2s steps(1) infinite;}
 .sg-vo.playing .wv1{animation:wv1 1.2s steps(1) infinite;}
 .sg-vo.playing .wv2{animation:wv2 1.2s steps(1) infinite;}
+/* [H11-263] a speaker that is blue (ready to tap) never animates - waves move only while the voice is really playing (grey) */
+.sg-vo.sg-blocked .wv1,.sg-vo.sg-blocked .wv2,.sg-vo:not(.sg-vo-off) .wv1,.sg-vo:not(.sg-vo-off) .wv2{animation:none !important;opacity:1 !important;}
 .tut-audio.playing .wv1{animation:wv1 1.2s steps(1) infinite;}
 .tut-audio.playing .wv2{animation:wv2 1.2s steps(1) infinite;}
 @keyframes wv1{0%{opacity:0;}33%{opacity:1;}100%{opacity:1;}}
@@ -702,7 +704,7 @@ body.gating .stage.gating .start-gate{filter:none;}
 @keyframes bulbRays{0%,100%{opacity:.25}50%{opacity:1}}
 .hint-btn.hint-glow:disabled{opacity:1;}
 .audio-chip .wv,.tut-audio .wv,.sg-vo .wv{opacity:1;animation:none;}
-.start-bg{position:fixed;inset:0;background:#47BCFD url("assets/UI/startnew_bg.webp?v=20261125150056") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
+.start-bg{position:fixed;inset:0;background:#47BCFD url("assets/UI/startnew_bg.webp?v=20261125151250") center/cover no-repeat;display:none;pointer-events:none;z-index:0;}
 body.is-start .start-bg{display:block;}
 body.is-start .stage-inner{visibility:hidden !important;}
 body.is-start .stage{background:transparent !important;}
@@ -882,8 +884,8 @@ body.is-start .phase-gate{
 .nav-btn::after{content:none !important;}
 .nav-btn{width:198px !important;height:90px !important;min-width:0 !important;bottom:18px !important;
   padding:0 !important;border:0 !important;box-shadow:none !important;
-  background:transparent url("assets/swiftpal_buttons/btn-next-disabled.svg?v=20261125150056") center/198px 90px no-repeat !important;}
-.nav-btn.active{background-image:url("assets/swiftpal_buttons/btn-next.svg?v=20261125150056") !important;
+  background:transparent url("assets/swiftpal_buttons/btn-next-disabled.svg?v=20261125151250") center/198px 90px no-repeat !important;}
+.nav-btn.active{background-image:url("assets/swiftpal_buttons/btn-next.svg?v=20261125151250") !important;
   box-shadow:none !important;}
 .nav-btn.active:active{box-shadow:none !important;}
 .nav-btn .nav-arrow{display:none !important;}
@@ -901,7 +903,7 @@ body.is-start .phase-gate{
 .nudge-hand.demo-match{overflow:visible;}
 .nudge-hand.demo-match{width:72px !important;height:90px !important;}
 .sg-card{width:1114px !important;height:456px !important;gap:14px !important;}
-body .sg-card{background:url("assets/UI/start_card.webp?v=20261125150056") center/100% 100% no-repeat !important;}
+body .sg-card{background:url("assets/UI/start_card.webp?v=20261125151250") center/100% 100% no-repeat !important;}
 .sg-mascot{left:-24px !important;bottom:-12px !important;width:208px !important;}
 .sg-vo{left:89px !important;bottom:-6px !important;width:58px !important;height:58px !important;}
 .sg-vo{left:83px !important;bottom:-12px !important;width:70px !important;height:70px !important;}  
@@ -917,7 +919,7 @@ body .sg-card{background:url("assets/UI/start_card.webp?v=20261125150056") cente
 .sg-btn{bottom:30px !important;width:140px !important;height:140px !important;min-width:0 !important;
         padding:0 !important;border:0 !important;border-radius:50% !important;
         box-shadow:none !important;
-        background:transparent url("assets/swiftpal_buttons/btn-play-round.svg?v=20261125150056") center/140px 140px no-repeat !important;
+        background:transparent url("assets/swiftpal_buttons/btn-play-round.svg?v=20261125151250") center/140px 140px no-repeat !important;
         animation:sgBtnPulse 1.4s ease-in-out infinite !important;}
 .sg-btn:active{animation:none !important;}
 .sg-btn.sg-pressed,.start-gate .sg-btn.sg-pressed{animation:none !important;}
@@ -932,7 +934,7 @@ body .sg-card{background:url("assets/UI/start_card.webp?v=20261125150056") cente
 .sg-vo.sg-vo-off{pointer-events:none !important;opacity:.5 !important;filter:grayscale(1) brightness(1.2) !important;}
 body.vo-spk .audio-chip,body.vo-spk .tut-audio{pointer-events:none !important;opacity:.5 !important;
                  filter:grayscale(1) brightness(1.2) !important;}
-.sg-btn.sg-waiting{background-image:url("assets/swiftpal_buttons/btn-play-round-waiting.svg?v=20261125150056") !important;
+.sg-btn.sg-waiting{background-image:url("assets/swiftpal_buttons/btn-play-round-waiting.svg?v=20261125151250") !important;
                    cursor:default !important;animation:none !important;
                    pointer-events:none !important;}   
 .sg-btn.sg-waiting{visibility:hidden !important;opacity:0 !important;}
@@ -987,7 +989,7 @@ html.fg-paused *,html.fg-paused *::before,html.fg-paused *::after{animation-play
 .end-screen .end-mascot{filter:none !important;}
 .end-btn{width:163px !important;height:117px !important;min-width:0 !important;padding:0 !important;
          border:0 !important;border-radius:0 !important;box-shadow:none !important;font-size:0 !important;
-         background:transparent url("assets/swiftpal_buttons/btn-finish.svg?v=20261125150056") center/163px 117px no-repeat !important;}
+         background:transparent url("assets/swiftpal_buttons/btn-finish.svg?v=20261125151250") center/163px 117px no-repeat !important;}
 .end-btn:active{box-shadow:none !important;}
 .hint-overlay{align-items:center !important;padding-top:0 !important;}
 .hint-box{width:920px !important;max-width:94% !important;min-height:430px !important;
@@ -1479,7 +1481,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 <!-- [H11-155] the landing and the first transition, fetched before the engine even parses. The two
      links this replaced named another game's pictures (sit_namaste_teacher, sit_dhanyawad_pencil)
      and 404ed on every load since the first commit. -->
-<link rel="preload" as="image" fetchpriority="high" href="assets/Images/title_screen.webp?v=20261125150056"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/startnew_bg_plain.webp?v=20261125150056"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/start_card.webp?v=20261125150056"><link rel="prefetch" as="image" href="assets/swiftpal_buttons/btn-play-round.svg?v=20261125150056"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/new_landing_swiftee_anim.webp?v=20261125150056"><link rel="prefetch" as="image" href="assets/peeking_talk_up.webp?v=20261125150056"><style id="fln-confetti-kit">
+<link rel="preload" as="image" fetchpriority="high" href="assets/Images/title_screen.webp?v=20261125151250"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/startnew_bg_plain.webp?v=20261125151250"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/start_card.webp?v=20261125151250"><link rel="prefetch" as="image" href="assets/swiftpal_buttons/btn-play-round.svg?v=20261125151250"><link rel="preload" as="image" fetchpriority="high" href="assets/UI/new_landing_swiftee_anim.webp?v=20261125151250"><link rel="prefetch" as="image" href="assets/peeking_talk_up.webp?v=20261125151250"><style id="fln-confetti-kit">
 .fx-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:60;}
 .fx-confetti .p{position:absolute;top:0;left:var(--x);
   animation:cfFall var(--fall) linear var(--delay) both;}
@@ -1889,7 +1891,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
 
 <!-- BOOT LOADER — [template] r4/P2: white boot screen, no-tap auto-dismiss (see boot()) -->
 <div class="boot-loader" id="bootLoader">
-  <img src="assets/UI/loader.webp?v=20261125150056" alt="">
+  <img src="assets/UI/loader.webp?v=20261125151250" alt="">
 </div>
 
 
@@ -1921,12 +1923,12 @@ body:has(.adventure-game) #devBanner{display:none !important;}
     <div class="slide-stage">
       <div class="slide-host" id="slideHost"></div>
       <div class="nudge-hand" id="nudgeHand">
-        <img src="assets/UI/nudge_hand_new.svg?v=20261125150056" alt="">
+        <img src="assets/UI/nudge_hand_new.svg?v=20261125151250" alt="">
       </div>
     </div>
 
     <!-- Swiftie buddy: persistent, reacting character (replaces the static header photo + feedback popup) -->
-    <div class="mascot-wrap" id="swBuddy"><div class="mascot-circle"><img class="mascot-img" id="swBuddyImg" src="assets/UI/sw_head_talking.webp?v=20261125150056" alt=""></div></div>
+    <div class="mascot-wrap" id="swBuddy"><div class="mascot-circle"><img class="mascot-img" id="swBuddyImg" src="assets/UI/sw_head_talking.webp?v=20261125151250" alt=""></div></div>
 
     <!-- Nav button — kit-style pill, floats bottom-right -->
     <!-- [H11-22] the word is gone and the arrow carries the meaning, so the button needs an
@@ -1942,7 +1944,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
   <!-- FEEDBACK OVERLAY — kit-style card + clean Swiftee large -->
   <div class="hint-overlay" id="hintOverlay">
     <div class="hint-box" id="hintBox">
-      <img class="hint-mascot" id="hintMascot" src="assets/UI/sw_anim_rest.webp?v=20261125150056" alt=""
+      <img class="hint-mascot" id="hintMascot" src="assets/UI/sw_anim_rest.webp?v=20261125151250" alt=""
            onerror="this.style.display='none'">
       <div class="hint-body">
         <div class="hint-text" id="hintText"></div>
@@ -1953,7 +1955,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
   <!-- TAP-TO-START — uses provided title-screen art -->
   <div class="start-gate" id="startGate">
     <div class="sg-card">
-      <img class="sg-mascot" src="assets/UI/new_landing_swiftee_anim.webp?v=20261125150056" alt="Swiftee"
+      <img class="sg-mascot" src="assets/UI/new_landing_swiftee_anim.webp?v=20261125151250" alt="Swiftee"
            onerror="this.style.display='none'">
       <div class="sg-content">
         <div class="sg-title" id="sgTitle">वाक्य बनाइए</div>
@@ -1992,7 +1994,7 @@ body:has(.adventure-game) #devBanner{display:none !important;}
          Shipped as WebP because GIF alpha is one all-or-nothing index and this art has soft
          edges, which cut hard would fringe against the sunburst behind it.
          See _tools/dekey_last_page.py. -->
-    <img class="end-mascot" src="assets/Images/last_swifty_still.webp?v=20261125150056" alt="Swiftee"
+    <img class="end-mascot" src="assets/Images/last_swifty_still.webp?v=20261125151250" alt="Swiftee"
          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'end-mascot',textContent:'🎉'}))">
     <button class="end-btn" id="endBtn" aria-label="आगे बढ़ें"></button>   <!-- [H11-66] the artwork carries the arrow -->
   </div>
@@ -3016,7 +3018,7 @@ function _resumeVoiceAudio(){
    AUDIO_BUILD changes whenever the game is rebuilt, so every clip URL changes with it and the
    browser has to fetch. It is added in the two places every clip passes through, rather than at
    the ~20 sites that spell out a path, so nothing can be missed. */
-const AUDIO_BUILD = "20261125150056";
+const AUDIO_BUILD = "20261125151250";
 /* [H11-187] ASSET PRELOADER - every file the game uses is fetched ONCE, behind the loading bar,
    before the Play button can appear.
    - ONE DOWNLOAD PER FILE. The bar, the voice decoder, the picture warm-up and the gate / landing /
@@ -6682,11 +6684,11 @@ let _gateToken = 0;
    A NEW URL is a new image with its own clock. Over http it is a blob: URL minted from ONE fetch,
    so the 6.9MB file is downloaded once, not once per gate (the problem [gate-cache] solved). From
    file:// fetch is blocked, so it is a counter in the query instead - a disk read, not a download. */
-const PEEK_SRC = "assets/peeking_talk10s.webp?v=20261125150056";
+const PEEK_SRC = "assets/peeking_talk10s.webp?v=20261125151250";
 /* [H11-154] THE FIRST GATE SKIPS THE RISE. Asked for: on the first transition Swifty is already up
    and talking, not climbing into view first. peeking_talk_up.webp is the same animation from 3.82s
    - the first frame he is at the top - cut by _tools/peek_cut.py; the other two gates keep the rise. */
-const PEEK_UP_SRC = "assets/peeking_talk_up.webp?v=20261125150056";
+const PEEK_UP_SRC = "assets/peeking_talk_up.webp?v=20261125151250";
 const _peekBlobs = {}; let _peekBlobUrl = null, _peekN = 0;
 if(/^https?:$/.test(location.protocol)){
   /* only the cut file: every gate uses it now, and peeking_talk10s.webp left the game folder */
@@ -6699,7 +6701,7 @@ if(/^https?:$/.test(location.protocol)){
    plays through once more while the greeting begins. Restarting an animated image means a NEW
    URL (one clock per URL, see [H11-132]): a blob: URL over http so the file is fetched once, a
    counter in the query from file://. */
-const LAND_ANIM_SRC = "assets/UI/new_landing_swiftee_anim.webp?v=20261125150056";
+const LAND_ANIM_SRC = "assets/UI/new_landing_swiftee_anim.webp?v=20261125151250";
 let _landBlob = null, _landN = 0;
 if(/^https?:$/.test(location.protocol)){
   try{ AssetLoader.blob(LAND_ANIM_SRC).then(b => { _landBlob = b; }).catch(()=>{}); }catch(e){}   /* [H11-187] on screen now: first in line */
