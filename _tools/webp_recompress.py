@@ -31,7 +31,7 @@ def job(p):
                        loop=im.info.get("loop", 0), quality=QA, method=4, allow_mixed=False)
     else:
         im = im.convert("RGBA") if im.mode in ("RGBA", "LA", "P") else im.convert("RGB")
-        if im.size[0] > STAGE_W and not FIXED.search(f):
+        if im.size[0] > STAGE_W and not FIXED.search(f) and f != "title_screen.webp":   # title art fills a 16:9 card, keep it full size
             im = im.resize((STAGE_W, round(im.size[1] * STAGE_W / im.size[0])), Image.LANCZOS)
         im.save(buf, "WEBP", quality=QS, method=6, alpha_quality=75)
     out = buf.getvalue(); cur = os.path.getsize(p)
