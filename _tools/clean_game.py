@@ -3,14 +3,14 @@
 
     python _tools/clean_game.py [--dry]
 
-vercel.json serves HI02H12_L02_S01/ as the site, so everything in it is either the game or dead
+vercel.json serves HI02H02_L02_S01/ as the site, so everything in it is either the game or dead
 weight on every deploy - and its _backup/ alone was ~400 MB. After this the folder is exactly
     index.html   card.json   assets/
 and everything else is MOVED (never deleted) to the project-root _backup/ (gitignored):
-    _backup/HI02H12_L02_S01_backup/    the game's own old _backup/, whole
+    _backup/HI02H02_L02_S01_backup/    the game's own old _backup/, whole
     _backup/docs_<date>/               VO manifests, CHANGES/README, _handoff/
     _backup/unused_assets_<date>/      assets no slide, gate or engine code plays or shows
-    _backup/_server_HI02H12_L02_S01/   the older duplicate of the game at the project root
+    _backup/_server_HI02H02_L02_S01/   the older duplicate of the game at the project root
 UNUSED is decided strictly - audio by whether a SLIDE (or the engine's code, comments stripped)
 names it, not by the audio_text / assets maps, which list every clip ever recorded; pictures by
 a quoted name or path anywhere in the card or engine; the Swifty mood sets are always kept, as
@@ -22,7 +22,7 @@ import io, json, os, re, shutil, sys, time
 sys.stdout.reconfigure(encoding="utf-8")
 DRY = "--dry" in sys.argv
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01")
+GAME = os.path.join(PROJ, "HI02H02_L02_S01")
 BK = os.path.join(PROJ, "_backup")
 DATE = time.strftime("%Y%m%d")
 KEEP_TOP = {"index.html", "card.json", "assets"}
@@ -110,13 +110,13 @@ print("3. game folder top level:")
 for name in sorted(os.listdir(GAME)):
     if name in KEEP_TOP: continue
     src = os.path.join(GAME, name)
-    dst = os.path.join(BK, "HI02H12_L02_S01_backup") if name == "_backup" else os.path.join(BK, "docs_" + DATE, name)
+    dst = os.path.join(BK, "HI02H02_L02_S01_backup") if name == "_backup" else os.path.join(BK, "docs_" + DATE, name)
     move(src, dst)
 
 # ---- 4. the old duplicate at the project root, and the empty root _handoff
 print("4. project root:")
-if os.path.isdir(os.path.join(PROJ, "_server_HI02H12_L02_S01")):
-    move(os.path.join(PROJ, "_server_HI02H12_L02_S01"), os.path.join(BK, "_server_HI02H12_L02_S01"))
+if os.path.isdir(os.path.join(PROJ, "_server_HI02H02_L02_S01")):
+    move(os.path.join(PROJ, "_server_HI02H02_L02_S01"), os.path.join(BK, "_server_HI02H02_L02_S01"))
 h = os.path.join(PROJ, "_handoff")
 if os.path.isdir(h) and not os.listdir(h):
     print("   removed empty _handoff/")

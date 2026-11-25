@@ -13,14 +13,14 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=True
  daemon_threads=True
-srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H12_L02_S01')))
+srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H02_L02_S01')))
 threading.Thread(target=srv.serve_forever,daemon=True).start()
 base='http://127.0.0.1:'+str(srv.server_address[1])+'/index.html'
 
 import re
 errors=[]
 record_frames=[]
-card=json.loads((ROOT/'HI02H12_L02_S01/card.json').read_text())
+card=json.loads((ROOT/'HI02H02_L02_S01/card.json').read_text())
 expected=['मीरा पौधों को पानी दे रही है।','बिल्ली टोकरी में सो रही है।','बच्चा प्यासा है, उसे पानी चाहिए।','रात के समय आसमान में तारे चमकते हैं।','लड़की गाना गा रही है।','बकरी पत्ते खा रही है।']
 B=next(i for i,s in enumerate(card['slides']) if s['id']=='P1')   # first game slide (G1 was removed 2026-11-19)
 for n,slide in enumerate(card['slides'][B:B+6]):

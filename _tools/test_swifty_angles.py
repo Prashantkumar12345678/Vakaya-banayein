@@ -8,7 +8,7 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=True
  daemon_threads=True
-srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H12_L02_S01')))
+srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H02_L02_S01')))
 threading.Thread(target=srv.serve_forever,daemon=True).start()
 base='http://127.0.0.1:'+str(srv.server_address[1])+'/index.html'
 errors=[]

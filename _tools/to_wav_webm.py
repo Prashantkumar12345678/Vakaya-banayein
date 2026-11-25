@@ -12,14 +12,14 @@ Asked for on 30 Sep: WebP pictures (already), WebM video, WAV audio.
          play VP9 falls back to the still scene the slide already carries (the <video> error path).
   CARD   audio_ext -> "wav", every assets/VO|SFX/*.ogg path -> .wav, every video path -> .webm, in
          both card copies; the engine's two hard-coded ".ogg" loaders follow.
-Nothing is deleted: the OGGs and MP4s go to HI02H12_L02_S01/_backup/pre_wav_webm_<date>/.
+Nothing is deleted: the OGGs and MP4s go to HI02H02_L02_S01/_backup/pre_wav_webm_<date>/.
 """
 import io, json, os, re, shutil, subprocess, sys, time
 import imageio_ffmpeg
 
 sys.stdout.reconfigure(encoding="utf-8")
 FF = imageio_ffmpeg.get_ffmpeg_exe()
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 os.chdir(ROOT)
 BK = os.path.join("..", "_backup", "pre_wav_webm_" + time.strftime("%Y%m%d"))   # project root, not the shipped folder
 

@@ -6,7 +6,7 @@ from collections import deque
 import hashlib,json,wave,re,shutil,math
 import numpy as np
 from PIL import Image,ImageChops,ImageFilter,ImageDraw
-ROOT=Path(__file__).resolve().parents[1];UI=ROOT/'HI02H12_L02_S01/assets/UI';ART=ROOT/'_masters/art';OUT=ROOT/'_previews/intro-speaking-v2';OUT.mkdir(parents=True,exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1];UI=ROOT/'HI02H02_L02_S01/assets/UI';ART=ROOT/'_masters/art';OUT=ROOT/'_previews/intro-speaking-v2';OUT.mkdir(parents=True,exist_ok=True)
 G=Path('/Users/prashantkumar/.codex/generated_images/01a18226-aebf-7240-a921-e0149e214702')
 for src,dst in [('exec-066be8c9-42fc-4661-91ce-13338c8da434.png','swifty_intro_gestures_source.png'),('exec-45728d78-eb7e-42f8-ae13-f7fb0c10a5ec.png','swifty_intro_mouths_source.png')]:
  if not (ART/dst).exists():shutil.copy2(G/src,ART/dst)
@@ -75,7 +75,7 @@ for pose in poses:
  for f in pose[1:]:assert np.array_equal(np.array(f)[outside],ref[outside]),'Non-mouth pixels moved'
 cues={};analysis={}
 for n in range(1,4):
- p=ROOT/f'HI02H12_L02_S01/assets/VO/vo_map_intro{n}.wav'
+ p=ROOT/f'HI02H02_L02_S01/assets/VO/vo_map_intro{n}.wav'
  with wave.open(str(p),'rb') as wav:
   rate=wav.getframerate();samples=np.frombuffer(wav.readframes(wav.getnframes()),dtype='<i2').reshape(-1,wav.getnchannels()).mean(axis=1)/32768
  step=round(rate*.05);env=np.array([np.sqrt(np.mean(samples[i:i+step]**2)) for i in range(0,len(samples),step)]);env=np.convolve(np.pad(env,(1,1),mode='edge'),[.15,.7,.15],mode='valid')
@@ -91,8 +91,8 @@ for n in range(1,4):
  analysis[str(n)]={'duration_ms':round(len(samples)/rate*1000),'gesture':['point to map','hand to chest','both palms explaining'][n-1],'rest_frame':(n-1)*5,'audio_sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
  seq=[frames[f] for f in cue];seq[0].save(OUT/f'line-{n}.webp',save_all=True,append_images=seq[1:],duration=50,loop=0,lossless=True,method=4)
  seq[0].save(OUT/f'line-{n}.gif',save_all=True,append_images=seq[1:],duration=50,loop=0,disposal=2)
-p=ROOT/'HI02H12_L02_S01/index.html';s=p.read_text();s=re.sub(r'const JOURNEY_SPEECH_CUES=.*?;',lambda _:'const JOURNEY_SPEECH_CUES='+json.dumps(cues,separators=(',',':'))+';',s);p.write_text(s)
-meta={'method':'Complete connected character drawings with independently registered 5 beak shapes and 3 stable hand gestures; no head/body cutout or neck seam. All pixels outside the mouth are identical within each gesture. Gesture changes only between lines.','frame_size':[W,H],'frame_count':15,'sheet_grid':[5,3],'step_ms':50,'rest_frames':[0,5,10],'audio_analysis':analysis,'cues':cues,'original_still_sha256':hashlib.sha256((UI/'sw_explain_still.webp').read_bytes()).hexdigest(),'source_gestures':'_masters/art/swifty_intro_gestures_chubby_source.png','body_reference':'HI02H12_L02_S01/assets/Images/last_swifty_end.webp','source_mouths':'_masters/art/swifty_intro_mouths_source.png'}
-meta.update({'tool': 'Built-in image_gen for gesture and mouth source art; registered sprite assembly', 'body_reference_prompt': '_masters/art/SWIFTY_INTRO_BODY_REFERENCE_PROMPT.txt', 'prompts': '_masters/art/SWIFTY_INTRO_V2_PROMPTS.json', 'sheet': 'HI02H12_L02_S01/assets/UI/swifty_intro_speech_v2_sheet.png', 'strip': 'HI02H12_L02_S01/assets/UI/swifty_intro_speech_v2_strip.webp', 'preview_with_audio': '_previews/intro-speaking-v2/three-lines-with-audio.mp4'})
+p=ROOT/'HI02H02_L02_S01/index.html';s=p.read_text();s=re.sub(r'const JOURNEY_SPEECH_CUES=.*?;',lambda _:'const JOURNEY_SPEECH_CUES='+json.dumps(cues,separators=(',',':'))+';',s);p.write_text(s)
+meta={'method':'Complete connected character drawings with independently registered 5 beak shapes and 3 stable hand gestures; no head/body cutout or neck seam. All pixels outside the mouth are identical within each gesture. Gesture changes only between lines.','frame_size':[W,H],'frame_count':15,'sheet_grid':[5,3],'step_ms':50,'rest_frames':[0,5,10],'audio_analysis':analysis,'cues':cues,'original_still_sha256':hashlib.sha256((UI/'sw_explain_still.webp').read_bytes()).hexdigest(),'source_gestures':'_masters/art/swifty_intro_gestures_chubby_source.png','body_reference':'HI02H02_L02_S01/assets/Images/last_swifty_end.webp','source_mouths':'_masters/art/swifty_intro_mouths_source.png'}
+meta.update({'tool': 'Built-in image_gen for gesture and mouth source art; registered sprite assembly', 'body_reference_prompt': '_masters/art/SWIFTY_INTRO_BODY_REFERENCE_PROMPT.txt', 'prompts': '_masters/art/SWIFTY_INTRO_V2_PROMPTS.json', 'sheet': 'HI02H02_L02_S01/assets/UI/swifty_intro_speech_v2_sheet.png', 'strip': 'HI02H02_L02_S01/assets/UI/swifty_intro_speech_v2_strip.webp', 'preview_with_audio': '_previews/intro-speaking-v2/three-lines-with-audio.mp4'})
 (ART/'SWIFTY_INTRO_SPEECH_V2.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
 print('Built 3 stable gestures x 5 mouth shapes. All non-mouth pixels verified fixed per gesture.')

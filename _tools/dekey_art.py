@@ -19,7 +19,7 @@ from PIL import Image
 SRC, NAME = sys.argv[1], sys.argv[2]
 TARGET_H = int(sys.argv[3]) if len(sys.argv) > 3 else 420
 TOL = 12
-OUT = os.path.join("HI02H12_L02_S01", "assets", "Images", NAME + ".webp")
+OUT = os.path.join("HI02H02_L02_S01", "assets", "Images", NAME + ".webp")
 
 rgb = np.array(Image.open(SRC).convert("RGB")).astype(int)
 h, w, _ = rgb.shape

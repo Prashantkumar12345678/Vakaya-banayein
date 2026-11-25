@@ -6,7 +6,7 @@ the original. Originals -> _backup/pre_webp_<date>/.   python3 _tools/webp_recom
 import os, shutil, time, io, re
 from concurrent.futures import ProcessPoolExecutor
 from PIL import Image, ImageSequence
-G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 BK = os.path.join(G, "..", "_backup", "pre_webp_20261123")
 QS, QA, STAGE_W = 64, 50, 1333
 ANIM_CAP = {"peeking_talk_up.webp": 540, "new_landing_swiftee_anim.webp": 416, "sw_head_hint_anim.webp": 264, "sw_head_tryagain_anim.webp": 264, "sw_head_celebrate_anim.webp": 264,

@@ -20,7 +20,7 @@ from playwright.sync_api import sync_playwright
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01")
+GAME = os.path.join(PROJ, "HI02H02_L02_S01")
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):

@@ -8,7 +8,7 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=True
  daemon_threads=True
-srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H12_L02_S01')))
+srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H02_L02_S01')))
 threading.Thread(target=srv.serve_forever,daemon=True).start()
 errors=[];frames=[]
 with sync_playwright() as p:
@@ -63,7 +63,7 @@ with sync_playwright() as p:
  page.wait_for_selector('.journey-map[data-level="5"]')
  # Preloaded assets may be represented by blob URLs; verify actual image bytes.
  actual_map_hash=page.locator('.journey-map-art').evaluate("async e=>{const bytes=await (await fetch(e.src)).arrayBuffer();const hash=await crypto.subtle.digest('SHA-256',bytes);return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');}")
- expected_map_hash=hashlib.sha256((ROOT/'HI02H12_L02_S01/assets/Images/adventure/journey_map_railway_open.webp').read_bytes()).hexdigest()
+ expected_map_hash=hashlib.sha256((ROOT/'HI02H02_L02_S01/assets/Images/adventure/journey_map_railway_open.webp').read_bytes()).hexdigest()
  assert actual_map_hash==expected_map_hash, 'Next journey map must use the open crossing asset' 
  page.wait_for_function('document.querySelector(".journey-map")?.dataset.state==="ready"',timeout=10000)
  page.locator('.journey-map').screenshot(path=str(OUT/'05-map-open.png'))

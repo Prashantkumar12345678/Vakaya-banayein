@@ -11,7 +11,7 @@ listed: the game folder holds only what the game uses (_tools/clean_game.py keep
 import json, os, re, sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-GAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+GAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 SRC = os.path.join(GAME, "index.html")
 
 

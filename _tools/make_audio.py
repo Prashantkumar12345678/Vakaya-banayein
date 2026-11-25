@@ -32,7 +32,7 @@ import imageio_ffmpeg
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
 SR = 44100
-OUT = os.path.join("HI02H12_L02_S01", "assets", "SFX")
+OUT = os.path.join("HI02H02_L02_S01", "assets", "SFX")
 rng = np.random.default_rng(7)
 
 

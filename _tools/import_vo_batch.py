@@ -26,7 +26,7 @@ import imageio_ffmpeg
 sys.stdout.reconfigure(encoding="utf-8")
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-GAME = os.path.join(ROOT, "HI02H12_L02_S01")
+GAME = os.path.join(ROOT, "HI02H02_L02_S01")
 VO = os.path.join(GAME, "assets", "VO")
 MASTERS = os.path.join(ROOT, "_masters", "voiceovers")
 DATE = time.strftime("%Y%m%d")

@@ -6,7 +6,7 @@ by asset_manifest.py. Clips that leave are dropped from both card copies' audio 
 import json, os, re, shutil, sys, time
 DRY = "--dry" in sys.argv
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01"); BK = os.path.join(PROJ, "_backup", "unused_assets_" + time.strftime("%Y%m%d"))
+GAME = os.path.join(PROJ, "HI02H02_L02_S01"); BK = os.path.join(PROJ, "_backup", "unused_assets_" + time.strftime("%Y%m%d"))
 os.chdir(GAME)
 h = open("index.html", encoding="utf-8").read()
 i = h.index('{"version": "0.2"'); card, e = json.JSONDecoder().raw_decode(h, i)

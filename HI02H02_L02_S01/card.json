@@ -1,9 +1,9 @@
 {
  "version": "0.2",
- "skill_code": "HI02H12_L02_S01",
- "lo_code": "HI02H12_L02",
+ "skill_code": "HI02H02_L02_S01",
+ "lo_code": "HI02H02_L02",
  "grade": "G2",
- "attribute": "H12",
+ "attribute": "H02",
  "skill_type": "CORE",
  "part_label": "",
  "theme": "toybox",

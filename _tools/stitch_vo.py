@@ -23,7 +23,7 @@ import imageio_ffmpeg
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 SR = 48000
-VO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01", "assets", "VO")
+VO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01", "assets", "VO")
 PAD, FADE, GAP, LEAD, TAIL = 0.06, 0.02, 0.22, 0.25, 0.30
 TARGET_RMS, PEAK_CAP = -14.5, -1.5
 

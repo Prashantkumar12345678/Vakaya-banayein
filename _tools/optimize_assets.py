@@ -4,7 +4,7 @@
     python _tools/optimize_assets.py [--dry]
 
 Nothing is deleted. Every file this moves or replaces goes to
-    HI02H12_L02_S01/_backup/pre_optimize_<date>/<its path under the game>
+    HI02H02_L02_S01/_backup/pre_optimize_<date>/<its path under the game>
 so any step can be undone by copying it back.
 
   1. UNUSED FILES LEAVE THE GAME FOLDER. The list is decided the strict way: a file stays if the
@@ -27,7 +27,7 @@ import imageio_ffmpeg
 
 sys.stdout.reconfigure(encoding="utf-8")
 DRY = "--dry" in sys.argv
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 BK = os.path.join(ROOT, "..", "_backup", "pre_optimize_" + time.strftime("%Y%m%d"))   # project root, not the shipped folder
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 BIN = os.path.dirname(shutil.which("webpmux") or r"D:\anacodna\Library\bin\webpmux.exe")

@@ -10,7 +10,7 @@ No text anywhere, as asked.
 import os, math
 from PIL import Image
 
-SRC  = "HI02H12_L02_S01/assets/UI/start_mascot.png"
+SRC  = "HI02H02_L02_S01/assets/UI/start_mascot.png"
 OUT  = "_masters/art/swifty_arrives.gif"
 W, H = 380, 320
 FPS  = 20

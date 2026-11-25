@@ -17,7 +17,7 @@ from PIL import Image
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-IMG = os.path.join(PROJ, "HI02H12_L02_S01", "assets", "Images")
+IMG = os.path.join(PROJ, "HI02H02_L02_S01", "assets", "Images")
 MASTERS = os.path.join(PROJ, "_masters", "art")
 IMG2WEBP = shutil.which("img2webp") or r"D:\anacodna\Library\bin\img2webp.exe"
 SHEETS = [("swiftie_happy_idle", "last_swifty_happy", 80, 1),     # each plays ONCE and stops - asked for

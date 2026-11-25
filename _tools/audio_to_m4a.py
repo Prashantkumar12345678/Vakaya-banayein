@@ -3,7 +3,7 @@
     python3 _tools/audio_to_m4a.py"""
 import os, shutil, subprocess, time, imageio_ffmpeg
 FF = imageio_ffmpeg.get_ffmpeg_exe()
-G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 BK = os.path.join(G, "..", "_backup", "pre_m4a_" + time.strftime("%Y%m%d"))
 a = b = 0
 for sub, rate in (("VO", "48k"), ("SFX", "64k")):

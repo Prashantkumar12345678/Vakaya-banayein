@@ -7,9 +7,9 @@
 THE SCRIPT LIVES HERE, ONCE. Every screen of the SME review (HI02H12_L02_S01_SME_review, right-hand
 "Recommendations" column only - the screenshots are the old WIP build and are NOT the spec) is one
 entry in SLIDES below. From it this writes:
-  HI02H12_L02_S01/card.json               the card
-  HI02H12_L02_S01/index.html  #cardData   the same card, inlined (the page reads only this copy)
-  HI02H12_L02_S01/assets/VO/<id>.wav      placeholder VO, macOS `say -v Lekha` (hi_IN)
+  HI02H02_L02_S01/card.json               the card
+  HI02H02_L02_S01/index.html  #cardData   the same card, inlined (the page reads only this copy)
+  HI02H02_L02_S01/assets/VO/<id>.wav      placeholder VO, macOS `say -v Lekha` (hi_IN)
 
 RECORDED VO (29 Oct 2026). The studio batch lives in _masters/voiceovers/<id>.wav and is copied into
 assets/VO; Lekha (macOS `say`) only fills a clip that has no recording yet. A clip that already exists
@@ -29,7 +29,7 @@ import array, json, math, os, re, subprocess, sys, wave
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01")
+GAME = os.path.join(PROJ, "HI02H02_L02_S01")
 VO = os.path.join(GAME, "assets", "VO")
 TMP = os.path.join(PROJ, "_backup", "_tts_parts")
 TTS_ALL = "--tts-all" in sys.argv
@@ -356,8 +356,8 @@ def main():
     ids = sorted(x for x in set(audio_text) | used if not x.startswith("sfx_"))   # sfx_ ids live in assets/SFX
     sfx = ["sfx_correct", "sfx_wrong", "sfx_burst", "sfx_celebrate", "sfx_tap"]
     card = {
-        "version": "0.2", "skill_code": "HI02H12_L02_S01", "lo_code": "HI02H12_L02", "grade": "G2",
-        "attribute": "H12", "skill_type": "CORE", "part_label": "", "theme": "toybox",
+        "version": "0.2", "skill_code": "HI02H02_L02_S01", "lo_code": "HI02H02_L02", "grade": "G2",
+        "attribute": "H02", "skill_type": "CORE", "part_label": "", "theme": "toybox",
         "title": {"hi": "वाक्य बनाइए", "en": "Pick the right words to make a sentence"},
         "subtitle_hi": "",
         "skill_description_hi": "चित्र देखकर सिखाए गए शब्दों से वाक्य के लिए सही शब्द चुनता है और शब्दों को क्रम से जोड़कर वाक्य बनाता है।",

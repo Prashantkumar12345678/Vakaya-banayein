@@ -23,7 +23,7 @@ own lengths and heights, with real pauses written in.
 import os, math
 from PIL import Image
 
-SRC  = "HI02H12_L02_S01/assets/UI/sw_head_talking.webp"
+SRC  = "HI02H02_L02_S01/assets/UI/sw_head_talking.webp"
 OUT  = "_masters/art/swifty_talking.gif"
 X0, X1  = 226, 338          # the beak's own width plus a hair
 MOUTH_T = 269               # the dark hinge where the upper beak ends

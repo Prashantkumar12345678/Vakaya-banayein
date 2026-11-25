@@ -14,14 +14,14 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=True
  daemon_threads=True
-srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H12_L02_S01')))
+srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H02_L02_S01')))
 threading.Thread(target=srv.serve_forever,daemon=True).start()
 base='http://127.0.0.1:'+str(srv.server_address[1])+'/index.html'
 
 
 import re,hashlib
 errors=[]
-ui=ROOT/'HI02H12_L02_S01/assets/UI'
+ui=ROOT/'HI02H02_L02_S01/assets/UI'
 assert hashlib.sha256((ui/'sw_explain_still.webp').read_bytes()).hexdigest()=='1d1d2e7f9b912cab4b2ef827d7b605cbdb9f6231224465931375d9aef5d509fb'
 assert hashlib.sha256((ui/'start_mascot.webp').read_bytes()).hexdigest()=='207d6c4db4a9629a22c9f010b2ca1595315c98eeeeb014b4b1bf161f12f39b98'
 with sync_playwright() as p:

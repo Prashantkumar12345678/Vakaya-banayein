@@ -3,7 +3,7 @@
 
     python _tools/qa_crawl.py [--out DIR] [--slow] [--only 0,3,12] [--landing]
 
-Serves HI02H12_L02_S01/ over local HTTP (file:// hides fetch/CORS behaviour the real host has),
+Serves HI02H02_L02_S01/ over local HTTP (file:// hides fetch/CORS behaviour the real host has),
 then:
   1. LANDING  - loads the page, samples the loading bar and the Play button every 100ms, waits for
                 the bar to reach 100% and the button to appear, taps it, confirms the first gate and
@@ -19,7 +19,7 @@ from playwright.sync_api import sync_playwright
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01")
+GAME = os.path.join(PROJ, "HI02H02_L02_S01")
 ARGS = sys.argv[1:]
 OUT = ARGS[ARGS.index("--out") + 1] if "--out" in ARGS else os.path.join(PROJ, "_backup", "qa_shots")
 ONLY = [int(x) for x in ARGS[ARGS.index("--only") + 1].split(",")] if "--only" in ARGS else None

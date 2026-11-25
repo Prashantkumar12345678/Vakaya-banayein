@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image
 import shutil,json
-r=Path.cwd();a=r/'HI02H12_L02_S01/assets/Images/adventure';m=r/'_masters/art'
+r=Path.cwd();a=r/'HI02H02_L02_S01/assets/Images/adventure';m=r/'_masters/art'
 src=m/'door_key_angles_source.png'
 im=Image.open(src).convert('RGBA');print(im.size)
 frames=[('front',Image.open(a/'key.webp').convert('RGBA'),(0,0,1400,372),(35,160),.3),('approach',im,(0,0,875,724),(65,195),.5),('inserted',im,(875,0,1520,724),(935,225),.5),('turned',im,(1520,0,2172,724),(1605,230),.5)]

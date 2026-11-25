@@ -15,7 +15,7 @@ import os, shutil, subprocess, tempfile
 from PIL import Image
 
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-UI = os.path.join(PROJ, "HI02H12_L02_S01", "assets", "UI")
+UI = os.path.join(PROJ, "HI02H02_L02_S01", "assets", "UI")
 IMG2WEBP = shutil.which("img2webp") or r"D:\anacodna\Library\bin\img2webp.exe"
 sh = Image.open(os.path.join(PROJ, "_masters", "art", "swiftie_talk.png")).convert("RGBA")
 cw, ch = sh.width // 6, sh.height // 6

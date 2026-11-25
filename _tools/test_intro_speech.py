@@ -8,7 +8,7 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=True
  daemon_threads=True
-srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H12_L02_S01')))
+srv=Server(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'HI02H02_L02_S01')))
 threading.Thread(target=srv.serve_forever,daemon=True).start();base='http://127.0.0.1:'+str(srv.server_address[1])+'/index.html'
 meta=json.loads((ROOT/'_masters/art/SWIFTY_INTRO_SPEECH_V2.json').read_text());errors=[];seen={};frames=[];matched=0;samples=0;muted=False
 with sync_playwright() as p:
@@ -54,7 +54,7 @@ with sync_playwright() as p:
  assert not errors,errors
  b.close()
 srv.shutdown()
-assert hashlib.sha256((ROOT/'HI02H12_L02_S01/assets/UI/sw_explain_still.webp').read_bytes()).hexdigest()==meta['original_still_sha256']
+assert hashlib.sha256((ROOT/'HI02H02_L02_S01/assets/UI/sw_explain_still.webp').read_bytes()).hexdigest()==meta['original_still_sha256']
 from PIL import Image
 images=[Image.open(io.BytesIO(x)).convert('RGB').resize((960,540)) for x in frames]
 images[0].save(OUT/'actual-intro-speaking.gif',save_all=True,append_images=images[1:],duration=150,loop=0)

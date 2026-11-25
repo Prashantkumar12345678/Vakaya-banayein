@@ -19,7 +19,7 @@ import numpy as np, imageio_ffmpeg
 FF = imageio_ffmpeg.get_ffmpeg_exe(); SR = 22050
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "..", "_masters", "sfx", "mixkit", "src")
-OUT = os.path.join(HERE, "..", "HI02H12_L02_S01", "assets", "SFX")
+OUT = os.path.join(HERE, "..", "HI02H02_L02_S01", "assets", "SFX")
 
 
 def load(i):

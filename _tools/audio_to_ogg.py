@@ -4,7 +4,7 @@ if not, it is re-encoded at ~70% of the source bitrate; if still not, the source
 Originals -> _backup/pre_ogg_<date>/.   python3 _tools/audio_to_ogg.py"""
 import os, shutil, subprocess, time, json, imageio_ffmpeg
 FF = imageio_ffmpeg.get_ffmpeg_exe()
-G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01")
+G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01")
 BK = os.path.join(G, "..", "_backup", "pre_ogg_" + time.strftime("%Y%m%d"))
 def dur(p):
     out = subprocess.run([FF, "-i", p], capture_output=True, text=True).stderr

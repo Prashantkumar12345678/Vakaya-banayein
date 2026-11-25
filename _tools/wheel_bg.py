@@ -13,8 +13,8 @@ The supplied reference shows a crisp fence and crisp trees, which is why it did 
 import base64, io, os, re
 from PIL import Image
 
-SVG = os.path.join("HI02H12_L02_S01", "assets", "Images", "wheel svg.svg")
-OUT = os.path.join("HI02H12_L02_S01", "assets", "Images", "wheel_bg.webp")
+SVG = os.path.join("HI02H02_L02_S01", "assets", "Images", "wheel svg.svg")
+OUT = os.path.join("HI02H02_L02_S01", "assets", "Images", "wheel_bg.webp")
 RW, RH = 1920, 1094                     # the rect the pattern fills
 SX, SY, TX, TY = 0.000784029, 0.00137638, -0.351456, -0.543669
 

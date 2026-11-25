@@ -16,7 +16,7 @@ import numpy as np, imageio_ffmpeg
 sys.stdout.reconfigure(encoding="utf-8")
 DRY = "--dry" in sys.argv
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-GAME = os.path.join(PROJ, "HI02H12_L02_S01")
+GAME = os.path.join(PROJ, "HI02H02_L02_S01")
 BK = os.path.join(PROJ, "_backup", "pre_wav16k_" + time.strftime("%Y%m%d"))
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 KEEP_ABOVE = 0.02          # share of energy above 8kHz that keeps a clip at its own rate

@@ -20,8 +20,8 @@ TWO THINGS DIFFER HERE.
 import os, math
 from PIL import Image
 
-SRC  = "HI02H12_L02_S01/assets/UI/start_mascot.png"
-OUT  = "HI02H12_L02_S01/assets/UI/sw_talk_body.gif"
+SRC  = "HI02H02_L02_S01/assets/UI/start_mascot.png"
+OUT  = "HI02H02_L02_S01/assets/UI/sw_talk_body.gif"
 X0, X1  = 204, 326          # the beak, with a small margin into the face
 MOUTH_T = 237               # the dark line where the mouth opens
 MOUTH_B = 280               # bottom of the red interior

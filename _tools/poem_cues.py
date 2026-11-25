@@ -111,7 +111,7 @@ def snap(cues, x, span=0.10, need_db=3.0):
 # Without --write it only prints, so the cues can be read before they are trusted.
 # A clip that has been re-cut moves every word after the edit; the card then points the verse at
 # the wrong syllables and nobody notices until a child watches it. One command, both copies.
-GAME = "HI02H12_L02_S01"
+GAME = "HI02H02_L02_S01"
 _TAG = re.compile(r'<[^>]+>')
 _GW  = re.compile(r'<span class="gw">[^<]*</span>')
 MIN_GAP = 130          # two cues closer than this read as one flash, not two words

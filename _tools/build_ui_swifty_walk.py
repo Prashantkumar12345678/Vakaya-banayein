@@ -7,7 +7,7 @@ from pathlib import Path
 from collections import deque
 from PIL import Image, ImageFilter, ImageChops
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'HI02H12_L02_S01/assets/UI'
+OUT=ROOT/'HI02H02_L02_S01/assets/UI'
 parser=argparse.ArgumentParser()
 parser.add_argument('--direction',choices=['right','front','back'],default='right')
 args=parser.parse_args()

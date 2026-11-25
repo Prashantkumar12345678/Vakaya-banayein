@@ -31,7 +31,7 @@ C = {  # slide: (sentence, [(label, signal), ...])
  "P3": ("बच्चा प्यासा है, उसे पानी चाहिए।", [("cartoon gulp-gulp", clear(2828, length=1.6)), ("glass ting + little pour", m.mix((clear(2836, length=.5), 0, 1), (clear(2826, length=1.3), .4, .7))),
         ("water plinks + refresh sparkle", m.mix(*plinks((0, .3)), (clear(2837, length=1.3), .65, .6))), ("magic drink (game style)", clear(2830, length=1.6))]),
 }
-card = json.load(open(os.path.join(ROOT, "HI02H12_L02_S01", "card.json")))
+card = json.load(open(os.path.join(ROOT, "HI02H02_L02_S01", "card.json")))
 img = {s["id"]: s["data"].get("image_id") for s in card["slides"]}
 rows = []
 for sid, (sent, opts) in C.items():
@@ -43,7 +43,7 @@ for sid, (sent, opts) in C.items():
         with wave.open(os.path.join(OUT, name), "wb") as w:
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(m.SR); w.writeframes(d.tobytes())
         cells.append('<button onclick="new Audio(\'%s\').play()"><b>%s</b> %s</button>' % (name, "ABCD"[k], label))
-    pic = "../../HI02H12_L02_S01/assets/Images/%s.webp" % img.get(sid)
+    pic = "../../HI02H02_L02_S01/assets/Images/%s.webp" % img.get(sid)
     rows.append('<tr><td><img src="%s"></td><td><b>%s</b><br>%s</td><td>%s</td></tr>' % (pic, sid, sent, "".join(cells)))
 open(os.path.join(OUT, "index.html"), "w").write('''<!doctype html><meta charset="utf-8"><title>Picture sounds</title>
 <style>body{font:16px system-ui;margin:16px;background:#fffaf2}td{padding:8px;border-bottom:1px solid #eee;vertical-align:middle}

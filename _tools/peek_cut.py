@@ -17,7 +17,7 @@ with img2webp, which re-derives the deltas itself.
 import os, shutil, struct, subprocess, sys, tempfile
 from PIL import Image
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H12_L02_S01", "assets")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "HI02H02_L02_S01", "assets")
 SRC = os.path.join(ROOT, "peeking_talk10s.webp")
 OUT = os.path.join(ROOT, "peeking_talk_up.webp")
 START = int(sys.argv[1]) if len(sys.argv) > 1 else 3820

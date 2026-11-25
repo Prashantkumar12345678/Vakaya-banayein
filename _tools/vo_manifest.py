@@ -20,7 +20,7 @@ from openpyxl.styles import Alignment, Font, PatternFill
 
 sys.stdout.reconfigure(encoding="utf-8")
 PROJ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-CARD = json.load(open(os.path.join(PROJ, "HI02H12_L02_S01", "card.json"), encoding="utf-8"))
+CARD = json.load(open(os.path.join(PROJ, "HI02H02_L02_S01", "card.json"), encoding="utf-8"))
 OUT = os.path.join(PROJ, "VO_Manifest.xlsx")
 GATE = {"tutorial": "vo_pt_tutorial", "guided": "vo_pt_guided", "practice": "vo_pt_practice"}
 SLOTS = ["prompt", "sentence", "hint1", "hint2", "reveal", "correct"]

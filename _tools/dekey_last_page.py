@@ -25,7 +25,7 @@ import numpy as np
 from PIL import Image, ImageSequence
 import imageio_ffmpeg
 
-GAME = "HI02H12_L02_S01"
+GAME = "HI02H02_L02_S01"
 SRC  = os.path.join(GAME, "assets", "video", "last  page video.mp4")   # two spaces, as supplied
 OUT  = os.path.join(GAME, "assets", "Images", "last_page_anim.webp")
 TARGET_H = 392

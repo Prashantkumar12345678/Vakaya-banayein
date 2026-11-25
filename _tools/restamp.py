@@ -12,7 +12,7 @@ thing standing between a fixed asset and a child still getting the old one.
 """
 import re, sys, time, os
 SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                   "..", "HI02H12_L02_S01", "index.html")
+                   "..", "HI02H02_L02_S01", "index.html")
 raw = open(SRC, "rb").read()
 crlf, lf = raw.count(b"\r\n"), raw.count(b"\n") - raw.count(b"\r\n")
 t = raw.decode("utf-8")

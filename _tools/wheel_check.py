@@ -14,7 +14,7 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage
 
-GAME = "HI02H12_L02_S01"
+GAME = "HI02H02_L02_S01"
 REF = os.path.join(os.environ.get("REFDIR", ""), "36.png")
 SHOT = os.path.join(os.environ.get("SHOTDIR", "."), "board.png")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"

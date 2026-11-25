@@ -27,7 +27,7 @@ import base64, io, os, re, sys
 from PIL import Image
 sys.stdout.reconfigure(encoding="utf-8")
 
-IM = os.path.join("HI02H12_L02_S01", "assets", "Images")
+IM = os.path.join("HI02H02_L02_S01", "assets", "Images")
 SVG = os.path.join(IM, "Buket.svg")
 BW, BH = 271.0, 242.0            # the bucket's own coordinate space in the SVG
 
